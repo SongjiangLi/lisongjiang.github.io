@@ -67,7 +67,7 @@
 <meta property="og:description" content="关于最短路径给定一张图，从一点出发，到达图中所有点的最短路径。
 该性质描述为：如果P(i,j)={Vi....Vk..Vs...Vj}是从顶点i到j的最短路径，k和s是这条路径上的一个中间顶点，那么P(k,s)必定是从k到s的最短路径。下面证明该性质的正确性。
 假设P(i,j)={Vi....Vk..Vs...Vj}是从顶点i到j的最短路径，则有P(i,j)=P(i,k)+P(k,s)+P(s,j">
-<meta property="og:updated_time" content="2016-04-07T08:39:44.000Z">
+<meta property="og:updated_time" content="2016-04-07T09:44:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dijkstra单源最短路径">
 <meta name="twitter:description" content="关于最短路径给定一张图，从一点出发，到达图中所有点的最短路径。
@@ -101,6 +101,15 @@
 
 
 
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55467605";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -125,7 +134,7 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">DON'T PANIC!</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -270,6 +279,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/Dijkstra单源最短路径算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/Dijkstra单源最短路径算法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -291,7 +307,7 @@
         <h2 id="关于最短路径"><a href="#关于最短路径" class="headerlink" title="关于最短路径"></a>关于最短路径</h2><p>给定一张图，从一点出发，到达图中所有点的最短路径。</p>
 <p>该性质描述为：如果<code>P(i,j)={Vi....Vk..Vs...Vj}</code>是从顶点i到j的最短路径，k和s是这条路径上的一个中间顶点，那么P(k,s)必定是从k到s的最短路径。下面证明该性质的正确性。</p>
 <p>假设P<code>(i,j)={Vi....Vk..Vs...Vj}</code>是从顶点i到j的最短路径，则有<code>P(i,j)=P(i,k)+P(k,s)+P(s,j)</code>。而P<code>(k,s)</code>不是从k到s的最短距离，那么必定存在另一条从k到s的最短路径<code>P&#39;(k,s)</code>，那么<code>P&#39;(i,j)=P(i,k)+P&#39;(k,s)+P(s,j)&lt;P(i,j)</code>。则与<code>P(i,j)</code>是从i到j的最短路径相矛盾。因此该性质得证。</p>
-<p>由上述性质可知，如果存在一条从i到j的最短路径<code>(Vi.....Vk,Vj)</code>，Vk是Vj前面的一顶点。那么<code>(Vi...Vk)</code>也必定是从i到k的最短路径。为了求出最短路径，Dijkstra就提出了以最短路径长度递增，逐次生成最短路径的算法。譬如对于源顶点V0，首先选择其直接相邻的顶点中长度最短的顶点Vi，那么当前已知可得从V0到达Vj顶点的最短距离<code>dist[j]=min{dist[j],dist[i]+matrix[i][j]}</code>。根据这种思路，</p>
+<p>由上述性质可知，如果存在一条从i到j的最短路径<code>(Vi.....Vk,Vj)</code>，Vk是Vj前面的一顶点。那么<code>(Vi...Vk)</code>也必定是从i到k的最短路径。为了求出最短路径，Dijkstra就提出了以最短路径长度递增，逐次生成最短路径的算法。譬如对于源顶点V0，首先选择其直接相邻的顶点中长度最短的顶点Vi，那么当前已知可得从V0到达Vj顶点的最短距离<code>dist[j]=min{dist[j],dist[i]+matrix[i][j]}</code>。根据这种思路，<br><a id="more"></a></p>
 <p>假设存在<code>G=&lt;V,E&gt;</code>，源顶点为V0，<code>U={V0}</code>,<code>dist[i]</code>记录V0到i的最短距离，<code>path[i]</code>记录从V0到i路径上的i前面的一个顶点。</p>
 <ol>
 <li>从V-U中选择使<code>dist[i]</code>值最小的顶点i，将i加入到U中；</li>
@@ -365,6 +381,10 @@
           
   <div class="comments" id="comments">
     
+      <div class="ds-thread" data-thread-key="2016/04/07/Dijkstra单源最短路径算法/"
+           data-title="Dijkstra单源最短路径" data-url="http://yoursite.com/2016/04/07/Dijkstra单源最短路径算法/">
+      </div>
+    
   </div>
 
 
@@ -435,6 +455,44 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2824850953" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bil.pku.edu.cn/team_lsj.html" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  LabProfile
+                </a>
+              </span>
+            
           
         </div>
 
@@ -564,15 +622,58 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lisongjiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
 
   
 

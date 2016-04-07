@@ -75,7 +75,7 @@ MrZigZag @ Peking Universty
 ###1.异常处理
 高级语言一般面对异常都会内置一套try-catch-finally机制。Python相应的机制是try-except-finally。
 当我们认为某些代码可能会出错时，可以用try块来运行这段代码，运行出错时会立即跳转到">
-<meta property="og:updated_time" content="2016-04-07T08:25:25.000Z">
+<meta property="og:updated_time" content="2016-04-07T09:44:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记7">
 <meta name="twitter:description" content="##Python学习笔记–7.Exceptions and debugging
@@ -113,6 +113,15 @@ MrZigZag @ Peking Universty
 
 
 
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55467605";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -137,7 +146,7 @@ MrZigZag @ Peking Universty
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">DON'T PANIC!</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -282,6 +291,13 @@ MrZigZag @ Peking Universty
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/python学习笔记7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记7/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -308,7 +324,7 @@ MrZigZag @ Peking Universty
 <p>高级语言一般面对异常都会内置一套<code>try-catch-finally</code>机制。Python相应的机制是<code>try-except-finally</code>。</p>
 <p>当我们认为某些代码可能会出错时，可以用<code>try</code>块来运行这段代码，运行出错时会立即跳转到<code>except</code>块，执行完之后跳出，如果有<code>finally</code>块则执行，否则中断程序。</p>
 <p><strong>错误</strong>有许多种，例如<code>ValueError</code>、<code>ZeroDivisionError</code>等，面对不同的错误应该由不同的<code>except</code>块来处理。Python的错误都是类，继承自<code>BaseException</code>，因此使用<code>catch</code>块时应注意范围，基类应该放在后面，否则会出现后面的错误被前面的处理这种情况。（反正这个在Java会报错，Python应该不会。）</p>
-<p>如果没用<code>try-except-finally</code>机制，则出现错误时会根据堆栈逐步上传，直到<code>__main__</code>。</p>
+<p>如果没用<code>try-except-finally</code>机制，则出现错误时会根据堆栈逐步上传，直到<code>__main__</code>。<br><a id="more"></a></p>
 <p>用<code>raise</code>语句抛出错误，一般只有在必要的时候才会定义自己的错误类型。尽量选择Python内置的错误类型。</p>
 <pre><code>class FooError(StandardError):
     pass
@@ -414,6 +430,10 @@ logging.info(&apos;Test Logging&apos;)
           
   <div class="comments" id="comments">
     
+      <div class="ds-thread" data-thread-key="2016/04/07/python学习笔记7/"
+           data-title="Python学习笔记7" data-url="http://yoursite.com/2016/04/07/python学习笔记7/">
+      </div>
+    
   </div>
 
 
@@ -484,6 +504,44 @@ logging.info(&apos;Test Logging&apos;)
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2824850953" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bil.pku.edu.cn/team_lsj.html" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  LabProfile
+                </a>
+              </span>
+            
           
         </div>
 
@@ -613,15 +671,58 @@ logging.info(&apos;Test Logging&apos;)
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lisongjiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
 
   
 

@@ -75,7 +75,7 @@ MrZigZag@Peking University
 类似于Java中的Package，Python提供模块module来将相关的代码打包。编写程序的时候可以使用内置模块，也可以使用第三方模块。
 模块可以用于避免函数名冲突等问题，但是模块中尽量不要使用Python内置函数的函数名。
 避免模块名相同，提供了按照目录来组织模块的">
-<meta property="og:updated_time" content="2016-04-07T08:25:08.000Z">
+<meta property="og:updated_time" content="2016-04-07T09:44:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记4">
 <meta name="twitter:description" content="##Python学习笔记–4.模块
@@ -113,6 +113,15 @@ MrZigZag@Peking University
 
 
 
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55467605";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -137,7 +146,7 @@ MrZigZag@Peking University
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">DON'T PANIC!</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -282,6 +291,13 @@ MrZigZag@Peking University
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/python学习笔记4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记4/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -315,7 +331,8 @@ MrZigZag@Peking University
     __init__.py
     pytest.py
     http.py
-</code></pre><p>###2.创建和使用模块</p>
+</code></pre><a id="more"></a>
+<p>###2.创建和使用模块</p>
 <p>以内置模块<code>sys</code>为例，创建一个新模块<code>test</code>。</p>
 <pre><code>#!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -429,6 +446,10 @@ from __future__ import division
           
   <div class="comments" id="comments">
     
+      <div class="ds-thread" data-thread-key="2016/04/07/python学习笔记4/"
+           data-title="Python学习笔记4" data-url="http://yoursite.com/2016/04/07/python学习笔记4/">
+      </div>
+    
   </div>
 
 
@@ -499,6 +520,44 @@ from __future__ import division
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2824850953" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bil.pku.edu.cn/team_lsj.html" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  LabProfile
+                </a>
+              </span>
+            
           
         </div>
 
@@ -628,15 +687,58 @@ from __future__ import division
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lisongjiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
 
   
 

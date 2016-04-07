@@ -71,7 +71,7 @@
 基本思路考虑n的划分。
 记F[n,k]为n的1划分+2划分+…+k划分的数目，则n的划分即为F[n,n]。
 则n的k划分为F[n,k]-F[n,k-1">
-<meta property="og:updated_time" content="2016-04-07T08:44:23.000Z">
+<meta property="og:updated_time" content="2016-04-07T09:45:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="整数划分问题">
 <meta name="twitter:description" content="整数划分问题2015-09-13
@@ -107,6 +107,15 @@
 
 
 
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55467605";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -131,7 +140,7 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">DON'T PANIC!</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -276,6 +285,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/整数划分问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/整数划分问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -305,7 +321,8 @@
 <li>k=1，只有一个划分，F[,1]=1</li>
 <li>n=k，如果划分中有n，则只有一种情况；如果没有n，则最大的数为n-1，此时划分数为F[n,n-1]。因此加起来就是F[n,n]=1+F[n,n-1]</li>
 <li>n&lt;k，显然k不能超过n，因此等价于n=k，F[n,k]=F[n,n]</li>
-<li>n&gt;k，如果有k划分，则等价于F[n-k,k]；否则没有k划分，等价于F[n,k-1]；加起来就是F[n-k,k]+F[n,k-1]。</li>
+<li>n&gt;k，如果有k划分，则等价于F[n-k,k]；否则没有k划分，等价于F[n,k-1]；加起来就是F[n-k,k]+F[n,k-1]。<a id="more"></a>
+</li>
 </ol>
 <p>因此得到伪代码1：</p>
 <p><strong>[CODE]</strong></p>
@@ -394,6 +411,10 @@
           
   <div class="comments" id="comments">
     
+      <div class="ds-thread" data-thread-key="2016/04/07/整数划分问题/"
+           data-title="整数划分问题" data-url="http://yoursite.com/2016/04/07/整数划分问题/">
+      </div>
+    
   </div>
 
 
@@ -464,6 +485,44 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2824850953" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bil.pku.edu.cn/team_lsj.html" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  LabProfile
+                </a>
+              </span>
+            
           
         </div>
 
@@ -593,15 +652,58 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lisongjiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
 
   
 

@@ -94,6 +94,15 @@
 
 
 
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55467605";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -120,7 +129,7 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">DON'T PANIC!</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -268,6 +277,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/Python学习笔记1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/Python学习笔记1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -287,8 +303,7 @@
 
       
         
-          
-            <h1 id="Python学习笔记–0-Python基础"><a href="#Python学习笔记–0-Python基础" class="headerlink" title="Python学习笔记–0.Python基础"></a>Python学习笔记–0.Python基础</h1><h2 id="0-Unix下直接运行-py文件"><a href="#0-Unix下直接运行-py文件" class="headerlink" title="0.Unix下直接运行.py文件"></a>0.Unix下直接运行.py文件</h2><p>在文件开头加入<code>#!/usr/bin/env python</code>,然后在命令行中修改权限，赋予其可执行的权限。<code>$ chmod a+x hello.py</code></p>
+          <h1 id="Python学习笔记–0-Python基础"><a href="#Python学习笔记–0-Python基础" class="headerlink" title="Python学习笔记–0.Python基础"></a>Python学习笔记–0.Python基础</h1><h2 id="0-Unix下直接运行-py文件"><a href="#0-Unix下直接运行-py文件" class="headerlink" title="0.Unix下直接运行.py文件"></a>0.Unix下直接运行.py文件</h2><p>在文件开头加入<code>#!/usr/bin/env python</code>,然后在命令行中修改权限，赋予其可执行的权限。<code>$ chmod a+x hello.py</code></p>
 <h2 id="1-输入输出"><a href="#1-输入输出" class="headerlink" title="1.输入输出"></a>1.输入输出</h2><ul>
 <li>命令行输入直接用<code>raw_input()</code>,括号里可以放提示语。 得到的是一个字符串，要转换成其他数据类型要用强制类型转换。如<code>int(raw_input())</code> </li>
 <li><p>命令行输入可以用<code>print</code>，后面可以带各种格式的数据，连接用<code>,</code>，但是需要注意，每次遇到<code>,</code>均会输出一个空格。</p>
@@ -297,106 +312,12 @@
 User name: MrZigZag
 </code></pre></li>
 </ul>
-<h2 id="2-语法基础"><a href="#2-语法基础" class="headerlink" title="2.语法基础"></a>2.语法基础</h2><ul>
-<li>Python以缩进来进行控制，因此尽量用<strong>4个空格</strong>来做缩进。缩进会使代码的复制粘贴失效，因此应该尽量写出缩进较少的代码。</li>
-<li>大小写敏感</li>
-<li><code>#</code>为注释标记</li>
-</ul>
-<h2 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3.数据类型"></a>3.数据类型</h2><ul>
-<li><strong>整数</strong>可用16进制，<code>0xffff</code></li>
-<li><strong>浮点数</strong>直接写即可，但是也可以用科学记数法，如<code>1.23e-5</code></li>
-<li><strong>字符串</strong>的表示可以用双引号，也可以用单引号，两者等价。<code>&#39;Hello World!&#39;</code>=<code>&quot;Hello World!&quot;</code>，如果<code>&#39;</code>本身也是一个字符，则用<code>&quot;</code>包围起来，如<code>&quot;I&#39;m OK&quot;</code>。</li>
-<li><strong>转义符</strong>用<code>\</code>来转义，需要<code>\</code>时直接用<code>\\</code>表示。同时提供字符串不转义的方法，<code>r&#39;\n&#39;</code>直接就是<code>\n</code>。</li>
-<li><strong>多行字符串</strong>用<code>&#39;&#39;&#39;...&#39;&#39;&#39;</code>表示。</li>
-<li><strong>特殊值</strong> 布尔值<code>True</code>和<code>False</code>，空值<code>None</code>，</li>
-<li><strong>常量</strong>，在Python中，通常用全部大写的变量名表示常量。<code>PI = 3.14159265359</code></li>
-</ul>
-<h2 id="4-编码"><a href="#4-编码" class="headerlink" title="4.编码"></a>4.编码</h2><p>####编码方式</p>
-<p>Python使用UTF-8编码，一般英语字符串使用ASCII码表示。提供<code>ord()</code>和<code>chr()</code>来转换数字和字母。</p>
-<pre><code>&gt;&gt;&gt; ord(&apos;A&apos;)
-65
-&gt;&gt;&gt; chr(65)
-&apos;A&apos;
-</code></pre><p>要使用中文时，需添加标记以强制使用Unicode，Unicode字符<code>u&#39;...&#39;</code>，比如</p>
-<pre><code>&gt;&gt;&gt; print u&apos;中文&apos;
-中文
-&gt;&gt;&gt; u&apos;中&apos;
-u&apos;\4e2d&apos;
-</code></pre><p>转换可以用点取<code>.encode(&#39;utf-8&#39;)</code>，同时可用<code>decode(&#39;utf-8&#39;)</code>反向转换。</p>
-<pre><code>&gt;&gt;&gt; print &apos;\xe4\xb8\xad\xe6\x96\x87&apos;.decode(&apos;utf-8&apos;)
-中文
-</code></pre><p>可用<code>len()</code>方法获取在Unicode中字符串的长度。</p>
-<p>####字符串格式化</p>
-<p>Python字符串的格式化方式与C相同，都是用<code>%</code>来实现。</p>
-<pre><code>&gt;&gt;&gt; print &apos;This is %s university, the No.%d university in %s.&apos; % (&apos;Peking&apos;, 1, &apos;China&apos;)
-This is Peking university, the No.1 university in China.
-</code></pre><p><strong>整数</strong><code>%d</code>， <strong>浮点数</strong><code>%f</code>,加数字还可以补0和小数位数。<code>%2d</code>, <code>%02d</code>, <code>%02f</code>,不确定用什么时，<code>%s</code>永远有效。</p>
-<h2 id="5-List"><a href="#5-List" class="headerlink" title="5.List"></a>5.List</h2><p>List是Python内置的列表，有序的集合,类似于C++和Java的vector，可以随时添加和删除元素。定义时用<code>[...]</code>。访问可用正数索引，或者负数索引（从后往前取）</p>
-<pre><code>&gt;&gt;&gt; nums = [1, 2, 3, 4]
-&gt;&gt;&gt; nums[1]
-2
-&gt;&gt;&gt; nums[-1]
-4
-</code></pre><ul>
-<li>添加到末尾用<code>append()</code>方法</li>
-<li>插入到指定位置则用<code>insert(i, info)</code></li>
-<li>删除末尾用<code>pop()</code></li>
-<li>删除指定元素<code>pop(i)</code></li>
-<li><p>修改指定元素时直接改即可。</p>
-<pre><code>&gt;&gt;&gt; nums.append(5)
-&gt;&gt;&gt; nums.insert(0, -1)
-&gt;&gt;&gt; nums.pop();
-&gt;&gt;&gt; nums.pop(4);
-</code></pre></li>
-</ul>
-<p>list里边的元素类型可以不同，例如<code>mylist = [&#39;apple&#39;, 12, True]</code><br>list里边还可以嵌入一个list，要读取list内嵌的list直接用多维数组的方式。</p>
-<pre><code>&gt;&gt;&gt; p = [1, 2, 3]
-&gt;&gt;&gt; q = [0, p, 4, 5]
-&gt;&gt;&gt; len(q)
-4
-&gt;&gt;&gt; q[1][1]
-2
-</code></pre><h2 id="6-Tuple"><a href="#6-Tuple" class="headerlink" title="6.Tuple"></a>6.Tuple</h2><p>Tuple与list非常类似，但是一旦被初始化就不能修改，有点像一组固定的指针。访问类似于list，但不能赋值。<br>空Tuple直接写成<code>()</code>，只有元素的tuple需要在定义时加一个<code>,</code>以免表示为小括号。</p>
-<pre><code>&gt;&gt;&gt; t = ()
-&gt;&gt;&gt; t = (1, )
-&gt;&gt;&gt; t
-(1,)
-</code></pre><p>Tuple不能被修改是指Tuple本身的元素指向固定，不能被修改。但是如果元素是list等可变类型，则可以对list进行修改。因此，tuple是固定了顶层的元素，而内部的元素可根据运行时需要修改。</p>
-<pre><code>&gt;&gt;&gt; t = (&apos;a&apos;, &apos;b&apos;, [&apos;A&apos;, &apos;B&apos;])
-&gt;&gt;&gt; t[2][0] = &apos;X&apos;
-&gt;&gt;&gt; t[2][1] = &apos;Y&apos;
-&gt;&gt;&gt; t
-(&apos;a&apos;, &apos;b&apos;, [&apos;X&apos;, &apos;Y&apos;])
-</code></pre><h2 id="7-跳转"><a href="#7-跳转" class="headerlink" title="7.跳转"></a>7.跳转</h2><p><code>if</code>没有括号，直接跟在后面，但是条件结束要加一个<code>:</code>，else if用的是<code>elif</code></p>
-<pre><code>if age &gt;= 18:
-    print &apos;adult&apos;
-elif age &gt;= 6:
-    print &apos;teenager&apos;
-else:
-    print &apos;kid&apos;
-</code></pre><p><code>for</code>循环，类似于iterator，迭代获取list或者tuple中的元素，<code>for x in ...</code>。如果要获取一段整数序列，可以用<code>range(a, b)</code>获得从a开始到b-1的整数序列。</p>
-<pre><code>for x in range(2, 10):
-    sum = sum + x
-</code></pre><p>另一种循环是<code>while</code>循环，记得类似于if，要加冒号。</p>
-<h2 id="8-Dict"><a href="#8-Dict" class="headerlink" title="8.Dict"></a>8.Dict</h2><p>Dict类似于Map，提供<code>key-value</code>的存储方式，直接用key即可获得value。<strong>key要求不可变</strong>，只能用字符串、整数等，不能用list。而value可以是任何数据类型。初始化用<code>{key:value}</code>。</p>
-<p>访问某一个pair，可以直接用key，类似于list的访问，<code>score[&#39;MrZigZag&#39;]</code>。要避免key不存在的错误，先用<code>in</code>方法判断是否有这个key，或者直接用<code>get(key, value)</code>方法，找不到直接反悔<code>value</code>。</p>
-<pre><code>&gt;&gt;&gt; &apos;Thomas&apos; in score
-False
-&gt;&gt;&gt; score.get(&apos;Thomas&apos;, -1)
--1
-</code></pre><p>删除对象用<code>pop(key)</code>。</p>
-<h2 id="9-Set"><a href="#9-Set" class="headerlink" title="9.Set"></a>9.Set</h2><p>Set类似于Dict，也是一组key的组合，但是只存储key不存储value。在Set中没用重复的key。</p>
-<p>Set的创建需要一个list作为输入。用<code>add(key)</code>添加key，但是重复添加的key只有一个。<code>remove(key)</code>删除元素。</p>
-<pre><code>&gt;&gt;&gt; s = set([1, 2, 3])
-&gt;&gt;&gt; s.add(3)
-&gt;&gt;&gt; s
-set([1, 2, 3])
-&gt;&gt;&gt; s.remove(3)
-&gt;&gt;&gt; s
-set([1, 2])
-</code></pre><p>Set是一个集合，可以用来进行交集<code>s1 &amp; s2</code>和并集<code>s1 | s2</code>操作。</p>
-
-          
+<h2 id="2-语法基础"><a href="#2-语法基础" class="headerlink" title="2.语法基础"></a>2.语法基础</h2>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/Python学习笔记1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -486,6 +407,13 @@ set([1, 2])
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/02/背包问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/02/背包问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -505,25 +433,15 @@ set([1, 2])
 
       
         
-          
-            <h1 id="01背包问题"><a href="#01背包问题" class="headerlink" title="01背包问题"></a>01背包问题</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>有N件物体，体积为<em>v1、v2…vN</em>，价值为<em>w1、w2…wN</em>。<br>现在有一个容量为<em>V</em>的包，从N件物体中选择若干件放进包里，使得包里物体的<strong>总价值最大</strong>。</p>
+          <h1 id="01背包问题"><a href="#01背包问题" class="headerlink" title="01背包问题"></a>01背包问题</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>有N件物体，体积为<em>v1、v2…vN</em>，价值为<em>w1、w2…wN</em>。<br>现在有一个容量为<em>V</em>的包，从N件物体中选择若干件放进包里，使得包里物体的<strong>总价值最大</strong>。</p>
 <h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>利用动态规划，建立<code>(N+1)*(V+1)</code>的矩阵<code>F[N+1][V+1]</code>，<code>F[i][j]</code>表示在前i个物体中取若干个放入剩余容量为j的背包得到的最大的价值。于是有：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F[i][j] = max(F[i-1][j], F[i-1][j-v[i]]+w[i])</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，矩阵第一行第一列为0，表示没有物体或者没有剩余空间时价值都是0。实际上<code>F[i-1][j]</code>表示没有放进第i个物体，<code>F[i-1][j-v[i]]+w[i]</code>表示放进了第i个物体时的价值。</p>
-<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">F[0][] &lt;- 0</span><br><span class="line">F[][0] &lt;- 0</span><br><span class="line">for i = 1...N</span><br><span class="line">	for j = 1...V</span><br><span class="line">		F[i][j] = F[i - 1][j]</span><br><span class="line">		if (j &gt;= v[i]) //能放进第i个物体</span><br><span class="line">			F[i][j] = max(F[i][j], F[i - 1][j - v[i]] + w[i])</span><br><span class="line">		end</span><br><span class="line">	end</span><br><span class="line">end</span><br><span class="line">F[N][V]即为所求</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="二维01背包问题"><a href="#二维01背包问题" class="headerlink" title="二维01背包问题"></a>二维01背包问题</h1><p>类似于01背包问题，有N件物体，消耗两种属性，背包也有两种待消耗属性。求总价值最大。</p>
-<h2 id="伪代码-1"><a href="#伪代码-1" class="headerlink" title="伪代码"></a>伪代码</h2><p>类似于01背包问题，<code>c1</code>, <code>c2</code>是物体的两种属性，<code>v1</code>和<code>v2</code>是背包的两种属性。建立<code>F[v1+1][v2+1]</code>，<code>F[i][j]</code>表示背包两种属性为i和j时可放下的最大价值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">F[0][0] = 0</span><br><span class="line">for i = 1...N</span><br><span class="line">	for j = v1...c1[i] // decrease</span><br><span class="line">		for k = v2...c2[i] // decrease</span><br><span class="line">			F[j][k] = max(F[j][k], F[j - c1[i]][k - c2[i]] + w[i])</span><br><span class="line">		end</span><br><span class="line">	end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p><strong><a href="http://bailian.openjudge.cn/practice/4102/" target="_blank" rel="external">宠物小精灵之收服</a></strong></p>
-<blockquote>
-<p><em>描述</em><br>一天，小智和皮卡丘来到了小精灵狩猎场，里面有很多珍贵的野生宠物小精灵。小智也想收服其中的一些小精灵。然而，野生的小精灵并不那么容易被收服。对于每一个野生小精灵而言，小智可能需要使用很多个精灵球才能收服它，而在收服过程中，野生小精灵也会对皮卡丘造成一定的伤害（从而减少皮卡丘的体力）。当皮卡丘的体力小于等于0时，小智就必须结束狩猎（因为他需要给皮卡丘疗伤），而使得皮卡丘体力小于等于0的野生小精灵也不会被小智收服。当小智的精灵球用完时，狩猎也宣告结束。<br>我们假设小智遇到野生小精灵时有两个选择：收服它，或者离开它。如果小智选择了收服，那么一定会扔出能够收服该小精灵的精灵球，而皮卡丘也一定会受到相应的伤害；如果选择离开它，那么小智不会损失精灵球，皮卡丘也不会损失体力。<br>小智的目标有两个：主要目标是收服尽可能多的野生小精灵；如果可以收服的小精灵数量一样，小智希望皮卡丘受到的伤害越小（剩余体力越大），因为他们还要继续冒险。<br>现在已知小智的精灵球数量和皮卡丘的初始体力，已知每一个小精灵需要的用于收服的精灵球数目和它在被收服过程中会对皮卡丘造成的伤害数目。请问，小智该如何选择收服哪些小精灵以达到他的目标呢？</p>
-<p><em>输入</em><br>输入数据的第一行包含三个整数：N(0 &lt; N &lt; 1000)，M(0 &lt; M &lt; 500)，K(0 &lt; K &lt; 100)，分别代表小智的精灵球数量、皮卡丘初始的体力值、野生小精灵的数量。<br>之后的K行，每一行代表一个野生小精灵，包括两个整数：收服该小精灵需要的精灵球的数量，以及收服过程中对皮卡丘造成的伤害。</p>
-<p><em>输出</em><br>输出为一行，包含两个整数：C，R，分别表示最多收服C个小精灵，以及收服C个小精灵时皮卡丘的剩余体力值最多为R。</p>
-</blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   	<span class="keyword">int</span> v1, v2, N;</span><br><span class="line">   	<span class="keyword">int</span> c1[<span class="number">100</span>], c2[<span class="number">100</span>], f[<span class="number">1000</span>][<span class="number">500</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">   	<span class="built_in">cin</span> &gt;&gt; v1 &gt;&gt; v2 &gt;&gt; N;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++)&#123;</span><br><span class="line">       	<span class="built_in">cin</span> &gt;&gt; c1[i] &gt;&gt; c2[i];</span><br><span class="line">   	&#125;</span><br><span class="line">   	f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++)&#123;</span><br><span class="line">      	<span class="keyword">for</span> (<span class="keyword">int</span> j = v1; j &gt;= c1[i]; j--)&#123;</span><br><span class="line">         	<span class="keyword">for</span> (<span class="keyword">int</span> k = v2; k &gt;= c2[i]; k--)&#123;</span><br><span class="line">             	f[j][k] = max(f[j][k], f[j - c1[i]][k - c2[i]] + <span class="number">1</span>);</span><br><span class="line">         	&#125;</span><br><span class="line">   		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= v2; k++)&#123;</span><br><span class="line">      	<span class="keyword">if</span> (f[v1][k] == f[v1][v2])&#123;</span><br><span class="line">         	<span class="built_in">cout</span> &lt;&lt; f[v1][v2] &lt;&lt; <span class="string">" "</span> &lt;&lt; v2 - k &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">         	<span class="keyword">break</span>;</span><br><span class="line">      	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+<p>需要注意的是，矩阵第一行第一列为0，表示没有物体或者没有剩余空间时价值都是0。实际上<code>F[i-1][j]</code>表示没有放进第i个物体，<code>F[i-1][j-v[i]]+w[i]</code>表示放进了第i个物体时的价值。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/02/背包问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -623,6 +541,44 @@ set([1, 2])
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2824850953" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bil.pku.edu.cn/team_lsj.html" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  LabProfile
+                </a>
+              </span>
+            
           
         </div>
 
@@ -737,15 +693,58 @@ set([1, 2])
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lisongjiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
 
   
 

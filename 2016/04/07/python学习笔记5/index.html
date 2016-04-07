@@ -81,7 +81,7 @@ class MyClass(object):
     pass
 没有合适的继承类时可以使用object类，这是所有的类都会继承的类。
 自由绑定，Python是动态语言，可以在运行过程中实时地给实例insta">
-<meta property="og:updated_time" content="2016-04-07T08:25:13.000Z">
+<meta property="og:updated_time" content="2016-04-07T09:44:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记5">
 <meta name="twitter:description" content="##Python学习笔记–5.面向对象编程
@@ -122,6 +122,15 @@ class MyClass(object):
 
 
 
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55467605";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -146,7 +155,7 @@ class MyClass(object):
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">DON'T PANIC!</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -291,6 +300,13 @@ class MyClass(object):
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/python学习笔记5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记5/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -327,7 +343,8 @@ def set_age(self, age):
 from types inport MethodType
 s = Student()
 s.set_age = MethodType(set_age, s, Student)
-</code></pre><p><strong>方法</strong>，类的初始化方法是<code>__init__(self, args)</code>，任何方法第一个参数都是<code>self</code>，但是使用时不需要传进去。</p>
+</code></pre><a id="more"></a>
+<p><strong>方法</strong>，类的初始化方法是<code>__init__(self, args)</code>，任何方法第一个参数都是<code>self</code>，但是使用时不需要传进去。</p>
 <p>###2.访问限制</p>
 <p>属性名称加上<code>__</code>表示private，<code>__prop</code>会被解释器解释成<code>_Classname__prop</code>，要访问<code>__prop</code>可以写<code>__Classname__prop</code>。</p>
 <p>双下划线开头双下划线结尾的属性属于特殊变量，可以访问，一般不能使用这个命名方法。</p>
@@ -509,6 +526,10 @@ Student.set_score = Method_Type(set_score, None, Student)
           
   <div class="comments" id="comments">
     
+      <div class="ds-thread" data-thread-key="2016/04/07/python学习笔记5/"
+           data-title="Python学习笔记5" data-url="http://yoursite.com/2016/04/07/python学习笔记5/">
+      </div>
+    
   </div>
 
 
@@ -579,6 +600,44 @@ Student.set_score = Method_Type(set_score, None, Student)
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2824850953" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bil.pku.edu.cn/team_lsj.html" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  LabProfile
+                </a>
+              </span>
+            
           
         </div>
 
@@ -708,15 +767,58 @@ Student.set_score = Method_Type(set_score, None, Student)
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lisongjiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
 
   
 

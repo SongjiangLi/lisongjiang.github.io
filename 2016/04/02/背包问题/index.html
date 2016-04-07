@@ -67,7 +67,7 @@
 <meta property="og:description" content="01背包问题问题描述有N件物体，体积为v1、v2…vN，价值为w1、w2…wN。现在有一个容量为V的包，从N件物体中选择若干件放进包里，使得包里物体的总价值最大。
 基本思路利用动态规划，建立(N+1)*(V+1)的矩阵F[N+1][V+1]，F[i][j]表示在前i个物体中取若干个放入剩余容量为j的背包得到的最大的价值。于是有：
 1F[i][j] = max(F[i-1][j], F[i-1][j">
-<meta property="og:updated_time" content="2016-04-07T08:14:07.000Z">
+<meta property="og:updated_time" content="2016-04-07T09:45:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="背包问题">
 <meta name="twitter:description" content="01背包问题问题描述有N件物体，体积为v1、v2…vN，价值为w1、w2…wN。现在有一个容量为V的包，从N件物体中选择若干件放进包里，使得包里物体的总价值最大。
@@ -101,6 +101,15 @@
 
 
 
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55467605";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -125,7 +134,7 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">DON'T PANIC!</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -270,6 +279,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/02/背包问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/02/背包问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -291,7 +307,7 @@
         <h1 id="01背包问题"><a href="#01背包问题" class="headerlink" title="01背包问题"></a>01背包问题</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>有N件物体，体积为<em>v1、v2…vN</em>，价值为<em>w1、w2…wN</em>。<br>现在有一个容量为<em>V</em>的包，从N件物体中选择若干件放进包里，使得包里物体的<strong>总价值最大</strong>。</p>
 <h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>利用动态规划，建立<code>(N+1)*(V+1)</code>的矩阵<code>F[N+1][V+1]</code>，<code>F[i][j]</code>表示在前i个物体中取若干个放入剩余容量为j的背包得到的最大的价值。于是有：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F[i][j] = max(F[i-1][j], F[i-1][j-v[i]]+w[i])</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，矩阵第一行第一列为0，表示没有物体或者没有剩余空间时价值都是0。实际上<code>F[i-1][j]</code>表示没有放进第i个物体，<code>F[i-1][j-v[i]]+w[i]</code>表示放进了第i个物体时的价值。</p>
+<p>需要注意的是，矩阵第一行第一列为0，表示没有物体或者没有剩余空间时价值都是0。实际上<code>F[i-1][j]</code>表示没有放进第i个物体，<code>F[i-1][j-v[i]]+w[i]</code>表示放进了第i个物体时的价值。<br><a id="more"></a></p>
 <h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">F[0][] &lt;- 0</span><br><span class="line">F[][0] &lt;- 0</span><br><span class="line">for i = 1...N</span><br><span class="line">	for j = 1...V</span><br><span class="line">		F[i][j] = F[i - 1][j]</span><br><span class="line">		if (j &gt;= v[i]) //能放进第i个物体</span><br><span class="line">			F[i][j] = max(F[i][j], F[i - 1][j - v[i]] + w[i])</span><br><span class="line">		end</span><br><span class="line">	end</span><br><span class="line">end</span><br><span class="line">F[N][V]即为所求</span><br></pre></td></tr></table></figure>
 <hr>
 <h1 id="二维01背包问题"><a href="#二维01背包问题" class="headerlink" title="二维01背包问题"></a>二维01背包问题</h1><p>类似于01背包问题，有N件物体，消耗两种属性，背包也有两种待消耗属性。求总价值最大。</p>
@@ -365,6 +381,10 @@
           
   <div class="comments" id="comments">
     
+      <div class="ds-thread" data-thread-key="2016/04/02/背包问题/"
+           data-title="背包问题" data-url="http://yoursite.com/2016/04/02/背包问题/">
+      </div>
+    
   </div>
 
 
@@ -435,6 +455,44 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2824850953" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bil.pku.edu.cn/team_lsj.html" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  LabProfile
+                </a>
+              </span>
+            
           
         </div>
 
@@ -564,15 +622,58 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lisongjiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
 
   
 

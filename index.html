@@ -94,6 +94,15 @@
 
 
 
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55467605";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -120,7 +129,7 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">DON'T PANIC!</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -268,6 +277,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/用C++的编译器优化实现记忆功能/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/用C++的编译器优化实现记忆功能/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -287,13 +303,13 @@
 
       
         
-          
-            <p>如果要实现输出<code>fib(100)%1200007</code>，可以实现用编译器来自动记忆化。</p>
+          <p>如果要实现输出<code>fib(100)%1200007</code>，可以实现用编译器来自动记忆化。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">int</span> x&gt;</span><br><span class="line"><span class="keyword">struct</span> fib&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> val = (fib&lt;x - <span class="number">1</span>&gt;::val + fib&lt;x - <span class="number">2</span>&gt;::val) % <span class="number">1200007</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="keyword">struct</span> fib&lt;<span class="number">0</span>&gt;&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> val = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="keyword">struct</span> fib&lt;<span class="number">1</span>&gt;&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> val = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; fib&lt;<span class="number">100</span>&gt;::val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译器在编译的时候就会对这个进行优化，会非常快速算出来。</p>
-<p>【工程代码】</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">int</span> x&gt;</span><br><span class="line"><span class="keyword">struct</span> fib&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> val = (fib&lt;x - <span class="number">1</span>&gt;::val + fib&lt;x - <span class="number">2</span>&gt;::val) % <span class="number">1200007</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="keyword">struct</span> fib&lt;<span class="number">0</span>&gt;&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> val = <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="keyword">struct</span> fib&lt;<span class="number">1</span>&gt;&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> val = <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib2</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">2</span>) <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> (fib2(x - <span class="number">1</span>) + fib2(x - <span class="number">2</span>)) % <span class="number">1200007</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib3</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">1</span>,c;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">0</span>) b = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x == <span class="number">1</span>) b = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= x; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            c = a + b;</span><br><span class="line">            a = b;</span><br><span class="line">            b = c % <span class="number">1200007</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> fib4&#123;</span><br><span class="line">    <span class="keyword">int</span> *nums;</span><br><span class="line">    <span class="keyword">bool</span> *labels;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">calc</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (labels[x]) <span class="keyword">return</span> nums[x];</span><br><span class="line">        nums[x] = calc(x - <span class="number">1</span>) + calc(x - <span class="number">2</span>);</span><br><span class="line">        labels[x] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> nums[x] % <span class="number">1200007</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    fib4(<span class="keyword">int</span> x)&#123;</span><br><span class="line">        n = x;</span><br><span class="line">        nums = <span class="keyword">new</span> <span class="keyword">int</span> [n];</span><br><span class="line">        labels = <span class="keyword">new</span> <span class="keyword">bool</span> [n];</span><br><span class="line">        <span class="built_in">memset</span>(labels, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">char</span>) * n);</span><br><span class="line">        labels[<span class="number">0</span>] = labels[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        nums[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        nums[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getFib</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> calc(n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; fib&lt;<span class="number">100</span>&gt;::val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; fib3(<span class="number">100</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    fib4 f = fib4(<span class="number">100</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f.getFib() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/用C++的编译器优化实现记忆功能/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -383,6 +399,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/整数划分问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/整数划分问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -402,8 +425,7 @@
 
       
         
-          
-            <h1 id="整数划分问题"><a href="#整数划分问题" class="headerlink" title="整数划分问题"></a><a href="http://www.cnblogs.com/wanghetao/archive/2013/11/25/3442192.html" target="_blank" rel="external">整数划分问题</a></h1><p>2015-09-13</p>
+          <h1 id="整数划分问题"><a href="#整数划分问题" class="headerlink" title="整数划分问题"></a><a href="http://www.cnblogs.com/wanghetao/archive/2013/11/25/3442192.html">整数划分问题</a></h1><p>2015-09-13</p>
 <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>将正整数n表示成一系列正整数之和，<code>n=n1+n2+...+nk</code>，其中有<code>n1&gt;=n2&gt;=...&gt;=nk&gt;=1, k&gt;=1</code>，这种表示成为正整数n的划分。如果限定k则称为n的k划分。</p>
 <h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>考虑n的划分。</p>
 <p>记F[n,k]为n的1划分+2划分+…+k划分的数目，则n的划分即为F[n,n]。</p>
@@ -414,32 +436,12 @@
 <li>k=1，只有一个划分，F[,1]=1</li>
 <li>n=k，如果划分中有n，则只有一种情况；如果没有n，则最大的数为n-1，此时划分数为F[n,n-1]。因此加起来就是F[n,n]=1+F[n,n-1]</li>
 <li>n&lt;k，显然k不能超过n，因此等价于n=k，F[n,k]=F[n,n]</li>
-<li>n&gt;k，如果有k划分，则等价于F[n-k,k]；否则没有k划分，等价于F[n,k-1]；加起来就是F[n-k,k]+F[n,k-1]。</li>
-</ol>
-<p>因此得到伪代码1：</p>
-<p><strong>[CODE]</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">1</span> || k == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (n &lt;= k) <span class="keyword">return</span> <span class="number">1</span> + fun(n, n - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> fun(n - k, k) + fun(n, k - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>伪代码2：放苹果</p>
-<p><strong>[CODE]</strong></p>
-<pre><code class="cpp"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span>{
-    <span class="keyword">if</span> (k == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;
-    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;
-    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;
-    <span class="keyword">return</span> fun(n - k, k) + fun(n, k - <span class="number">1</span>);
-}
-</code></pre>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><strong><a href="http://cxsjsx.openjudge.cn/2015finalpractice/35/" target="_blank" rel="external">简单的整数划分问题</a></strong></p>
-<blockquote>
-<p><em>描述</em></p>
-<p>将正整数n 表示成一系列正整数之和，n=n1+n2+…+nk, 其中n1&gt;=n2&gt;=…&gt;=nk&gt;=1 ，k&gt;=1 。<br>正整数n 的这种表示称为正整数n 的划分。正整数n 的不同的划分个数称为正整数n 的划分数。<br><em>输入</em><br>标准的输入包含若干组测试数据。每组测试数据是一个整数N(0 &lt; N &lt;= 50)。<br><em>输出</em><br>对于每组测试数据，输出N的划分数。<br><em>样例输入</em><br>5<br><em>样例输出</em><br>7<br><em>提示</em><br>5, 4+1, 3+2, 3+1+1, 2+2+1, 2+1+1+1, 1+1+1+1+1</p>
-</blockquote>
-<p><strong>放苹果</strong></p>
-<blockquote>
-<p><em>描述</em></p>
-<p>将n个苹果放到m个盘子上，允许盘子放空，问有几种放法。</p>
-</blockquote>
-
-          
+<li>n&gt;k，如果有k划分，则等价于F[n-k,k]；否则没有k划分，等价于F[n,k-1]；加起来就是F[n-k,k]+F[n,k-1]。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/整数划分问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -529,6 +531,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/Dijkstra单源最短路径算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/Dijkstra单源最短路径算法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -548,21 +557,15 @@
 
       
         
-          
-            <h2 id="关于最短路径"><a href="#关于最短路径" class="headerlink" title="关于最短路径"></a>关于最短路径</h2><p>给定一张图，从一点出发，到达图中所有点的最短路径。</p>
+          <h2 id="关于最短路径"><a href="#关于最短路径" class="headerlink" title="关于最短路径"></a>关于最短路径</h2><p>给定一张图，从一点出发，到达图中所有点的最短路径。</p>
 <p>该性质描述为：如果<code>P(i,j)={Vi....Vk..Vs...Vj}</code>是从顶点i到j的最短路径，k和s是这条路径上的一个中间顶点，那么P(k,s)必定是从k到s的最短路径。下面证明该性质的正确性。</p>
 <p>假设P<code>(i,j)={Vi....Vk..Vs...Vj}</code>是从顶点i到j的最短路径，则有<code>P(i,j)=P(i,k)+P(k,s)+P(s,j)</code>。而P<code>(k,s)</code>不是从k到s的最短距离，那么必定存在另一条从k到s的最短路径<code>P&#39;(k,s)</code>，那么<code>P&#39;(i,j)=P(i,k)+P&#39;(k,s)+P(s,j)&lt;P(i,j)</code>。则与<code>P(i,j)</code>是从i到j的最短路径相矛盾。因此该性质得证。</p>
-<p>由上述性质可知，如果存在一条从i到j的最短路径<code>(Vi.....Vk,Vj)</code>，Vk是Vj前面的一顶点。那么<code>(Vi...Vk)</code>也必定是从i到k的最短路径。为了求出最短路径，Dijkstra就提出了以最短路径长度递增，逐次生成最短路径的算法。譬如对于源顶点V0，首先选择其直接相邻的顶点中长度最短的顶点Vi，那么当前已知可得从V0到达Vj顶点的最短距离<code>dist[j]=min{dist[j],dist[i]+matrix[i][j]}</code>。根据这种思路，</p>
-<p>假设存在<code>G=&lt;V,E&gt;</code>，源顶点为V0，<code>U={V0}</code>,<code>dist[i]</code>记录V0到i的最短距离，<code>path[i]</code>记录从V0到i路径上的i前面的一个顶点。</p>
-<ol>
-<li>从V-U中选择使<code>dist[i]</code>值最小的顶点i，将i加入到U中；</li>
-<li>更新与i直接相邻顶点的dist值。<code>(dist[j]=min{dist[j],dist[i]+matrix[i][j]})</code></li>
-<li>直到U=V，停止。</li>
-</ol>
-<p>[CODE]</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">struct</span> Graphs&#123;</span><br><span class="line">   	<span class="keyword">int</span> n;</span><br><span class="line">   	<span class="keyword">int</span> e;</span><br><span class="line">   	<span class="keyword">int</span> matrix[<span class="number">50</span>][<span class="number">50</span>];</span><br><span class="line">   	<span class="built_in">string</span> spots[<span class="number">50</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shortestPath</span><span class="params">(Graphs g, <span class="keyword">int</span> *dist, <span class="keyword">int</span> *path, <span class="keyword">int</span> v0)</span></span>&#123;</span><br><span class="line">   	<span class="comment">// 初始化</span></span><br><span class="line">   	<span class="keyword">int</span> *visited = <span class="keyword">new</span> <span class="keyword">int</span>[g.n];</span><br><span class="line">   	<span class="built_in">memset</span>(visited, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>) * g.n);</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; g.n; i++)&#123;</span><br><span class="line">       	<span class="keyword">if</span> (g.matrix[v0][i] &gt;= <span class="number">0</span> &amp;&amp; i != v0)&#123;</span><br><span class="line">           	dist[i] = g.matrix[v0][i];</span><br><span class="line">           	path[i] = v0;</span><br><span class="line">       	&#125;</span><br><span class="line">       	<span class="keyword">else</span>&#123;</span><br><span class="line">           	dist[i] = INT_MAX;</span><br><span class="line">           	path[i] = <span class="number">-1</span>;</span><br><span class="line">       	&#125;</span><br><span class="line">   	&#125;</span><br><span class="line">   	dist[v0] = <span class="number">0</span>;</span><br><span class="line">   	path[v0] = v0;</span><br><span class="line">   	visited[v0] = <span class="number">1</span>;</span><br><span class="line">   	</span><br><span class="line">   	<span class="comment">// 重复n-1次</span></span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; g.n; i++)&#123;</span><br><span class="line">       	<span class="keyword">int</span> min = INT_MAX;</span><br><span class="line">       	<span class="keyword">int</span> prev;</span><br><span class="line">       	<span class="comment">//找出最近的未visit的节点</span></span><br><span class="line">       	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; g.n; j++)&#123;</span><br><span class="line">           	<span class="keyword">if</span> (visited[j] == <span class="number">0</span> &amp;&amp; dist[j] &lt; min)&#123;</span><br><span class="line">               	min = dist[j];</span><br><span class="line">               	prev = j;</span><br><span class="line">           	&#125;</span><br><span class="line">       	&#125;</span><br><span class="line">       	visited[prev] = <span class="number">1</span>;</span><br><span class="line">       	<span class="comment">// 更新所有节点的距离</span></span><br><span class="line">       	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; g.n; j++)&#123;</span><br><span class="line">           	<span class="keyword">if</span> (visited[j] == <span class="number">0</span> &amp;&amp; dist[j] &gt; dist[prev] + g.matrix[prev][j] &amp;&amp; g.matrix[prev][j] &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">               	dist[j] = g.matrix[prev][j] + dist[prev];</span><br><span class="line">               	path[j] = prev;</span><br><span class="line">           	&#125;</span><br><span class="line">       	&#125;</span><br><span class="line">   	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showPath</span><span class="params">(Graphs g, <span class="keyword">int</span> *path, <span class="keyword">int</span> v0, <span class="keyword">int</span> ve)</span></span>&#123;</span><br><span class="line">   	<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; path_stack;</span><br><span class="line">   	<span class="keyword">int</span> cur = ve;</span><br><span class="line">   	<span class="keyword">int</span> last;</span><br><span class="line">   	<span class="keyword">while</span> (cur != v0)&#123;</span><br><span class="line">       	path_stack.push(cur);</span><br><span class="line">       	cur = path[cur];</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="built_in">cout</span> &lt;&lt; g.spots[v0];</span><br><span class="line">   	last = v0;</span><br><span class="line">   	<span class="keyword">while</span> (!path_stack.empty())&#123;</span><br><span class="line">       	cur = path_stack.top();</span><br><span class="line">       	path_stack.pop();</span><br><span class="line">       	<span class="built_in">cout</span> &lt;&lt; <span class="string">"-&gt;("</span> &lt;&lt; g.matrix[last][cur] &lt;&lt; <span class="string">")-&gt;"</span> &lt;&lt; g.spots[cur];</span><br><span class="line">       	last = cur;</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   	<span class="keyword">int</span> N, E, R;</span><br><span class="line">   	Graphs park;</span><br><span class="line">   	<span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">   	park.n = N;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">       	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++)&#123;</span><br><span class="line">           	park.matrix[i][j] = <span class="number">-1</span>;</span><br><span class="line">       	&#125;</span><br><span class="line">       	park.matrix[i][i] = <span class="number">0</span>;</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">       	<span class="built_in">cin</span> &gt;&gt; park.spots[i];</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="built_in">cin</span> &gt;&gt; E;</span><br><span class="line">   	<span class="built_in">string</span> src, dst;</span><br><span class="line">   	<span class="keyword">int</span> src_n = <span class="number">0</span>, dst_n = <span class="number">0</span>,length;</span><br><span class="line">   	park.e = E;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; E; i++)&#123;</span><br><span class="line">       	<span class="built_in">cin</span> &gt;&gt; src &gt;&gt; dst &gt;&gt; length;</span><br><span class="line">       	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; park.n; j++)&#123;</span><br><span class="line">           	<span class="keyword">if</span> (src == park.spots[j]) src_n = j;</span><br><span class="line">           	<span class="keyword">if</span> (dst == park.spots[j]) dst_n = j;</span><br><span class="line">       	&#125;</span><br><span class="line">       	park.matrix[src_n][dst_n] = length;</span><br><span class="line">       	park.matrix[dst_n][src_n] = length;</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="built_in">cin</span> &gt;&gt; R;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; R; i++)&#123;</span><br><span class="line">       	<span class="built_in">cin</span> &gt;&gt; src &gt;&gt; dst;</span><br><span class="line">       	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; park.n; j++)&#123;</span><br><span class="line">           	<span class="keyword">if</span> (src == park.spots[j]) src_n = j;</span><br><span class="line">           	<span class="keyword">if</span> (dst == park.spots[j]) dst_n = j;</span><br><span class="line">       	&#125;</span><br><span class="line">       	<span class="keyword">int</span> path[<span class="number">50</span>], dist[<span class="number">50</span>];</span><br><span class="line">       	shortestPath(park, dist, path, src_n);</span><br><span class="line">       	showPath(park, path, src_n, dst_n);</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+<p>由上述性质可知，如果存在一条从i到j的最短路径<code>(Vi.....Vk,Vj)</code>，Vk是Vj前面的一顶点。那么<code>(Vi...Vk)</code>也必定是从i到k的最短路径。为了求出最短路径，Dijkstra就提出了以最短路径长度递增，逐次生成最短路径的算法。譬如对于源顶点V0，首先选择其直接相邻的顶点中长度最短的顶点Vi，那么当前已知可得从V0到达Vj顶点的最短距离<code>dist[j]=min{dist[j],dist[i]+matrix[i][j]}</code>。根据这种思路，<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/Dijkstra单源最短路径算法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -652,6 +655,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/python学习笔记8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记8/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -671,8 +681,7 @@
 
       
         
-          
-            <h2 id="Python学习笔记–8-I-O"><a href="#Python学习笔记–8-I-O" class="headerlink" title="Python学习笔记–8.I/O"></a>Python学习笔记–8.I/O</h2><p>2015-07-21</p>
+          <h2 id="Python学习笔记–8-I-O"><a href="#Python学习笔记–8-I-O" class="headerlink" title="Python学习笔记–8.I/O"></a>Python学习笔记–8.I/O</h2><p>2015-07-21</p>
 <p>MrZigZag @ Peking University</p>
 <h3 id="1-文件"><a href="#1-文件" class="headerlink" title="1.文件"></a>1.文件</h3><p>Python内置读写文件的函数，用法与C类似。读写文件一般都是请求操作系统打开一个文件对象，然后通过操作系统的借口从这个文件对象读写数据。</p>
 <p><strong>读文件</strong>，使用内置的<code>open()</code>函数，传入文件名和读写标识符。</p>
@@ -680,101 +689,12 @@
 </code></pre><p>调用<code>read()</code>方法可以一次性读取全部内容存放到一个str中，最后调用<code>close()</code>关闭文件。文件使用完毕之后必须关闭。每次都写<code>close()</code>并不方便，Python提供了<code>with</code>语句自动调用<code>close()</code>。</p>
 <pre><code>with open(&apos;file_name&apos;, &apos;r&apos;) as f:
     str = f.read()
-</code></pre><p>与Java类似，Python要求读文件时要调用<code>try-except</code>机制来处理可能会出现的问题。</p>
-<pre><code>try:
-    f = open(&apos;file_name&apos;, &apos;r&apos;)
-    str = f.read()
-finally:
-    if f:
-        f.close()
-</code></pre><p>读文件还可以使用<code>read(size)</code>每次读取size字节的内容，或者用<code>readline()</code>读取一行，还可以用<code>readlines()</code>一次读取所有行并生成一个list。</p>
-<p><strong>读二进制文件</strong>，用<code>rb</code>模式打开文件即可。</p>
-<pre><code>with open(file_name, &apos;rb&apos;) as f:
-    u_str = f.read()
-</code></pre><p>一般而言，读取非Ascii编码的文本文件都是先用二进制打开，读取再解码。Python提供<code>codecs</code>模块处理读文件时的自动编码。</p>
-<pre><code>import codecs
-with codecs.open(file_name, &apos;r&apos;, &apos;gbk&apos;) as f:
-    f.read()
-</code></pre><p><strong>写文件</strong>，与读文件类似，区别在于用了<code>write()</code>，使用标识符<code>w</code>或者<code>wb</code>。同时可使用<code>with</code>。要写入特定编码的文件，可以使用<code>codecs</code>。</p>
-<h3 id="2-操作文件和目录"><a href="#2-操作文件和目录" class="headerlink" title="2.操作文件和目录"></a>2.操作文件和目录</h3><p>Python内置了<code>os</code>模块，可以直接调用操作系统提供的接口函数。例如：</p>
-<pre><code>&gt;&gt;&gt; import os
-&gt;&gt;&gt; os.name
-&apos;posix&apos;
-
-&gt;&gt;&gt; os.uname() #操作系统的详细信息
-(&apos;Darwin&apos;, &apos;MrZigZagdeMacBook-Pro.local&apos;, &apos;14.4.0&apos;, &apos;Darwin Kernel Version 14.4.0: Thu May 28 11:35:04 PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64&apos;, &apos;x86_64&apos;)
-
-&gt;&gt;&gt; os.environ #环境变量
-{&apos;VERSIONER_PYTHON_PREFER_32_BIT&apos;: &apos;no&apos;, &apos;TERM_PROGRAM_VERSION&apos;: &apos;326&apos;, &apos;LOGNAME&apos;: &apos;michael&apos;, &apos;USER&apos;: &apos;michael&apos;, &apos;PATH&apos;: &apos;/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/mysql/bin&apos;, ...}
-
-&gt;&gt;&gt; os.getenv(&apos;PATH&apos;) #获取环境变量的值
-&apos;/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/bin&apos;
-</code></pre><p>操作文件和目录的函数放在<code>os</code>和<code>os.path</code>模块中。</p>
-<pre><code>&gt;&gt;&gt; os.path.abspath(&apos;.&apos;) # 当前目录的绝对路径
-&apos;/Users/mrzigzag&apos;
-</code></pre><p>将两个路径组合时，根据操作系统的差异性，一般不要直接拼接字符串，最好用<code>os.path.join()</code>函数，这样可以处理不同操作系统的路径分隔符。</p>
-<p>拆分路径时用<code>os.path.split()</code>可以将路径拆分成 两个部分，最后一个部分总是最后级别的目录或者文件名。得到文件扩展名<code>os.path.splitext()</code>。</p>
-<p>创建目录<code>os.mkdir(dir)</code>，删除目录<code>os.rmdir(dir)</code>。</p>
-<pre><code>&gt;&gt;&gt; os.path.join(&apos;/Users/mrzigzag&apos;, &apos;testdir&apos;)
-&apos;/Users/mrzigzag/testdir&apos;
-&gt;&gt;&gt; os.mkdir(&apos;/Users/mrzigzag/testdir&apos;)
-&gt;&gt;&gt; os.rmdir(&apos;/Users/mrzigzag/testdir&apos;)
-&gt;&gt;&gt; os.path.split(&apos;/Users/mrzigzag/testdir&apos;)
-(&apos;/Users/mrzigzag&apos;, &apos;testdir&apos;)
-</code></pre><p>重命名<code>os.rename(name.old, name.new)</code>，删除<code>os.remove(file)</code>。</p>
-<p>复制文件需要<code>shutil</code>模块提供的<code>copyfile()</code>函数。</p>
-<p>利用Python的特性对文件目录进行批量操作，例如列出所有文件。</p>
-<pre><code>&gt;&gt;&gt; [x for x in os.listdir(&apos;.&apos;) if not os.path.isdir(x)]
-</code></pre><p>要列出所有<code>.jpg</code>文件。</p>
-<pre><code>&gt;&gt;&gt; [x for x in os.listdir(&apos;.&apos;) if x not os.path.isdir(x) and os.path.splitext(x)[1] == &apos;.jpg&apos;]
-</code></pre><h3 id="3-序列化"><a href="#3-序列化" class="headerlink" title="3.序列化"></a>3.序列化</h3><p>把变量从内存中变成可存储或者可传输的过程称为序列化。反之称为反序列化。</p>
-<p>Python提供两个模块来实现序列化，<code>cPickle</code>和<code>pickle</code>，功能一样，但是<code>cPickle</code>用c写，速度快，一般优先调用。</p>
-<pre><code>try:
-    import cPickle as pickle
-except ImportError:
-    import pickle
-</code></pre><p>将对象写到文件。可以用<code>pickle.dumps()</code>方法将任意对象序列化成为一个str，然后将该str写入到文件。或者用<code>pickle.dump()</code>直接将对象序列化后写入到一个file-like Object。</p>
-<pre><code>with open(&apos;file_name&apos;, &apos;wb&apos;) as f:
-    pickle.dump(d, f)
-</code></pre><p>读入同理，<code>pickle.loads()</code>是从字符串读入，<code>pickle.load()</code>则是从file-like Object直接读入。</p>
-<p>Pickle的问题主要是保存的格式只适合Python，不同版本的Python可能都不兼容。如果有更加通用的序列化需求，用<code>json</code>格式才是一个比较好的选择。</p>
-<p><strong>JSON</strong>是标准的Javascript对象，表示出来就是一个字符串，可以被所有语言读取，也方便存储和传输。</p>
-<p>Python内置了<code>json</code>模块提供了完善的Python对象到JSON格式的转换，内置的序列化函数和反序列化函数与pickle类似。</p>
-<pre><code>&gt;&gt;&gt; import json
-&gt;&gt;&gt; d = dict(name=&apos;Bob&apos;, age=20, score=88)
-&gt;&gt;&gt; json.dumps(d)
-&apos;{&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;}&apos;
-</code></pre><p>需要注意的一点是反序列化得到的所有字符串对象都是<code>unicode</code>而不是<code>str</code>，因为JSON标准规定的编码是UTF-8。</p>
-<p><code>json</code>模块支持直接将Python的基本数据类型转换到JSON，对于自定义的类则需要用转换函数进行转换。</p>
-<pre><code>import json
-class Student(object):
-    def __init__(self, name, age, score):
-    self.name = name
-    self.age = age
-    self.score = score
-
-s = Student(&apos;Bob&apos;, 20, 88)
-print(json.dumps(s))
-</code></pre><p>运行会得到一个<code>TypeError</code>，因为Student不是一个可序列化为JSON的对象。利用可选参数<code>default</code>，写一个转换函数即可。</p>
-<pre><code>def studetn2dict(std):
-    return {
-        &apos;name&apos;: std.name,
-        &apos;age&apos;: std.age,
-        &apos;score&apos;: std.score
-    }
-
-print(json.dumps(s, default=student2dict))
-</code></pre><p>遇到其他子类的实例时可能会无法转换，因而可以直接利用class中得<code>__dict__</code>属性，它就是一个用来存储实例变量的<code>dict</code>。</p>
-<pre><code>print(json.dumps(s, default=lambda obj: ojb.__dict__))
-</code></pre><p>反序列化则是先用<code>json.loads()</code>将JSON转换成一个<code>dict</code>，然后传入<code>object_hook</code>将dict转换成具体的实例。</p>
-<pre><code>def dict2student(d):
-    return Student(d[&apos;name&apos;], d[&apos;age&apos;], d[&apos;score])
-
-json_str = &apos;{&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;}&apos;
-print(json.loads(json_str, object_hook=dict2student))
-</code></pre><p>关于<code>json.dumps()</code>方法提供的可选参数，可以参考<a href="https://docs.python.org/2/library/json.html#json.dumps" target="_blank" rel="external">这里</a>。</p>
-
-          
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/python学习笔记8/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -864,6 +784,13 @@ print(json.loads(json_str, object_hook=dict2student))
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/python学习笔记7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记7/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -883,8 +810,7 @@ print(json.loads(json_str, object_hook=dict2student))
 
       
         
-          
-            <p>##Python学习笔记–7.Exceptions and debugging</p>
+          <p>##Python学习笔记–7.Exceptions and debugging</p>
 <p>MrZigZag @ Peking Universty</p>
 <p>2015-07-20</p>
 <hr>
@@ -892,49 +818,12 @@ print(json.loads(json_str, object_hook=dict2student))
 <p>高级语言一般面对异常都会内置一套<code>try-catch-finally</code>机制。Python相应的机制是<code>try-except-finally</code>。</p>
 <p>当我们认为某些代码可能会出错时，可以用<code>try</code>块来运行这段代码，运行出错时会立即跳转到<code>except</code>块，执行完之后跳出，如果有<code>finally</code>块则执行，否则中断程序。</p>
 <p><strong>错误</strong>有许多种，例如<code>ValueError</code>、<code>ZeroDivisionError</code>等，面对不同的错误应该由不同的<code>except</code>块来处理。Python的错误都是类，继承自<code>BaseException</code>，因此使用<code>catch</code>块时应注意范围，基类应该放在后面，否则会出现后面的错误被前面的处理这种情况。（反正这个在Java会报错，Python应该不会。）</p>
-<p>如果没用<code>try-except-finally</code>机制，则出现错误时会根据堆栈逐步上传，直到<code>__main__</code>。</p>
-<p>用<code>raise</code>语句抛出错误，一般只有在必要的时候才会定义自己的错误类型。尽量选择Python内置的错误类型。</p>
-<pre><code>class FooError(StandardError):
-    pass
-
-def foo(s):
-    n = (int)s
-    if n == 0:
-        raise FooError(&apos;invalid value:%s&apos; % s)
-    return 10 / n
-</code></pre><p><code>raise</code>语句如果不带参数，会把当前的错误原样抛出，方便上一层进行处理。在<code>except</code>块中，还可以<code>raise</code>一个error然后将一种类型的错误转换成另一种错误。</p>
-<p><strong>logging</strong>，记录错误堆栈并让程序继续执行下去。利用<code>logging</code>模块可以非常容易记录错误信息。</p>
-<pre><code>import logging
-def foo(s):
-    return 10 / int(s)
-def bar(s):
-    return foo(s) * 2
-
-def main():
-    try:
-        bar(&apos;0&apos;)
-    except StandardError, e:
-        logging.exception(e)
-
-main()
-print &apos;END&apos;
-</code></pre><p>会出错，但是程序会打印错误信息，之后继续执行。</p>
-<p>通过配置，还可以将logging写入到文件里，方便时候排查。</p>
-<p>###2.调试</p>
-<p><strong>断言</strong>，<code>assert</code>语句判断是否成立，如果断言失败就会抛出<code>AssertError</code>并且终止程序。</p>
-<pre><code>def foo(s):
-    n = (int)s
-    assert n != 0, &apos;n is zero!&apos;
-    return 10 / n
-</code></pre><p>启动Python解释器时可以用<code>-O</code>参数来关闭<code>assert</code>。之后解释器会将<code>assert</code>语句当做<code>pass</code>来看。</p>
-<p><strong>logging</strong>，与<code>assert</code>相比，<code>logging</code>不会抛出错误，还可以输出到文件，而且<code>logging</code>还可以根据不同的配置指定记录信息的级别，有<code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>四个级别，指定级别时，低级的级别就会失效。</p>
-<pre><code>import logging
-logging.basicConfig(level=logging.INFO)
-
-logging.info(&apos;Test Logging&apos;)
-</code></pre><p><strong>PDB</strong>，利用pdb可以逐行执行，也可以调用<code>pdb.set_trace()</code>设置断点。</p>
-
-          
+<p>如果没用<code>try-except-finally</code>机制，则出现错误时会根据堆栈逐步上传，直到<code>__main__</code>。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/python学习笔记7/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1034,6 +923,44 @@ logging.info(&apos;Test Logging&apos;)
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2824850953" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bil.pku.edu.cn/team_lsj.html" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  LabProfile
+                </a>
+              </span>
+            
           
         </div>
 
@@ -1148,15 +1075,58 @@ logging.info(&apos;Test Logging&apos;)
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lisongjiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
 
   
 

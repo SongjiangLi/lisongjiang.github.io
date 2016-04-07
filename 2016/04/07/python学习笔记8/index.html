@@ -71,7 +71,7 @@ MrZigZag @ Peking University
 1.文件Python内置读写文件的函数，用法与C类似。读写文件一般都是请求操作系统打开一个文件对象，然后通过操作系统的借口从这个文件对象读写数据。
 读文件，使用内置的open()函数，传入文件名和读写标识符。
 f = open(&amp;apos;file_name&amp;apos;, &amp;apos;r">
-<meta property="og:updated_time" content="2016-04-07T08:25:30.000Z">
+<meta property="og:updated_time" content="2016-04-07T09:45:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记8">
 <meta name="twitter:description" content="Python学习笔记–8.I/O2015-07-21
@@ -107,6 +107,15 @@ f = open(&amp;apos;file_name&amp;apos;, &amp;apos;r">
 
 
 
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55467605";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -131,7 +140,7 @@ f = open(&amp;apos;file_name&amp;apos;, &amp;apos;r">
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">DON'T PANIC!</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -276,6 +285,13 @@ f = open(&amp;apos;file_name&amp;apos;, &amp;apos;r">
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/python学习笔记8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记8/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -302,7 +318,8 @@ f = open(&amp;apos;file_name&amp;apos;, &amp;apos;r">
 </code></pre><p>调用<code>read()</code>方法可以一次性读取全部内容存放到一个str中，最后调用<code>close()</code>关闭文件。文件使用完毕之后必须关闭。每次都写<code>close()</code>并不方便，Python提供了<code>with</code>语句自动调用<code>close()</code>。</p>
 <pre><code>with open(&apos;file_name&apos;, &apos;r&apos;) as f:
     str = f.read()
-</code></pre><p>与Java类似，Python要求读文件时要调用<code>try-except</code>机制来处理可能会出现的问题。</p>
+</code></pre><a id="more"></a>
+<p>与Java类似，Python要求读文件时要调用<code>try-except</code>机制来处理可能会出现的问题。</p>
 <pre><code>try:
     f = open(&apos;file_name&apos;, &apos;r&apos;)
     str = f.read()
@@ -460,6 +477,10 @@ print(json.loads(json_str, object_hook=dict2student))
           
   <div class="comments" id="comments">
     
+      <div class="ds-thread" data-thread-key="2016/04/07/python学习笔记8/"
+           data-title="Python学习笔记8" data-url="http://yoursite.com/2016/04/07/python学习笔记8/">
+      </div>
+    
   </div>
 
 
@@ -530,6 +551,44 @@ print(json.loads(json_str, object_hook=dict2student))
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2824850953" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bil.pku.edu.cn/team_lsj.html" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  LabProfile
+                </a>
+              </span>
+            
           
         </div>
 
@@ -659,15 +718,58 @@ print(json.loads(json_str, object_hook=dict2student))
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lisongjiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
 
   
 
