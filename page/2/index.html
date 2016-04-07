@@ -235,6 +235,262 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/07/python学习笔记8/" itemprop="url">
+                  Python学习笔记8
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:24:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/python学习笔记8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记8/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Python学习笔记–8-I-O"><a href="#Python学习笔记–8-I-O" class="headerlink" title="Python学习笔记–8.I/O"></a>Python学习笔记–8.I/O</h2><p>2015-07-21</p>
+<p>MrZigZag @ Peking University</p>
+<h3 id="1-文件"><a href="#1-文件" class="headerlink" title="1.文件"></a>1.文件</h3><p>Python内置读写文件的函数，用法与C类似。读写文件一般都是请求操作系统打开一个文件对象，然后通过操作系统的借口从这个文件对象读写数据。</p>
+<p><strong>读文件</strong>，使用内置的<code>open()</code>函数，传入文件名和读写标识符。</p>
+<pre><code>f = open(&apos;file_name&apos;, &apos;r&apos;)
+</code></pre><p>调用<code>read()</code>方法可以一次性读取全部内容存放到一个str中，最后调用<code>close()</code>关闭文件。文件使用完毕之后必须关闭。每次都写<code>close()</code>并不方便，Python提供了<code>with</code>语句自动调用<code>close()</code>。</p>
+<pre><code>with open(&apos;file_name&apos;, &apos;r&apos;) as f:
+    str = f.read()
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/python学习笔记8/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/07/python学习笔记7/" itemprop="url">
+                  Python学习笔记7
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:23:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/python学习笔记7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记7/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Python学习笔记–7-Exceptions-and-debugging"><a href="#Python学习笔记–7-Exceptions-and-debugging" class="headerlink" title="Python学习笔记–7.Exceptions and debugging"></a>Python学习笔记–7.Exceptions and debugging</h2><p>MrZigZag @ Peking Universty</p>
+<p>2015-07-20</p>
+<hr>
+<h3 id="1-异常处理"><a href="#1-异常处理" class="headerlink" title="1.异常处理"></a>1.异常处理</h3><p>高级语言一般面对异常都会内置一套<code>try-catch-finally</code>机制。Python相应的机制是<code>try-except-finally</code>。</p>
+<p>当我们认为某些代码可能会出错时，可以用<code>try</code>块来运行这段代码，运行出错时会立即跳转到<code>except</code>块，执行完之后跳出，如果有<code>finally</code>块则执行，否则中断程序。</p>
+<p><strong>错误</strong>有许多种，例如<code>ValueError</code>、<code>ZeroDivisionError</code>等，面对不同的错误应该由不同的<code>except</code>块来处理。Python的错误都是类，继承自<code>BaseException</code>，因此使用<code>catch</code>块时应注意范围，基类应该放在后面，否则会出现后面的错误被前面的处理这种情况。（反正这个在Java会报错，Python应该不会。）</p>
+<p>如果没用<code>try-except-finally</code>机制，则出现错误时会根据堆栈逐步上传，直到<code>__main__</code>。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/python学习笔记7/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/07/python学习笔记6/" itemprop="url">
                   Python学习笔记6
                 </a>
@@ -432,12 +688,10 @@
 
       
         
-          <p>##Python学习笔记–5.面向对象编程</p>
-<p>MrZigZag @ Peking University</p>
+          <h2 id="Python学习笔记–5-面向对象编程"><a href="#Python学习笔记–5-面向对象编程" class="headerlink" title="Python学习笔记–5.面向对象编程"></a>Python学习笔记–5.面向对象编程</h2><p>MrZigZag @ Peking University</p>
 <p>2015-07-17</p>
 <hr>
-<p>###1.定义</p>
-<p>通过<code>class</code>关键字定义类，父类<code>(object)</code>。</p>
+<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><p>通过<code>class</code>关键字定义类，父类<code>(object)</code>。</p>
 <pre><code>class MyClass(object):
     pass
 </code></pre><p>没有合适的继承类时可以使用<code>object</code>类，这是所有的类都会继承的类。</p>
@@ -571,11 +825,9 @@ s.set_age = MethodType(set_age, s, Student)
 
       
         
-          <p>##Python学习笔记–4.模块</p>
-<p>MrZigZag@Peking University</p>
+          <h2 id="Python学习笔记–4-模块"><a href="#Python学习笔记–4-模块" class="headerlink" title="Python学习笔记–4.模块"></a>Python学习笔记–4.模块</h2><p>MrZigZag@Peking University</p>
 <p>2015-07-15</p>
-<p>###1.模块</p>
-<p>类似于Java中的Package，Python提供模块<code>module</code>来将相关的代码打包。编写程序的时候可以使用内置模块，也可以使用第三方模块。</p>
+<h3 id="1-模块"><a href="#1-模块" class="headerlink" title="1.模块"></a>1.模块</h3><p>类似于Java中的Package，Python提供模块<code>module</code>来将相关的代码打包。编写程序的时候可以使用内置模块，也可以使用第三方模块。</p>
 <p>模块可以用于避免函数名冲突等问题，但是模块中尽量不要使用Python内置函数的<a href="https://docs.python.org/2/library/functions.html">函数名</a>。</p>
 <p>避免模块名相同，提供了按照目录来组织模块的方法，称为包<code>package</code>，每个包都要有一个<code>__init__.py</code>文件，表示这是一个package，可以空。因为<code>__init__.py</code>本身就是一个模块，就表示包名。</p>
 <p>包可以嵌套，组成多级多层次的包结构。</p>
@@ -589,278 +841,6 @@ s.set_age = MethodType(set_age, s, Student)
 </code></pre>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/07/python学习笔记4/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/07/python学习笔记3/" itemprop="url">
-                  Python学习笔记3
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-07T16:19:05+08:00" content="2016-04-07">
-              2016-04-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/07/python学习笔记3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记3/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>##Python学习笔记–3.函数式编程</p>
-<p>MrZigZag@Peking University</p>
-<p>2015-07-12</p>
-<p>###1.函数式编程</p>
-<p>抽象层次比较高，允许把函数本身作为参数传入另一个函数，还允许返回一个函数。</p>
-<p>Python对函数式编程提供部分支持。</p>
-<p>###2.高阶函数</p>
-<p>将简单的函数作为参数传入高阶函数。</p>
-<pre><code>def add(x, y, f):
-    return f(x) + f(y)
-
-&gt;&gt;&gt; add(-5, 6, abs)
-11
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/07/python学习笔记3/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/07/python学习笔记2/" itemprop="url">
-                  Python学习笔记2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-07T16:17:05+08:00" content="2016-04-07">
-              2016-04-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/07/python学习笔记2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记2/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>##Python学习笔记–2.函数和高级特性</p>
-<p>MrZigZag@Peking University</p>
-<p>2015-07-12</p>
-<p>###1.函数</p>
-<p><strong>数据类型转换函数</strong>，<code>int()</code>, <code>float()</code>, <code>str()</code>, <code>unicode()</code>, <code>bool()</code>。</p>
-<p>函数名实际上就是函数对象的引用，因此可以给函数复制给一个变量然后通过这个变量调用。相当于给函数起了个别名。</p>
-<pre><code>&gt;&gt;&gt; a = abs
-&gt;&gt;&gt; a(-1)
-1
-</code></pre><p><strong>自定义函数<code>def</code></strong>，作为占位符可以用<code>pass</code>。</p>
-<pre><code>def my_abs(x):
-    if x &gt;= 0:
-        return x
-    else:
-        return -x
-def my_abs2(x):
-    pass
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/07/python学习笔记2/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -935,7 +915,7 @@ def my_abs2(x):
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -952,7 +932,7 @@ def my_abs2(x):
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="Algorithm," />
 
 
 
@@ -57,28 +57,37 @@
 
 
 
-<meta name="description" content="Python学习笔记—6正则表达式MrZigZag @ Peking University
-2015-07-18
+<meta name="description" content="1. A*算法启发式搜索、估价函数、时间上最优、空间增长指数级别
 
-1.正则表达式正则表达式使用一种描述性的语言给字符串定义一个规则，只有符合规则的字符串才能认为是匹配，否则该字符串就是不合法的。
-2.精确匹配如果直接给出字符就是精确匹配。用\d可以匹配一个数字，\w匹配一个字母或者一个数字。.可以匹配任意字符，\s匹配一个空格或者Tab等空白符。">
+Start Point, End Point, Obstacles
+估值函数，F=G+H, F为从Start Point到当前点的耗费，H为从当前点到End Point的耗费。
+OpenList 存放需要估值的点 CloseList 存放估值过的点
+
+Algorithms
+12345678910111213141516171819">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python学习笔记6">
-<meta property="og:url" content="http://yoursite.com/2016/04/07/python学习笔记6/index.html">
+<meta property="og:title" content="A*寻路算法">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/A*寻路算法/index.html">
 <meta property="og:site_name" content="MrZigZag">
-<meta property="og:description" content="Python学习笔记—6正则表达式MrZigZag @ Peking University
-2015-07-18
+<meta property="og:description" content="1. A*算法启发式搜索、估价函数、时间上最优、空间增长指数级别
 
-1.正则表达式正则表达式使用一种描述性的语言给字符串定义一个规则，只有符合规则的字符串才能认为是匹配，否则该字符串就是不合法的。
-2.精确匹配如果直接给出字符就是精确匹配。用\d可以匹配一个数字，\w匹配一个字母或者一个数字。.可以匹配任意字符，\s匹配一个空格或者Tab等空白符。">
-<meta property="og:updated_time" content="2016-04-07T09:44:50.000Z">
+Start Point, End Point, Obstacles
+估值函数，F=G+H, F为从Start Point到当前点的耗费，H为从当前点到End Point的耗费。
+OpenList 存放需要估值的点 CloseList 存放估值过的点
+
+Algorithms
+12345678910111213141516171819">
+<meta property="og:updated_time" content="2016-04-07T13:57:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python学习笔记6">
-<meta name="twitter:description" content="Python学习笔记—6正则表达式MrZigZag @ Peking University
-2015-07-18
+<meta name="twitter:title" content="A*寻路算法">
+<meta name="twitter:description" content="1. A*算法启发式搜索、估价函数、时间上最优、空间增长指数级别
 
-1.正则表达式正则表达式使用一种描述性的语言给字符串定义一个规则，只有符合规则的字符串才能认为是匹配，否则该字符串就是不合法的。
-2.精确匹配如果直接给出字符就是精确匹配。用\d可以匹配一个数字，\w匹配一个字母或者一个数字。.可以匹配任意字符，\s匹配一个空格或者Tab等空白符。">
+Start Point, End Point, Obstacles
+估值函数，F=G+H, F为从Start Point到当前点的耗费，H为从当前点到End Point的耗费。
+OpenList 存放需要估值的点 CloseList 存放估值过的点
+
+Algorithms
+12345678910111213141516171819">
 
 
 
@@ -96,7 +105,7 @@
   };
 </script>
 
-  <title> Python学习笔记6 | MrZigZag </title>
+  <title> A*寻路算法 | MrZigZag </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -245,7 +254,7 @@
             
             
               
-                Python学习笔记6
+                A*寻路算法
               
             
           </h1>
@@ -257,7 +266,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-07T16:22:05+08:00" content="2016-04-07">
+            <time itemprop="dateCreated" datetime="2016-04-07T18:39:11+08:00" content="2016-04-07">
               2016-04-07
             </time>
           </span>
@@ -271,8 +280,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
                   </a>
                 </span>
 
@@ -287,8 +296,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/07/python学习笔记6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记6/" itemprop="commentsCount"></span>
+                <a href="/2016/04/07/A*寻路算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/A*寻路算法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,75 +319,15 @@
       
 
       
-        <h2 id="Python学习笔记—6正则表达式"><a href="#Python学习笔记—6正则表达式" class="headerlink" title="Python学习笔记—6正则表达式"></a>Python学习笔记—6正则表达式</h2><p>MrZigZag @ Peking University</p>
-<p>2015-07-18</p>
-<hr>
-<h3 id="1-正则表达式"><a href="#1-正则表达式" class="headerlink" title="1.正则表达式"></a>1.正则表达式</h3><p>正则表达式使用一种描述性的语言给字符串定义一个规则，只有符合规则的字符串才能认为是匹配，否则该字符串就是不合法的。</p>
-<h3 id="2-精确匹配"><a href="#2-精确匹配" class="headerlink" title="2.精确匹配"></a>2.精确匹配</h3><p>如果直接给出字符就是精确匹配。用<code>\d</code>可以匹配一个数字，<code>\w</code>匹配一个字母或者一个数字。<code>.</code>可以匹配任意字符，<code>\s</code>匹配一个空格或者Tab等空白符。</p>
+        <h2 id="1-A-算法"><a href="#1-A-算法" class="headerlink" title="1. A*算法"></a>1. A*算法</h2><p>启发式搜索、估价函数、时间上最优、空间增长指数级别</p>
 <ul>
-<li><code>12\d</code>可以匹配<code>123</code></li>
-<li><code>\w\w\w</code>可以匹配<code>www</code>也可以匹配<code>py3</code></li>
-<li><code>py.</code>可以匹配<code>py3</code>，<code>pyx</code>等。<a id="more"></a>
-</li>
+<li><strong>Start Point</strong>, <strong>End Point</strong>, <strong>Obstacles</strong></li>
+<li>估值函数，<strong>F=G+H</strong>, F为从Start Point到当前点的耗费，H为从当前点到End Point的耗费。</li>
+<li><strong>OpenList</strong> 存放需要估值的点 <strong>CloseList</strong> 存放估值过的点</li>
 </ul>
-<h3 id="3-变长字符匹配"><a href="#3-变长字符匹配" class="headerlink" title="3.变长字符匹配"></a>3.变长字符匹配</h3><p>正则表达式中，用<code>*</code>表示任意个字符，用<code>+</code>表示至少一个字符，用<code>?</code>表示0个或者1个字符，用<code>{n}</code>表示n个字符，<code>{n, m}</code>表示n到m个字符。</p>
-<p>例如<code>\d{3}\s+\d{3,8}</code>，<code>\d{3}</code>表示3个数字，<code>\s</code>表示一个空格，所以<code>\s+</code>表示至少有一个空格，<code>\d{3,8}</code>表示有3-8个数字。因而该正则表达式可以匹配用空格隔开的电话号码。</p>
-<p>对于<code>010-62767007</code>之类中间有<code>-</code>的电话号码，因为<code>-</code>是特殊字符，需要转义，可以表示为<code>\d{3}\-\d{3,8}</code>。</p>
-<h3 id="4-范围匹配"><a href="#4-范围匹配" class="headerlink" title="4.范围匹配"></a>4.范围匹配</h3><p>变长字符串无法解决<code>010 - 62767007</code>之类带有空格又带有<code>-</code>的字符串，需要引入<code>[]</code>表示范围。范围的使用示例。</p>
-<ul>
-<li><code>[0-9]</code>表示数字，<code>[a-z]</code>表示小写字母。</li>
-<li><code>[0-9a-zA-Z\_]</code>表示一个数字、字母或者下划线。</li>
-<li><code>[0-9a-zA-Z\_]+</code>表示至少由一个数字、字母或者下划线组成的字符串。</li>
-<li><code>[a-zA-Z][0-9a-zA-Z\_]*</code>匹配以字母开头后接任何数字、字母或者下划线的字符串。</li>
-<li><code>[a-zA-Z][0-9a-zA-Z]{0, 9}</code>匹配以一个字母开头，后接0-9个数字、字母或者下划线的字符串。</li>
-</ul>
-<h3 id="5-特殊符号"><a href="#5-特殊符号" class="headerlink" title="5.特殊符号"></a>5.特殊符号</h3><p><code>A|B</code>表示可以匹配A或者B，<code>[P|p]ython</code>可以匹配<code>Python</code>或者<code>python</code>。</p>
-<p><code>^</code>表示行的开头，<code>^\d</code>表示必须以数字开头。</p>
-<p><code>$</code>表示行的结束，<code>\d$</code>表示必须以数字结束。</p>
-<p>完全精确匹配可能会匹配比它长的字符串，例如<code>py</code>可以匹配<code>python</code>，要使<code>py</code>只能匹配<code>py</code>，可以加上<code>^</code>和<code>$</code>变成整行匹配，表示为<code>^py$</code>。</p>
-<h3 id="6-使用re模块"><a href="#6-使用re模块" class="headerlink" title="6.使用re模块"></a>6.使用re模块</h3><p>Python提供re模块，包含所有正则表达式的功能。因为Python的字符串本身就用<code>\</code>转义，与正则表达式产生冲突，因而一般使用Python的<code>r</code>前缀表示正则表达式，这样就不用考虑转义的问题了。</p>
-<p><code>match()</code>方法判断匹配是否成功，成功返回一个<code>Match</code>对象，否则返回一个<code>None</code>。</p>
-<pre><code>test_re = r&apos;^\d{3}\-\d{3,8}$`
-test_str = &apos;010-62767007`
-if re.match(test_re, test_str):
-    do something
-else:
-    do other things
-</code></pre><h3 id="7-切分字符串"><a href="#7-切分字符串" class="headerlink" title="7.切分字符串"></a>7.切分字符串</h3><p>用正则表达式切分字符串比用固定的字符更加灵活。</p>
-<p>一般的切分无法识别连续的空格。</p>
-<pre><code>&gt;&gt;&gt; &apos;a b   c&apos;.split(&apos; &apos;)
-[&apos;a&apos;, &apos;b&apos;, &apos;&apos;, &apos;&apos;, &apos;c&apos;]
-</code></pre><p>用正则表达式就可以解决这个问题。</p>
-<pre><code>&gt;&gt;&gt; re.split(r&apos;\s+&apos;, &apos;a b   c&apos;)
-[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]
-&gt;&gt;&gt; re.split(r&apos;[\s\,]+&apos;, &apos;a b,,,,  c  &apos;)
-[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]
-</code></pre><p>用正则表达式切分可以将用户输入的不规范的标签转化为正确的数组。</p>
-<h3 id="8-分组"><a href="#8-分组" class="headerlink" title="8.分组"></a>8.分组</h3><p>除了简单判断字符串是否匹配外，正则表达式还能提取字符串的子串。用<code>()</code>表示要提取的分组，可以直接从目标字符串中提取出需要的子串。</p>
-<p>例如要从010-62767007提取出区号和电话号码，可以定义为<code>^(\d{3,4})\-(\d{7,8})$</code>，得到的子串存储为一组<code>group</code>，其中<code>group(0)</code>为源字符串。</p>
-<pre><code>&gt;&gt;&gt; m = re.match(r&apos;^(\d{3,4})\-(\d{7,8})$&apos;, &apos;010-62767007&apos;)
-&gt;&gt;&gt; m.group(0)
-&apos;010-62767007&apos;
-&gt;&gt;&gt; m.group(1)
-&apos;010&apos;
-&gt;&gt;&gt; m.group(2)
-&apos;62767007&apos;
-</code></pre><p>例如给定一个时间，判断是否合法并提取出时分秒。</p>
-<pre><code>&gt;&gt;&gt; t_re = r&apos;^(0[0-9]|1[0-9]|2[0-3]|[3-9])\:([0-5][0-9])\:([0-5][0-9])$&apos;
-&gt;&gt;&gt; m.re.match(t_re, &apos;19:05:23&apos;)
-&gt;&gt;&gt; m.group(1)
-&apos;19&apos;
-&gt;&gt;&gt; m.group(2)
-&apos;05&apos;
-&gt;&gt;&gt; m.group(3)
-&apos;23&apos;
-</code></pre><p>但是这个例子比较难识别日期，因为每个月的天数之间存在差异。</p>
-<h3 id="9-贪婪匹配"><a href="#9-贪婪匹配" class="headerlink" title="9.贪婪匹配"></a>9.贪婪匹配</h3><p>正则表达式默认使用贪婪匹配，因此会尽量匹配尽可能多的字符，有时候会导致使用<code>+</code>时会出现问题，这时候需要引入非贪婪匹配，一般来说只需在<code>+</code>后面加一个<code>?</code>即可。例如用<code>^(\d+)(0*)$</code>匹配就无法提取出<code>102401</code>后面的01，可以改为<code>^(\d+?)(0*)$</code>。</p>
-<h3 id="10-编译"><a href="#10-编译" class="headerlink" title="10.编译"></a>10.编译</h3><p>使用正则表达式时，Python解释器内部会先编译正则表达式然后用编译好的表达式去匹配字符串。如果一个正则表达式要使用多次，可以先执行编译，接下来重复使用就不用编译了。</p>
-<pre><code>&gt;&gt;&gt; re_time = re.compile(r&apos;^(0[0-9]|1[0-9]|2[0-3]|[3-9])\:([0-5][0-9])\:([0-5][0-9])$&apos;)
-&gt;&gt;&gt; re_time.match(&apos;20:14:59&apos;).group(3)
-&apos;59&apos;
-</code></pre>
+<p><strong>Algorithms</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">OpenList.add(StartPoint);</span><br><span class="line">do &#123;</span><br><span class="line">	current_point = OpenList.lowestF();</span><br><span class="line">	OpenList.remove(current_point);</span><br><span class="line">	CloseList.add(current_point);</span><br><span class="line">	</span><br><span class="line">	for (point in Neighbourhood(current_point)) &#123;</span><br><span class="line">		if (point in CloseList || point is Obstacles) continue;</span><br><span class="line">		else if (point not in OpenList) &#123;</span><br><span class="line">			calculateFGH(point);</span><br><span class="line">			point.father = current_point;</span><br><span class="line">			OpenList.add(point);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			if (current_point.G + calculateG(current_point, point) &lt; point.G) &#123;</span><br><span class="line">				point.G = current_point.G + calculateG(current_point, point);</span><br><span class="line">				point.F = point.G + point.H;</span><br><span class="line">				point.father = current_point;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; while (OpenList.size()  &amp;&amp;  EndPoint not in CloseList)</span><br><span class="line">find paths</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -398,7 +347,7 @@ else:
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag">#Python</a>
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
           
         </div>
       
@@ -407,16 +356,16 @@ else:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/07/python学习笔记5/" rel="next" title="Python学习笔记5">
-                <i class="fa fa-chevron-left"></i> Python学习笔记5
+              <a href="/2016/04/07/用C++的编译器优化实现记忆功能/" rel="next" title="用C++编译器优化实现记忆化">
+                <i class="fa fa-chevron-left"></i> 用C++编译器优化实现记忆化
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/07/python学习笔记7/" rel="prev" title="Python学习笔记7">
-                Python学习笔记7 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/08/Articles on Attention Shift/" rel="prev" title="Articles on Attention Shift">
+                Articles on Attention Shift <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -443,8 +392,8 @@ else:
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/07/python学习笔记6/"
-           data-title="Python学习笔记6" data-url="http://yoursite.com/2016/04/07/python学习笔记6/">
+      <div class="ds-thread" data-thread-key="2016/04/07/A*寻路算法/"
+           data-title="A*寻路算法" data-url="http://yoursite.com/2016/04/07/A*寻路算法/">
       </div>
     
   </div>
@@ -575,7 +524,7 @@ else:
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python学习笔记—6正则表达式"><span class="nav-number">1.</span> <span class="nav-text">Python学习笔记—6正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-正则表达式"><span class="nav-number">1.1.</span> <span class="nav-text">1.正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-精确匹配"><span class="nav-number">1.2.</span> <span class="nav-text">2.精确匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-变长字符匹配"><span class="nav-number">1.3.</span> <span class="nav-text">3.变长字符匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-范围匹配"><span class="nav-number">1.4.</span> <span class="nav-text">4.范围匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-特殊符号"><span class="nav-number">1.5.</span> <span class="nav-text">5.特殊符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-使用re模块"><span class="nav-number">1.6.</span> <span class="nav-text">6.使用re模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-切分字符串"><span class="nav-number">1.7.</span> <span class="nav-text">7.切分字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-分组"><span class="nav-number">1.8.</span> <span class="nav-text">8.分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-贪婪匹配"><span class="nav-number">1.9.</span> <span class="nav-text">9.贪婪匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-编译"><span class="nav-number">1.10.</span> <span class="nav-text">10.编译</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-A-算法"><span class="nav-number">1.</span> <span class="nav-text">1. A*算法</span></a></li></ol></div>
             
           </div>
         </section>

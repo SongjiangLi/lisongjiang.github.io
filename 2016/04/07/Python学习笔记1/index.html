@@ -69,7 +69,7 @@
 1.输入输出
 命令行输入直接用raw_input(),括号里可以放提示语。 得到的是一个字符串，要转换成其他数据类型要用强制类型转换。如int(raw_input()) 
 命令行输入">
-<meta property="og:updated_time" content="2016-04-07T09:44:13.000Z">
+<meta property="og:updated_time" content="2016-04-07T13:58:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记1">
 <meta name="twitter:description" content="Python学习笔记–0.Python基础0.Unix下直接运行.py文件在文件开头加入#!/usr/bin/env python,然后在命令行中修改权限，赋予其可执行的权限。$ chmod a+x hello.py
@@ -331,8 +331,7 @@ User name: MrZigZag
 <li><strong>特殊值</strong> 布尔值<code>True</code>和<code>False</code>，空值<code>None</code>，</li>
 <li><strong>常量</strong>，在Python中，通常用全部大写的变量名表示常量。<code>PI = 3.14159265359</code></li>
 </ul>
-<h2 id="4-编码"><a href="#4-编码" class="headerlink" title="4.编码"></a>4.编码</h2><p>####编码方式</p>
-<p>Python使用UTF-8编码，一般英语字符串使用ASCII码表示。提供<code>ord()</code>和<code>chr()</code>来转换数字和字母。</p>
+<h2 id="4-编码"><a href="#4-编码" class="headerlink" title="4.编码"></a>4.编码</h2><h3 id="编码方式"><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h3><p>Python使用UTF-8编码，一般英语字符串使用ASCII码表示。提供<code>ord()</code>和<code>chr()</code>来转换数字和字母。</p>
 <pre><code>&gt;&gt;&gt; ord(&apos;A&apos;)
 65
 &gt;&gt;&gt; chr(65)
@@ -346,8 +345,7 @@ u&apos;\4e2d&apos;
 <pre><code>&gt;&gt;&gt; print &apos;\xe4\xb8\xad\xe6\x96\x87&apos;.decode(&apos;utf-8&apos;)
 中文
 </code></pre><p>可用<code>len()</code>方法获取在Unicode中字符串的长度。</p>
-<p>####字符串格式化</p>
-<p>Python字符串的格式化方式与C相同，都是用<code>%</code>来实现。</p>
+<h3 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h3><p>Python字符串的格式化方式与C相同，都是用<code>%</code>来实现。</p>
 <pre><code>&gt;&gt;&gt; print &apos;This is %s university, the No.%d university in %s.&apos; % (&apos;Peking&apos;, 1, &apos;China&apos;)
 This is Peking university, the No.1 university in China.
 </code></pre><p><strong>整数</strong><code>%d</code>， <strong>浮点数</strong><code>%f</code>,加数字还可以补0和小数位数。<code>%2d</code>, <code>%02d</code>, <code>%02f</code>,不确定用什么时，<code>%s</code>永远有效。</p>
@@ -526,7 +524,7 @@ set([1, 2])
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -543,7 +541,7 @@ set([1, 2])
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -612,7 +610,7 @@ set([1, 2])
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python学习笔记–0-Python基础"><span class="nav-number">1.</span> <span class="nav-text">Python学习笔记–0.Python基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-Unix下直接运行-py文件"><span class="nav-number">1.1.</span> <span class="nav-text">0.Unix下直接运行.py文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-输入输出"><span class="nav-number">1.2.</span> <span class="nav-text">1.输入输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-语法基础"><span class="nav-number">1.3.</span> <span class="nav-text">2.语法基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数据类型"><span class="nav-number">1.4.</span> <span class="nav-text">3.数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-编码"><span class="nav-number">1.5.</span> <span class="nav-text">4.编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-List"><span class="nav-number">1.6.</span> <span class="nav-text">5.List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Tuple"><span class="nav-number">1.7.</span> <span class="nav-text">6.Tuple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-跳转"><span class="nav-number">1.8.</span> <span class="nav-text">7.跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Dict"><span class="nav-number">1.9.</span> <span class="nav-text">8.Dict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Set"><span class="nav-number">1.10.</span> <span class="nav-text">9.Set</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python学习笔记–0-Python基础"><span class="nav-number">1.</span> <span class="nav-text">Python学习笔记–0.Python基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-Unix下直接运行-py文件"><span class="nav-number">1.1.</span> <span class="nav-text">0.Unix下直接运行.py文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-输入输出"><span class="nav-number">1.2.</span> <span class="nav-text">1.输入输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-语法基础"><span class="nav-number">1.3.</span> <span class="nav-text">2.语法基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数据类型"><span class="nav-number">1.4.</span> <span class="nav-text">3.数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-编码"><span class="nav-number">1.5.</span> <span class="nav-text">4.编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编码方式"><span class="nav-number">1.5.1.</span> <span class="nav-text">编码方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串格式化"><span class="nav-number">1.5.2.</span> <span class="nav-text">字符串格式化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-List"><span class="nav-number">1.6.</span> <span class="nav-text">5.List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Tuple"><span class="nav-number">1.7.</span> <span class="nav-text">6.Tuple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-跳转"><span class="nav-number">1.8.</span> <span class="nav-text">7.跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Dict"><span class="nav-number">1.9.</span> <span class="nav-text">8.Dict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Set"><span class="nav-number">1.10.</span> <span class="nav-text">9.Set</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -57,34 +57,28 @@
 
 
 
-<meta name="description" content="##Python学习笔记–7.Exceptions and debugging
-MrZigZag @ Peking Universty
+<meta name="description" content="Python学习笔记–7.Exceptions and debuggingMrZigZag @ Peking Universty
 2015-07-20
 
-###1.异常处理
-高级语言一般面对异常都会内置一套try-catch-finally机制。Python相应的机制是try-except-finally。
-当我们认为某些代码可能会出错时，可以用try块来运行这段代码，运行出错时会立即跳转到">
+1.异常处理高级语言一般面对异常都会内置一套try-catch-finally机制。Python相应的机制是try-except-finally。
+当我们认为某些代码可能会出错时，可以用try块来运行这段代码，运行出错时会立即跳转到except块">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学习笔记7">
 <meta property="og:url" content="http://yoursite.com/2016/04/07/python学习笔记7/index.html">
 <meta property="og:site_name" content="MrZigZag">
-<meta property="og:description" content="##Python学习笔记–7.Exceptions and debugging
-MrZigZag @ Peking Universty
+<meta property="og:description" content="Python学习笔记–7.Exceptions and debuggingMrZigZag @ Peking Universty
 2015-07-20
 
-###1.异常处理
-高级语言一般面对异常都会内置一套try-catch-finally机制。Python相应的机制是try-except-finally。
-当我们认为某些代码可能会出错时，可以用try块来运行这段代码，运行出错时会立即跳转到">
-<meta property="og:updated_time" content="2016-04-07T09:44:56.000Z">
+1.异常处理高级语言一般面对异常都会内置一套try-catch-finally机制。Python相应的机制是try-except-finally。
+当我们认为某些代码可能会出错时，可以用try块来运行这段代码，运行出错时会立即跳转到except块">
+<meta property="og:updated_time" content="2016-04-07T14:03:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记7">
-<meta name="twitter:description" content="##Python学习笔记–7.Exceptions and debugging
-MrZigZag @ Peking Universty
+<meta name="twitter:description" content="Python学习笔记–7.Exceptions and debuggingMrZigZag @ Peking Universty
 2015-07-20
 
-###1.异常处理
-高级语言一般面对异常都会内置一套try-catch-finally机制。Python相应的机制是try-except-finally。
-当我们认为某些代码可能会出错时，可以用try块来运行这段代码，运行出错时会立即跳转到">
+1.异常处理高级语言一般面对异常都会内置一套try-catch-finally机制。Python相应的机制是try-except-finally。
+当我们认为某些代码可能会出错时，可以用try块来运行这段代码，运行出错时会立即跳转到except块">
 
 
 
@@ -316,12 +310,10 @@ MrZigZag @ Peking Universty
       
 
       
-        <p>##Python学习笔记–7.Exceptions and debugging</p>
-<p>MrZigZag @ Peking Universty</p>
+        <h2 id="Python学习笔记–7-Exceptions-and-debugging"><a href="#Python学习笔记–7-Exceptions-and-debugging" class="headerlink" title="Python学习笔记–7.Exceptions and debugging"></a>Python学习笔记–7.Exceptions and debugging</h2><p>MrZigZag @ Peking Universty</p>
 <p>2015-07-20</p>
 <hr>
-<p>###1.异常处理</p>
-<p>高级语言一般面对异常都会内置一套<code>try-catch-finally</code>机制。Python相应的机制是<code>try-except-finally</code>。</p>
+<h3 id="1-异常处理"><a href="#1-异常处理" class="headerlink" title="1.异常处理"></a>1.异常处理</h3><p>高级语言一般面对异常都会内置一套<code>try-catch-finally</code>机制。Python相应的机制是<code>try-except-finally</code>。</p>
 <p>当我们认为某些代码可能会出错时，可以用<code>try</code>块来运行这段代码，运行出错时会立即跳转到<code>except</code>块，执行完之后跳出，如果有<code>finally</code>块则执行，否则中断程序。</p>
 <p><strong>错误</strong>有许多种，例如<code>ValueError</code>、<code>ZeroDivisionError</code>等，面对不同的错误应该由不同的<code>except</code>块来处理。Python的错误都是类，继承自<code>BaseException</code>，因此使用<code>catch</code>块时应注意范围，基类应该放在后面，否则会出现后面的错误被前面的处理这种情况。（反正这个在Java会报错，Python应该不会。）</p>
 <p>如果没用<code>try-except-finally</code>机制，则出现错误时会根据堆栈逐步上传，直到<code>__main__</code>。<br><a id="more"></a></p>
@@ -352,8 +344,7 @@ main()
 print &apos;END&apos;
 </code></pre><p>会出错，但是程序会打印错误信息，之后继续执行。</p>
 <p>通过配置，还可以将logging写入到文件里，方便时候排查。</p>
-<p>###2.调试</p>
-<p><strong>断言</strong>，<code>assert</code>语句判断是否成立，如果断言失败就会抛出<code>AssertError</code>并且终止程序。</p>
+<h3 id="2-调试"><a href="#2-调试" class="headerlink" title="2.调试"></a>2.调试</h3><p><strong>断言</strong>，<code>assert</code>语句判断是否成立，如果断言失败就会抛出<code>AssertError</code>并且终止程序。</p>
 <pre><code>def foo(s):
     n = (int)s
     assert n != 0, &apos;n is zero!&apos;
@@ -476,7 +467,7 @@ logging.info(&apos;Test Logging&apos;)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -493,7 +484,7 @@ logging.info(&apos;Test Logging&apos;)
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -562,7 +553,7 @@ logging.info(&apos;Test Logging&apos;)
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python学习笔记–7-Exceptions-and-debugging"><span class="nav-number">1.</span> <span class="nav-text">Python学习笔记–7.Exceptions and debugging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-异常处理"><span class="nav-number">1.1.</span> <span class="nav-text">1.异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-调试"><span class="nav-number">1.2.</span> <span class="nav-text">2.调试</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

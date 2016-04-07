@@ -1,0 +1,915 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Attention Shift,Computer Vision," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="Section 11.  Attention Shift in Infancy
+Automatic Detection of Attention Shift in Infancy: Eye Tracking in the Fixation Shift ParadigmLouisa Kulke, Janette Atkinson, Oliver Braddick
+
+Abstract
+Changes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Articles on Attention Shift">
+<meta property="og:url" content="http://yoursite.com/2016/04/08/Articles on Attention Shift/index.html">
+<meta property="og:site_name" content="MrZigZag">
+<meta property="og:description" content="Section 11.  Attention Shift in Infancy
+Automatic Detection of Attention Shift in Infancy: Eye Tracking in the Fixation Shift ParadigmLouisa Kulke, Janette Atkinson, Oliver Braddick
+
+Abstract
+Changes">
+<meta property="og:image" content="http://yoursite.com/../uploads/20160408/result_set1.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/20160408/result_set2.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/20160408/result_set3.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/20160408/result_set4.png">
+<meta property="og:image" content="http://yoursite.com/(20160408/ familiarity_to_novelty_shift1.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/20160408/slsom1.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/20160408/slsom2.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/20160408/measuring1.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/20160408/measuring2.png">
+<meta property="og:image" content="http://yoursite.com/../uploads/20160408/measuring3.png">
+<meta property="og:updated_time" content="2016-04-07T14:25:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Articles on Attention Shift">
+<meta name="twitter:description" content="Section 11.  Attention Shift in Infancy
+Automatic Detection of Attention Shift in Infancy: Eye Tracking in the Fixation Shift ParadigmLouisa Kulke, Janette Atkinson, Oliver Braddick
+
+Abstract
+Changes">
+<meta name="twitter:image" content="http://yoursite.com/../uploads/20160408/result_set1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Articles on Attention Shift | MrZigZag </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55467605";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MrZigZag</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">DON'T PANIC!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Articles on Attention Shift
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-08T01:11:12+08:00" content="2016-04-08">
+              2016-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/08/Articles on Attention Shift/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/08/Articles on Attention Shift/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Section-1"><a href="#Section-1" class="headerlink" title="Section 1"></a>Section 1</h2><h3 id="1-Attention-Shift-in-Infancy"><a href="#1-Attention-Shift-in-Infancy" class="headerlink" title="1.  Attention Shift in Infancy"></a>1.  Attention Shift in Infancy</h3><blockquote>
+<h3 id="Automatic-Detection-of-Attention-Shift-in-Infancy-Eye-Tracking-in-the-Fixation-Shift-Paradigm"><a href="#Automatic-Detection-of-Attention-Shift-in-Infancy-Eye-Tracking-in-the-Fixation-Shift-Paradigm" class="headerlink" title="Automatic Detection of Attention Shift in Infancy: Eye Tracking in the Fixation Shift Paradigm"></a>Automatic Detection of Attention Shift in Infancy: Eye Tracking in the Fixation Shift Paradigm</h3><p>Louisa Kulke, Janette Atkinson, Oliver Braddick</p>
+</blockquote>
+<h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a><em>Abstract</em></h4><ol>
+<li>Changes in switches of attention between <strong>1 and 9 months of age</strong> in <strong>67 TD infants</strong>.</li>
+<li><strong>Saccadic latencies</strong>, as a measure of attention shift, from a <strong>central stimulus to peripheral visual target</strong> , measured in Fixation Shift Paradigm.</li>
+<li><strong>Competition Condition:</strong> the central stimulus stays visible when the peripheral target appears.<a id="more"></a>
+<strong>Non-competition Condition:</strong> the central stimulus disappears as the peripheral target appears.<br><strong><em>Fixation Shifts occur later in competition condition.</em></strong>  And the difference <strong>decreases</strong> with age.</li>
+<li>This work shows significantly <strong>faster disengagement</strong> in infants <strong>over 4 months</strong> than  <strong>in the younger group</strong> .</li>
+<li>Reduced saccadic latencies in the course of a test session indicate a novel learning effect.</li>
+</ol>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><em>Introduction</em></h4><ol>
+<li>Saccadic latencies have been found to differ between conditions, being <strong><em>shorter</em></strong> when there is a <strong>time delay</strong> between the central target disappearing and the peripheral target appearing and <strong><em>highest</em></strong> in the competition or overlap condition.</li>
+<li>Young infants in the 2-4 months of life show long latencies, or do not shift their gaze off the central stimulus at all in the competition condition.(<strong><em>Sticky fixation</em></strong>)</li>
+<li><strong>[Saccadic accuracy]</strong>:  saccades towards peripheral targets are often hypometric within the first 2 months of life; Infants tend to <strong><em>undershoot the peripheral target position</em></strong> followed by <strong><em>corrective saccades to fixate the target</em></strong>.</li>
+<li>Infants with <strong>one cerebral hemisphere removed</strong> due to severe epilepsy (hemispherectomy) can <strong><em>make fixation shifts under non-competition to both sides, but not under competition</em></strong>, to a target appearing in the half-field corresponding to the surgically removed hemisphere.</li>
+<li><strong>[Relations between attention shift and brain]</strong> :  <strong>Automatic engagement</strong> with a target only involves <strong><em>subcortical pathways</em></strong>, whereas <strong><em>cortical control</em></strong> becomes necessary for <strong>disengagement</strong> from a current central stimulus. In the 1st months of life, attention shifts reflect activity in subcortical networks involving the superior colliculus, with cortical control emerging at around 3 months of age, allowing the infant to shift attention more flexibly at older age.</li>
+<li><strong>[Relations between attention shift and atypical children]:</strong> Poor disengagement under competition, possibly indicating delayed or abnormal cortical maturation, has been found in children with Williams Syndrome, pre-term born infants, infants with perinatal insults-HIE or focal lesions, siblings of austic children and infants with one hemisphere removed.</li>
+<li>Previous comparisons of different stimuli in the FSP(Fixation Shift Paradigm) indicate that stimulus features are not crucial for the results in regard to attention disengagement, with the exception of maternal faces which can lead to different saccade latencies.</li>
+</ol>
+<h4 id="Method"><a href="#Method" class="headerlink" title="Method"></a><em>Method</em></h4><ol>
+<li><p><strong>[Participants]:</strong>  2 different groups of infants.<br><strong>Group 1:</strong> 23 infants, 1.42-8.18 months, M~age~ = 4.19 months, SD = 1.74.</p>
+<p><strong>Group 2:</strong> further 44 infants, 1.19-9.10 months, M~age~ = 4.59 months, SD = 2.38.<br>All infants were born within 2 weeks of full term, neurologically normal at birth with no perinatal complications.</p>
+</li>
+<li><p><strong>[Materials and Stimuli]:</strong> a gray background with mean luminance of 77cd/m^2^, each trial starts with a infant-friendly movie to attract the infant’s attention.</p>
+<p><strong>Central Stimuli:</strong> a schematic face, reversal phase at 3 Hz, appears at least for 2 seconds. While the infant had fixated the face for 0.33 seconds (20 eye tracking samples) , the peripheral target appeared.</p>
+<p><strong>Peripheral Target:</strong> a black and a white rectangular bar, reversal phase at 3 Hz. Disappear when the infant had fixated it for 333ms.</p>
+</li>
+<li><p><strong>[Design]:</strong> </p>
+<p><strong><em>With-in subject factor:</em></strong> Condition (competition / non-competition) </p>
+<p><strong><em>Between subject factor:</em></strong> Age Group<br>​<br><strong>Fixation Variables:</strong> <strong><em>Sticky fixation</em></strong> (fixate on the central schematic face for more than 5 secs), Fixation Shift to the <strong><em>wrong</em></strong> direction, <strong><em>Correct saccades</em></strong>,  <strong><em>Fixation position</em></strong> after the first saccades.</p>
+</li>
+<li><p><strong>[Eye Tracking]:</strong> remote eye tracker, Tobii X120.</p>
+</li>
+<li><p><strong>[Procedue]:</strong> </p>
+<p><strong><em>Calibration:</em></strong> 5-point calibration on an adult before the experiment. This will improve data quality than calibration on individual infants.</p>
+<p><strong><em>Participants:</em></strong> Infant was seated on the parent’s lap. The parent wore sunglasses to avoid being caught by the tracker.</p>
+</li>
+</ol>
+<h4 id="Results"><a href="#Results" class="headerlink" title="Results"></a><em>Results</em></h4><ol>
+<li>The two subjective groups are comparable. There was no significant diffirence in saccade latency between the two groups.</li>
+<li>Only a small percentage of trials had to be excluded. About 9% of the trials showed an initial fixation shift towards the wrong direction. Sticky fixations rarely occurred.</li>
+<li><strong>Mean saccade latencies</strong> decrease with age, particularly in the competition condition.</li>
+<li><strong>[Gaze Position]:</strong> At the end of the first saccade towards the target, younger infants’ fixations were closer to the centre of the screen. This difference was significant between age but not conditions. As the target disappeared after the first saccade towards it, <strong><em>subsequent corrections of the undershot can be further investigated.</em></strong></li>
+</ol>
+<h4 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a><em>Discussion</em></h4><ol>
+<li>Saccade latencies decreased over trial number, suggesting a small learning effect in the non-competition condition, but this was not seen in the competition condition.</li>
+<li><p>Our results suggest that the motor programming or execution of eye-movements is itself immature in younger infants, in addition to the attentional control of disengagement.</p>
+<p>​</p>
+<h3 id="2-Visual-Attention-as-Early-Predictor-of-Autism"><a href="#2-Visual-Attention-as-Early-Predictor-of-Autism" class="headerlink" title="2. Visual Attention as Early Predictor of Autism"></a>2. Visual Attention as Early Predictor of Autism</h3></li>
+</ol>
+<blockquote>
+<h3 id="Enhanced-Visual-Attention-May-Be-Early-Predictor-of-Autism"><a href="#Enhanced-Visual-Attention-May-Be-Early-Predictor-of-Autism" class="headerlink" title="Enhanced Visual Attention May Be Early Predictor of Autism"></a>Enhanced Visual Attention May Be Early Predictor of Autism</h3><p>Infants who can quickly recognize unusual visual patterns may be more likely to develop autism symptoms.</p>
+<p>Jessica Schmerler, Scientific American</p>
+</blockquote>
+<ol>
+<li><p>On average, diagnosis does not occur until after age of four, yet all evidence indicates that early intervention is the best way to maximize the treatment impact.</p>
+</li>
+<li><p>The <strong>AOSI (Autism Observation Scale for Infants)</strong> measures <strong><em>precursors to symptoms</em></strong>, such as <em>a baby’s response to name, eye contact, social reciprocity (社会性互惠) and imitation (模仿)</em>. The <strong>ADOS (Autism Diagnostic Observation Schedule)</strong> measures the <strong><em>characteristic and severity of autism symptoms</em></strong> such as <em>social affectation and repetitive and restrictive behaviors</em>.</p>
+</li>
+<li><p>Experts have long recognized that certain individuals with autism have superior visual skills, such as increased visual memory of artistic talent.</p>
+</li>
+<li><p>They tested both visual attention and autism symptoms in infants at 9 months, 15 months and 2 years.</p>
+<p><strong>High Risk Infants:</strong> 82, have an older sibling diagnosed with autism.</p>
+<p><strong>Low Risk Infants:</strong> 27, have no mental or medical conditions and no first-degree relatives with an autism diagnosis.</p>
+<p><strong>Autism Symptoms Marker:</strong> <strong><em>AOSI</em></strong> at 9 and 15 months, <strong><em>ADOS</em></strong> at 2 years.</p>
+</li>
+<li><p><strong>[Stimulus]:</strong> After a short animation, an image will appear containing a target that was the “odd-one-out”. For example, in a circle of seven “X”s an “O” or plus sign might appear. Researchers measure the time it took for them to look towards the odd target.</p>
+</li>
+<li><p>The kids who at 9 months quickly identified the odd visual element were more likely to show early symptoms of autism on the AOSI test at 15 and 24 months. But visual search performance did not directly correlate with ADOS scores at 2 years.</p>
+</li>
+<li><p>Although enhanced visual perception at 9 months can predict the <strong>presence of autism symptoms</strong> later, it does not predict future <strong>symptom severity</strong>.</p>
+</li>
+<li><p>Further research is necessary to establish whether superior attention and perception is a precursor to other autism symptoms or is simply another symptom itself.</p>
+</li>
+</ol>
+<blockquote>
+<h3 id="Enhanced-Visual-Search-in-Infancy-Predicts-Emerging-Autism-Symptoms"><a href="#Enhanced-Visual-Search-in-Infancy-Predicts-Emerging-Autism-Symptoms" class="headerlink" title="Enhanced Visual Search in Infancy Predicts Emerging Autism Symptoms"></a>Enhanced Visual Search in Infancy Predicts Emerging Autism Symptoms</h3><p>Teodora Gliga, Rachael Bedford, et al</p>
+</blockquote>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a><em>Summary</em></h4><ol>
+<li>In addition to core symptoms, such as social interaction and communication difficulties, restricted and repetitive behaviors, autism is also characterized by aspects of superior perception.</li>
+<li>Perceptual and social interaction atypicalities could reflect coexpressed but biologically independent pathologies as suggested by a “fractionable” phenotype model of autism.</li>
+<li>Enhanced visual search performance at 9 months predicted a higher level of autism symptoms at 15 months and at 2 years. Infant perceptual atypicalities are thus intrinsically linked to the emerging autism phenotype.</li>
+</ol>
+<h4 id="Results-and-Discussion"><a href="#Results-and-Discussion" class="headerlink" title="Results and Discussion"></a><em>Results and Discussion</em></h4><ol>
+<li>Nine-month visual search significantly predicted the 15-month AOSI and the 2-year ADOS score, with increased visual search accuracy predicting higher symptom severity.</li>
+<li>After accounting for earlier autism markers, we ran an autoregressive model with regressions rather than correlations. The relationship between 9-month visual search and 15-month AOSI remained significant, but the direct relationship with later ADOS became non-significant, suggesting a developmental pathway in which infant visual search contributes to autism symptoms at 15 months of age and that in turn contributes to autism severity at 2 years of age.</li>
+<li>We analyzed the first saccade made in each trial, and not whether infants ever visited the target during the trial.</li>
+<li>Given a higher incidence of hyperlexia in autism, future studies should address the question of whether the demonstrated superior visual search also predicts better recognition of letters later in childhood.</li>
+<li>Our findings corroborate evidence for atypical oculomotor behavior and increased frontal-occipital functional connectivity during the first year of life of these infants that later develop autism symptoms, by suggesting that perturbations in general processes, such as perception or attention, are more important than previously believed in the developmental pathway to this disorder.</li>
+</ol>
+<h3 id="3-Attention-Shift-and-Novelty"><a href="#3-Attention-Shift-and-Novelty" class="headerlink" title="3. Attention Shift and Novelty"></a>3. Attention Shift and Novelty</h3><blockquote>
+<h3 id="Attention-Shift-Impairments-and-Novelty-Avoidance–Effects-of-Characteristics-of-Autism-in-Self-Organization-of-an-Artificial-Neural-Network"><a href="#Attention-Shift-Impairments-and-Novelty-Avoidance–Effects-of-Characteristics-of-Autism-in-Self-Organization-of-an-Artificial-Neural-Network" class="headerlink" title="Attention Shift Impairments and Novelty Avoidance–Effects of Characteristics of Autism in Self-Organization of an Artificial Neural Network"></a>Attention Shift Impairments and Novelty Avoidance–Effects of Characteristics of Autism in Self-Organization of an Artificial Neural Network</h3><p>Lennart Gustafsson, Andrew P. Paplinski</p>
+</blockquote>
+<h4 id="Abstract-1"><a href="#Abstract-1" class="headerlink" title="Abstract"></a><em>Abstract</em></h4><ol>
+<li><p><strong>Attention shift impairment</strong> and the <strong>negative response to novelty</strong> are prevalent in individuals with autism.</p>
+</li>
+<li><p>It has been theorized that <strong>cortical feature maps</strong> in individuals with autism are inadequate for forming abstract codes and representations, explaining the importance paid to detail, rather than salient features.</p>
+</li>
+<li><p>They model the attention shift by presenting an ANN with stimuli from 2 sources in 4 different modes:</p>
+<p><strong>1)Novelty seeking:</strong> regarded as normal learning</p>
+<p><strong>2)Attention shift impairment:</strong> shifts are made with a low probability</p>
+<p><strong>3)Novelty avoiding:</strong> shifts are made if the new stimulus is not too different from earlier stimuli</p>
+<p><strong>4)Novelty avoidance in conjunction with attention shift impairment</strong></p>
+</li>
+<li><p>The resulting feature maps from learning with mode 1 and mode 2 were identical. </p>
+<p>The ones from learning with mode 3 were adaptive to one of the sources at the expense of the other.</p>
+<p>The resulting feature maps from learning with mode 4 were strikingly  different, ranging from almost normal to poor, only reflecting a reduced source, from one stimulation to the next, even with identical initial conditions.</p>
+</li>
+</ol>
+<h4 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a><em>Introduction</em></h4><ol>
+<li>There is a general agreement that attentional impairment s commonly seen in autism. This impairment includes joint attention and attention shifts.</li>
+<li>Researchers hypothesize that novelty itself is disagreeable to children with autism (personal stimuli are assumed to be connected with novelty more often than impersonal stimuli) and that <strong>novelty avoidance will cause attention impairments.</strong></li>
+<li>It was found that autistic children are impaired in their capacity to encode information from sensory to abstract codes, making it difficult for them to see what normal individuals regard as salient features of a situation.</li>
+<li>A learning process for an artificial neural network may result in an inadequate feature map such that correct classification of stimuli, ignoring incident detail, is not well accomplished.</li>
+<li>The purpose of this paper is to <strong>examine how the attention shift impairment and novelty avoidance influence the self-organization of an artificial neural network</strong> and to <strong>discuss the characteristics of the resulting maps</strong>.</li>
+</ol>
+<h4 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a><em>Methods</em></h4><ol>
+<li><p><strong>Two sources of stimuli</strong> are employed. New stimuli are made available by these sources at random, although only by one source at a time. The ANN is engaged in <strong>a particular source when the output from that source forms the input to the ANN</strong>.</p>
+</li>
+<li><p>Shift of the engagement to the alternate source is made in 4 different modes in the SOM.</p>
+<p>1). <strong>Novelty seeking (Normal State)</strong>: attention is shifted to the alternate source if that source presents the next new stimulus.</p>
+<p>2). <strong>Attention shift impairment</strong>: attention is shifted to the alternate source with a probability of 0.01 if that source presents the next new stimulus.</p>
+<p>3). <strong>Novelty avoidance</strong>: attention is shifted to the alternate source if that source presents the next new stimulus but only if <strong><em>the new stimulus output from that source is less distance from the weight vector of the node most resembling the stimulus output than the average distance between stimulus and weight vectors in the past</em></strong>.</p>
+<p>4). <strong>Novelty avoidance in conjunction with attention shift impairment</strong></p>
+</li>
+<li><p>Each source in the first two sets of simulations provides three classes of stimuli. There are 10 exemplars in each class for each source. In the last two sets of simulations one source is reduced to provide only 2 classes of stimuli, one of them with 20 exemplars.</p>
+</li>
+</ol>
+<h4 id="Results-1"><a href="#Results-1" class="headerlink" title="Results"></a><em>Results</em></h4><ol>
+<li><p>In the <strong><em>first</em></strong> set of simulations a canonical SOM with nodes organized in a 2x2 mesh was used. </p>
+<p><strong>Normal learning with novelty seeking and learning with attention shift impairment results in the <em>same</em> maps</strong>– the node weights assume values which are the mean values of each class.</p>
+<p><strong>Learning with novelty avoidance results in a map where nodes have adapted to the stimuli from one source</strong>– the node weights assume values which are the mean value of the same subclass in each class.</p>
+<p><img src="../uploads/20160408/result_set1.png" alt="result of set1"></p>
+</li>
+<li><p>In the <strong><em>second</em></strong> set of simulations a SOM with an excess of nodes, in a 3x3 mesh, was used.</p>
+<p>Learning in mode1 and mode2 resulted in maps that <strong>in some cases have nodes adapted to the mean of subclasses from both sources combined</strong> and <strong>in other cases adapted to the mean of subclasses from each source</strong>.</p>
+<p>Learning in mode3 resulted in maps which <strong>give preference to one source</strong> and most nodes will <strong>adapt to subclass from that source</strong>, but nodes may also <strong>adapt to one or more subclasses of the other source</strong>.<br><img src="../uploads/20160408/result_set2.png" alt="result of set2"></p>
+</li>
+<li><p><strong><em>Third Set</em></strong>, canonical 2x2 SOM.</p>
+<p>Resulting maps from learning in mode1 and mode2 are the same.</p>
+<p>Maps in mode3 shows that the  <strong>source with a reduced set of stimuli dominates the development of learning</strong>, leaving one subclass of stimuli from the full source without any detector node.<br><img src="../uploads/20160408/result_set3.png" alt="result of set3"></p>
+</li>
+<li><p><strong><em>Fourth Set</em></strong>, 4x4 SOM</p>
+<p>Learning in mode3 shows a tendency to normality.<br><img src="../uploads/20160408/result_set4.png" alt="result of set4"></p>
+</li>
+<li><p><strong>Learning in Mode4</strong></p>
+<p>The results in learning in mode 4 are qualitatively very different. Learning with novelty avoidance and attention shift impairment is far from robust. It is clear that better maps result from simulations where the domination by the reduced source, as indicated by the end if attention shifts, comes at a late stage.</p>
+</li>
+</ol>
+<h4 id="Discussion-1"><a href="#Discussion-1" class="headerlink" title="Discussion"></a><em>Discussion</em></h4><ol>
+<li>The results show that <strong>novelty avoidance results in inadequate maps with characteristic deficits</strong> such that they lend support to the theory that <strong><em>novelty avoidance may be primary in causing other autistic characteristics</em></strong>.</li>
+<li>The results do not lend support to the hypothesis that attention shift impairments by itself may be primary in causing other autistic characteristics since <strong><em>self-organization with attention shift impairment have always resulted in normal maps.</em></strong></li>
+<li>Attention shift impairment in conjunction with novelty avoidance will result in self-organization with an additional feature which may be interpreted as a characteristic common in autism.</li>
+</ol>
+<blockquote>
+<h3 id="Familiarity-to-novelty-shift-driven-by-learning-a-conceptual-and-computational-model"><a href="#Familiarity-to-novelty-shift-driven-by-learning-a-conceptual-and-computational-model" class="headerlink" title="Familiarity-to-novelty shift driven by learning: a conceptual and computational model"></a>Familiarity-to-novelty shift driven by learning: a conceptual and computational model</h3><p>Quan Wang, Pramod Chandrashekhariah and Gabriele Spina</p>
+</blockquote>
+<h4 id="Abstract-2"><a href="#Abstract-2" class="headerlink" title="Abstract"></a><em>Abstract</em></h4><ol>
+<li>They proposed a new theory explaining the familiarity-to-novelty shift in infant habituation. Infants’ interest in a stimulus is related to their learning progress, i.e, the improvement of an internal model of the stimulus.</li>
+<li>They propose that infants prefer the stimulus for which its current learning progress is maximal.</li>
+</ol>
+<h4 id="Introduction-2"><a href="#Introduction-2" class="headerlink" title="Introduction"></a><em>Introduction</em></h4><ol>
+<li><p>In infant habituation experiments, participants undergo a training phase of habituation in which the image or dynamic displays of objects are shown repeatedly, then they are tested on familiar or novel stimuli.</p>
+</li>
+<li><p><strong>Familiarity-to-novelty Shift:</strong></p>
+<p>According to <strong><em>novelty preference theory</em></strong>, infants look longer at novel stimuli during test phase.</p>
+<p>It is also observed that <strong><em>in the early phase of habituation training</em></strong>, infants look longer or react more to familiar stimuli than novel stimuli.</p>
+<p>Only with sufficient exposure to the training stimulus, the response to the familiar event decreases and infants look longer at novel stimuli.</p>
+</li>
+<li><p>Familiarity-to-novelty shift is not tied to a particular age but depends on the <strong>perceptional complexity of the stimuli, the amount of familiarization, and the form of response necessary to elicit the progression</strong>.</p>
+</li>
+<li><p><strong>[Hypothesis of this work]</strong>: attention shift in infants is related to intrinsic motivation and learning progress. Infants learn internal models of stimuli and <strong><em>their interest in a stimulus is determined by their momentary learning progress</em></strong>.</p>
+</li>
+</ol>
+<h4 id="Models"><a href="#Models" class="headerlink" title="Models"></a><em>Models</em></h4><ol>
+<li><p><strong>[Conceptual Model]</strong>: attention is operationalized with the <strong><em>learning rate</em></strong> which is the first derivative of the <strong><em>learning curve</em></strong>. The familiarity-to-novelty shift results from two competing stimuli having different complexities and by choosing the stimulus that has higher learning rate. <strong>Attention shift</strong> occurs when the learning rate of the second stimulus overtake that of the first.</p>
+<p><img src="(20160408/ familiarity_to_novelty_shift1.png" alt="familiarity to novelty shift"></p>
+</li>
+<li><p><strong>[SL-SOM] Selective Learning Self-Organization Map:</strong></p>
+<p><img src="../uploads/20160408/slsom1.png" alt="SL SOM"></p>
+<p><img src="../uploads/20160408/slsom2.png" alt="SLSOM iteration"></p>
+<p>$\beta(n)$ (familiarity value) is introduced for the purpose of identifying the familiarity of the input data sample that has appeared at a given time. $\beta(n)$ raises with the familiarity of the object’s appearance but eventually saturates.<br>$\gamma(n)$ (consistency value) is introduced in order to guage the change in the object appearance. This term is motivated by the learning progress of subjects. Infants are significantly more likely to look away at highly informative events, so we argue here that the subjects are unlikely to learn an object when its appearance is changing drastically from time to time.</p>
+</li>
+</ol>
+<blockquote>
+<h4 id="Social-attention-a-possible-early-indicator-of-efficacy-in-autism-clinical-trials"><a href="#Social-attention-a-possible-early-indicator-of-efficacy-in-autism-clinical-trials" class="headerlink" title="Social attention: a possible early indicator of efficacy in autism clinical trials"></a>Social attention: a possible early indicator of efficacy in autism clinical trials</h4><p>Geraldine Dawson, Raphael Bernier and Robert H Ring</p>
+</blockquote>
+<h4 id="Abstract-3"><a href="#Abstract-3" class="headerlink" title="Abstract"></a><em>Abstract</em></h4><ol>
+<li>This paper provides an overview of research on <strong>social attention impairments in autism</strong> and their <strong>relation to deficiencies</strong> in neural circuitry related to social reward.</li>
+<li>They offer a framework for considering social attention as a potential moderator or mediator of response to early behavioral intervention, and as an early indicator of effcacy if behavioral and/or pharmacological treatments aimed at addressing the social impairments in autism.</li>
+</ol>
+<h4 id="REVIEW"><a href="#REVIEW" class="headerlink" title="[REVIEW]"></a>[REVIEW]</h4><h4 id="1-Early-manifestation-of-social-attention-impairments-in-ASD"><a href="#1-Early-manifestation-of-social-attention-impairments-in-ASD" class="headerlink" title="1. Early manifestation of social attention impairments in ASD"></a><em>1. Early manifestation of social attention impairments in ASD</em></h4><ol>
+<li><strong>Typical developed infants</strong> show preferencntial attention to people, including their eyes, faces, and movements from the first day of life.</li>
+<li>Chawarska <em>et al</em> found that, unlike toddlers with typical development or developmental delay, <strong><em>toddlers with ASD did not have difficulty disengaging their attention from a face</em></strong> when presented with a competing stimulus.</li>
+<li>A failure to orient to social stimuli, termed “<strong>Social Orienting Impairment</strong>“ was documented in preschool-age children with autism and was subsequently demonstrated in <strong><em>10-month-old</em></strong> infants later diagnosed with autism.</li>
+<li>Klin <em>et al</em> reported that 2-year-old with autism <strong>orient to nonsocial contingencies rather than biological motion</strong>.</li>
+<li><strong>Social Motivation Hypothesis</strong>: autism is associated with <strong><em>reduced social reward sensitivity</em></strong> manifest in a failure to affectively tag socially relevant stimuli.</li>
+<li>Preschool-age children with ASD are <strong>less likely to smile</strong> when looking at their mothers during social interations, especially during joint attention episodes.</li>
+<li>Reduced social attention has potentially negative downstream consequences for social and language development and learning, in general, affecting the development and specialization of neural circuitry subserving these domains, which is experience-dependent.</li>
+</ol>
+<h4 id="2-Neural-mechanisms-involved-in-reward-processing-and-implications-for-ASD"><a href="#2-Neural-mechanisms-involved-in-reward-processing-and-implications-for-ASD" class="headerlink" title="2. Neural mechanisms involved in reward processing and implications for ASD"></a><em>2. Neural mechanisms involved in reward processing and implications for ASD</em></h4><ol>
+<li>The anterior cingulate cortex (ACC) and orbitofrontal cortex (OFC), as well as regions involved in the mesolimbic dopamine system, which originates in the ventral tegmental area (VTA) and project to the nucleus accumbens (NA) in the ventral striatum, have long been associated with reward processes. <strong><em>Functional imaging studies</em></strong> implicate this system and these structures during the viewing of social stimuli such as faces, or when receiving social reinforcement.</li>
+</ol>
+<h4 id="3-Neuropeptides-involved-in-reward-processing-and-ASD"><a href="#3-Neuropeptides-involved-in-reward-processing-and-ASD" class="headerlink" title="3. Neuropeptides involved in reward processing and ASD"></a><em>3. Neuropeptides involved in reward processing and ASD</em></h4><h4 id="4-Studies-showing-altered-levels-of-oxytocin-in-ASD"><a href="#4-Studies-showing-altered-levels-of-oxytocin-in-ASD" class="headerlink" title="4. Studies showing altered levels of oxytocin in ASD"></a><em>4. Studies showing altered levels of oxytocin in ASD</em></h4><h4 id="5-Impact-of-oxytocin-on-social-attention-functioning-in-ASD-participants"><a href="#5-Impact-of-oxytocin-on-social-attention-functioning-in-ASD-participants" class="headerlink" title="5. Impact of oxytocin on social attention/functioning in ASD participants"></a><em>5. Impact of oxytocin on social attention/functioning in ASD participants</em></h4><h4 id="6-Social-attention-as-a-moderator-and-mediator-in-autism"><a href="#6-Social-attention-as-a-moderator-and-mediator-in-autism" class="headerlink" title="6. Social attention as a moderator and mediator in autism"></a><em>6. Social attention as a moderator and mediator in autism</em></h4><ol>
+<li><p>Many studies have demonstrated that reward facilitates attention to specific stimuli, and that reward-based priorities strongly influence how attention is allocated.</p>
+</li>
+<li><p>ERP measures of attention have been shown to be closely linked to reward anticipation, and other studies have demonstrated that <strong>visual attention to a stimulus is modulated by its associated value</strong>.</p>
+</li>
+<li><p>Vismara and Rogers summarized the extensive research literature on behavioral interventions for children with ASD and concluded that <strong>both comprehensive and targeted interventions can significantly improve autism symptoms</strong> in young children and toddlers with ASD.</p>
+</li>
+<li><p>Measures of social attention could potentially serve as <strong><em>an early predictor of treatment response</em></strong> in intervention trials, whether behavioral or pharmacological, in which enhancement of social motivation/social attention is presumed to be affected and central to the mechanism of change.</p>
+</li>
+<li><p>It is possible that response to a behavioral intervention could be enhanced through pharmacological intervention that augments social attention or otherwise improves the tractability of other components of the treatment plan.</p>
+</li>
+</ol>
+<h4 id="7-How-to-measure-social-attention-in-individuals-with-ASD"><a href="#7-How-to-measure-social-attention-in-individuals-with-ASD" class="headerlink" title="7. How to measure social attention in individuals with ASD"></a><em>7. How to measure social attention in individuals with ASD</em></h4><ol>
+<li>Behavioral Measures</li>
+<li>Electrophysiological Measures</li>
+<li>Eye Tracking Measures</li>
+</ol>
+<p><img src="../uploads/20160408/measuring1.png" alt="measuring table 1"></p>
+<p><img src="../uploads/20160408/measuring2.png" alt="measuring table 2"></p>
+<p><img src="../uploads/20160408/measuring3.png" alt="measuring table 3"></p>
+<h4 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a><em>Conclusions</em></h4><ol>
+<li>Early behavioral intervention serves to increase children’s attention to and enjoyment of social interactions, thereby increasing opportunities for learning and helping steer brain and behavioral development back toward the normal trajectory.</li>
+<li>Oxytocin may enhance social engagement and attention in  persons with ASD through its effects of neural circuitry related to social reward.</li>
+<li>Attention is closely related to the reward value of stimuli, activating the ACC which is known to mediate attention and be a key region involved in reward processing.</li>
+</ol>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Attention-Shift/" rel="tag">#Attention Shift</a>
+          
+            <a href="/tags/Computer-Vision/" rel="tag">#Computer Vision</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/07/A*寻路算法/" rel="next" title="A*寻路算法">
+                <i class="fa fa-chevron-left"></i> A*寻路算法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/08/Articles on Attention Shift/"
+           data-title="Articles on Attention Shift" data-url="http://yoursite.com/2016/04/08/Articles on Attention Shift/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="李松江" />
+          <p class="site-author-name" itemprop="name">李松江</p>
+          <p class="site-description motion-element" itemprop="description">So long and thanks for all the fish.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lisongjiang" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2824850953" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bil.pku.edu.cn/team_lsj.html" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  LabProfile
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Section-1"><span class="nav-number">1.</span> <span class="nav-text">Section 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Attention-Shift-in-Infancy"><span class="nav-number">1.1.</span> <span class="nav-text">1.  Attention Shift in Infancy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Automatic-Detection-of-Attention-Shift-in-Infancy-Eye-Tracking-in-the-Fixation-Shift-Paradigm"><span class="nav-number">1.2.</span> <span class="nav-text">Automatic Detection of Attention Shift in Infancy: Eye Tracking in the Fixation Shift Paradigm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Abstract"><span class="nav-number">1.2.1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Introduction"><span class="nav-number">1.2.2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method"><span class="nav-number">1.2.3.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Results"><span class="nav-number">1.2.4.</span> <span class="nav-text">Results</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Discussion"><span class="nav-number">1.2.5.</span> <span class="nav-text">Discussion</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Visual-Attention-as-Early-Predictor-of-Autism"><span class="nav-number">1.3.</span> <span class="nav-text">2. Visual Attention as Early Predictor of Autism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Enhanced-Visual-Attention-May-Be-Early-Predictor-of-Autism"><span class="nav-number">1.4.</span> <span class="nav-text">Enhanced Visual Attention May Be Early Predictor of Autism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Enhanced-Visual-Search-in-Infancy-Predicts-Emerging-Autism-Symptoms"><span class="nav-number">1.5.</span> <span class="nav-text">Enhanced Visual Search in Infancy Predicts Emerging Autism Symptoms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary"><span class="nav-number">1.5.1.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Results-and-Discussion"><span class="nav-number">1.5.2.</span> <span class="nav-text">Results and Discussion</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Attention-Shift-and-Novelty"><span class="nav-number">1.6.</span> <span class="nav-text">3. Attention Shift and Novelty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Attention-Shift-Impairments-and-Novelty-Avoidance–Effects-of-Characteristics-of-Autism-in-Self-Organization-of-an-Artificial-Neural-Network"><span class="nav-number">1.7.</span> <span class="nav-text">Attention Shift Impairments and Novelty Avoidance–Effects of Characteristics of Autism in Self-Organization of an Artificial Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Abstract-1"><span class="nav-number">1.7.1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Introduction-1"><span class="nav-number">1.7.2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Methods"><span class="nav-number">1.7.3.</span> <span class="nav-text">Methods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Results-1"><span class="nav-number">1.7.4.</span> <span class="nav-text">Results</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Discussion-1"><span class="nav-number">1.7.5.</span> <span class="nav-text">Discussion</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Familiarity-to-novelty-shift-driven-by-learning-a-conceptual-and-computational-model"><span class="nav-number">1.8.</span> <span class="nav-text">Familiarity-to-novelty shift driven by learning: a conceptual and computational model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Abstract-2"><span class="nav-number">1.8.1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Introduction-2"><span class="nav-number">1.8.2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Models"><span class="nav-number">1.8.3.</span> <span class="nav-text">Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Social-attention-a-possible-early-indicator-of-efficacy-in-autism-clinical-trials"><span class="nav-number">1.8.4.</span> <span class="nav-text">Social attention: a possible early indicator of efficacy in autism clinical trials</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Abstract-3"><span class="nav-number">1.8.5.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#REVIEW"><span class="nav-number">1.8.6.</span> <span class="nav-text">[REVIEW]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Early-manifestation-of-social-attention-impairments-in-ASD"><span class="nav-number">1.8.7.</span> <span class="nav-text">1. Early manifestation of social attention impairments in ASD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Neural-mechanisms-involved-in-reward-processing-and-implications-for-ASD"><span class="nav-number">1.8.8.</span> <span class="nav-text">2. Neural mechanisms involved in reward processing and implications for ASD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Neuropeptides-involved-in-reward-processing-and-ASD"><span class="nav-number">1.8.9.</span> <span class="nav-text">3. Neuropeptides involved in reward processing and ASD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Studies-showing-altered-levels-of-oxytocin-in-ASD"><span class="nav-number">1.8.10.</span> <span class="nav-text">4. Studies showing altered levels of oxytocin in ASD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Impact-of-oxytocin-on-social-attention-functioning-in-ASD-participants"><span class="nav-number">1.8.11.</span> <span class="nav-text">5. Impact of oxytocin on social attention/functioning in ASD participants</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Social-attention-as-a-moderator-and-mediator-in-autism"><span class="nav-number">1.8.12.</span> <span class="nav-text">6. Social attention as a moderator and mediator in autism</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-How-to-measure-social-attention-in-individuals-with-ASD"><span class="nav-number">1.8.13.</span> <span class="nav-text">7. How to measure social attention in individuals with ASD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conclusions"><span class="nav-number">1.8.14.</span> <span class="nav-text">Conclusions</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李松江</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lisongjiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
