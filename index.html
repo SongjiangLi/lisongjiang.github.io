@@ -226,8 +226,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/02/Hexo-Study-Test/" itemprop="url">
-                  Hexo Study Test
+                <a class="post-title-link" href="/2016/04/07/python学习笔记8/" itemprop="url">
+                  Python学习笔记8
                 </a>
               
             
@@ -240,11 +240,30 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-02T00:04:06+08:00" content="2016-04-02">
-              2016-04-02
+            <time itemprop="dateCreated" datetime="2016-04-07T16:24:05+08:00" content="2016-04-07">
+              2016-04-07
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -269,78 +288,1707 @@
       
         
           
-            <p>##01背包问题</p>
-<p>2015-09-08</p>
-<p>####问题描述</p>
-<p>有N件物体，体积为<em>v1、v2…vN</em>，价值为<em>w1、w2…wN</em>。<br>现在有一个容量为<em>V</em>的包，从N件物体中选择若干件放进包里，使得包里物体的<strong>总价值最大</strong>。</p>
-<p>####基本思路</p>
-<p>利用动态规划，建立<code>(N+1)*(V+1)</code>的矩阵<code>F[N+1][V+1]</code>，<code>F[i][j]</code>表示在前i个物体中取若干个放入剩余容量为j的背包得到的最大的价值。于是有：</p>
-<pre><code>F[i][j] = max(F[i-1][j], F[i-1][j-v[i]]+w[i])
-</code></pre><p>需要注意的是，矩阵第一行第一列为0，表示没有物体或者没有剩余空间时价值都是0。实际上<code>F[i-1][j]</code>表示没有放进第i个物体，<code>F[i-1][j-v[i]]+w[i]</code>表示放进了第i个物体时的价值。</p>
-<p>####伪代码</p>
-<pre><code>F[0][] &lt;- 0
-F[][0] &lt;- 0
-for i = 1...N
-    for j = 1...V
-        F[i][j] = F[i - 1][j]
-        if (j &gt;= v[i]) //能放进第i个物体
-            F[i][j] = max(F[i][j], F[i - 1][j - v[i]] + w[i])
-        end
-    end
-end
-F[N][V]即为所求
-</code></pre><p>###二维01背包问题</p>
-<p>类似于01背包问题，有N件物体，消耗两种属性，背包也有两种待消耗属性。求总价值最大。</p>
-<p>####伪代码</p>
-<p>类似于01背包问题，<code>c1</code>, <code>c2</code>是物体的两种属性，<code>v1</code>和<code>v2</code>是背包的两种属性。建立<code>F[v1+1][v2+1]</code>，<code>F[i][j]</code>表示背包两种属性为i和j时可放下的最大价值。</p>
-<pre><code>F[0][0] = 0
-for i = 1...N
-    for j = v1...c1[i] // decrease
-        for k = v2...c2[i] // decrease
-            F[j][k] = max(F[j][k], F[j - c1[i]][k - c2[i]] + w[i])
-        end
-    end
-end
-</code></pre><p>####实例</p>
-<p><strong><a href="http://bailian.openjudge.cn/practice/4102/" target="_blank" rel="external">宠物小精灵之收服</a></strong></p>
-<p><em>描述</em></p>
-<p>一天，小智和皮卡丘来到了小精灵狩猎场，里面有很多珍贵的野生宠物小精灵。小智也想收服其中的一些小精灵。然而，野生的小精灵并不那么容易被收服。对于每一个野生小精灵而言，小智可能需要使用很多个精灵球才能收服它，而在收服过程中，野生小精灵也会对皮卡丘造成一定的伤害（从而减少皮卡丘的体力）。当皮卡丘的体力小于等于0时，小智就必须结束狩猎（因为他需要给皮卡丘疗伤），而使得皮卡丘体力小于等于0的野生小精灵也不会被小智收服。当小智的精灵球用完时，狩猎也宣告结束。</p>
-<p>我们假设小智遇到野生小精灵时有两个选择：收服它，或者离开它。如果小智选择了收服，那么一定会扔出能够收服该小精灵的精灵球，而皮卡丘也一定会受到相应的伤害；如果选择离开它，那么小智不会损失精灵球，皮卡丘也不会损失体力。</p>
-<p>小智的目标有两个：主要目标是收服尽可能多的野生小精灵；如果可以收服的小精灵数量一样，小智希望皮卡丘受到的伤害越小（剩余体力越大），因为他们还要继续冒险。</p>
-<p>现在已知小智的精灵球数量和皮卡丘的初始体力，已知每一个小精灵需要的用于收服的精灵球数目和它在被收服过程中会对皮卡丘造成的伤害数目。请问，小智该如何选择收服哪些小精灵以达到他的目标呢？</p>
-<p><em>输入</em></p>
-<p>输入数据的第一行包含三个整数：N(0 &lt; N &lt; 1000)，M(0 &lt; M &lt; 500)，K(0 &lt; K &lt; 100)，分别代表小智的精灵球数量、皮卡丘初始的体力值、野生小精灵的数量。</p>
-<p>之后的K行，每一行代表一个野生小精灵，包括两个整数：收服该小精灵需要的精灵球的数量，以及收服过程中对皮卡丘造成的伤害。</p>
-<p><em>输出</em></p>
-<p>输出为一行，包含两个整数：C，R，分别表示最多收服C个小精灵，以及收服C个小精灵时皮卡丘的剩余体力值最多为R。</p>
-<p>#####代码</p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-using namespace std;
-int main(){
-    int v1, v2, N;
-    int c1[100], c2[100], f[1000][500] = {0};
-    cin &gt;&gt; v1 &gt;&gt; v2 &gt;&gt; N;
-    for (int i = 1; i &lt;= N; i++){
-        cin &gt;&gt; c1[i] &gt;&gt; c2[i];
+            <h2 id="Python学习笔记–8-I-O"><a href="#Python学习笔记–8-I-O" class="headerlink" title="Python学习笔记–8.I/O"></a>Python学习笔记–8.I/O</h2><p>2015-07-21</p>
+<p>MrZigZag @ Peking University</p>
+<h3 id="1-文件"><a href="#1-文件" class="headerlink" title="1.文件"></a>1.文件</h3><p>Python内置读写文件的函数，用法与C类似。读写文件一般都是请求操作系统打开一个文件对象，然后通过操作系统的借口从这个文件对象读写数据。</p>
+<p><strong>读文件</strong>，使用内置的<code>open()</code>函数，传入文件名和读写标识符。</p>
+<pre><code>f = open(&apos;file_name&apos;, &apos;r&apos;)
+</code></pre><p>调用<code>read()</code>方法可以一次性读取全部内容存放到一个str中，最后调用<code>close()</code>关闭文件。文件使用完毕之后必须关闭。每次都写<code>close()</code>并不方便，Python提供了<code>with</code>语句自动调用<code>close()</code>。</p>
+<pre><code>with open(&apos;file_name&apos;, &apos;r&apos;) as f:
+    str = f.read()
+</code></pre><p>与Java类似，Python要求读文件时要调用<code>try-except</code>机制来处理可能会出现的问题。</p>
+<pre><code>try:
+    f = open(&apos;file_name&apos;, &apos;r&apos;)
+    str = f.read()
+finally:
+    if f:
+        f.close()
+</code></pre><p>读文件还可以使用<code>read(size)</code>每次读取size字节的内容，或者用<code>readline()</code>读取一行，还可以用<code>readlines()</code>一次读取所有行并生成一个list。</p>
+<p><strong>读二进制文件</strong>，用<code>rb</code>模式打开文件即可。</p>
+<pre><code>with open(file_name, &apos;rb&apos;) as f:
+    u_str = f.read()
+</code></pre><p>一般而言，读取非Ascii编码的文本文件都是先用二进制打开，读取再解码。Python提供<code>codecs</code>模块处理读文件时的自动编码。</p>
+<pre><code>import codecs
+with codecs.open(file_name, &apos;r&apos;, &apos;gbk&apos;) as f:
+    f.read()
+</code></pre><p><strong>写文件</strong>，与读文件类似，区别在于用了<code>write()</code>，使用标识符<code>w</code>或者<code>wb</code>。同时可使用<code>with</code>。要写入特定编码的文件，可以使用<code>codecs</code>。</p>
+<h3 id="2-操作文件和目录"><a href="#2-操作文件和目录" class="headerlink" title="2.操作文件和目录"></a>2.操作文件和目录</h3><p>Python内置了<code>os</code>模块，可以直接调用操作系统提供的接口函数。例如：</p>
+<pre><code>&gt;&gt;&gt; import os
+&gt;&gt;&gt; os.name
+&apos;posix&apos;
+
+&gt;&gt;&gt; os.uname() #操作系统的详细信息
+(&apos;Darwin&apos;, &apos;MrZigZagdeMacBook-Pro.local&apos;, &apos;14.4.0&apos;, &apos;Darwin Kernel Version 14.4.0: Thu May 28 11:35:04 PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64&apos;, &apos;x86_64&apos;)
+
+&gt;&gt;&gt; os.environ #环境变量
+{&apos;VERSIONER_PYTHON_PREFER_32_BIT&apos;: &apos;no&apos;, &apos;TERM_PROGRAM_VERSION&apos;: &apos;326&apos;, &apos;LOGNAME&apos;: &apos;michael&apos;, &apos;USER&apos;: &apos;michael&apos;, &apos;PATH&apos;: &apos;/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/mysql/bin&apos;, ...}
+
+&gt;&gt;&gt; os.getenv(&apos;PATH&apos;) #获取环境变量的值
+&apos;/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/bin&apos;
+</code></pre><p>操作文件和目录的函数放在<code>os</code>和<code>os.path</code>模块中。</p>
+<pre><code>&gt;&gt;&gt; os.path.abspath(&apos;.&apos;) # 当前目录的绝对路径
+&apos;/Users/mrzigzag&apos;
+</code></pre><p>将两个路径组合时，根据操作系统的差异性，一般不要直接拼接字符串，最好用<code>os.path.join()</code>函数，这样可以处理不同操作系统的路径分隔符。</p>
+<p>拆分路径时用<code>os.path.split()</code>可以将路径拆分成 两个部分，最后一个部分总是最后级别的目录或者文件名。得到文件扩展名<code>os.path.splitext()</code>。</p>
+<p>创建目录<code>os.mkdir(dir)</code>，删除目录<code>os.rmdir(dir)</code>。</p>
+<pre><code>&gt;&gt;&gt; os.path.join(&apos;/Users/mrzigzag&apos;, &apos;testdir&apos;)
+&apos;/Users/mrzigzag/testdir&apos;
+&gt;&gt;&gt; os.mkdir(&apos;/Users/mrzigzag/testdir&apos;)
+&gt;&gt;&gt; os.rmdir(&apos;/Users/mrzigzag/testdir&apos;)
+&gt;&gt;&gt; os.path.split(&apos;/Users/mrzigzag/testdir&apos;)
+(&apos;/Users/mrzigzag&apos;, &apos;testdir&apos;)
+</code></pre><p>重命名<code>os.rename(name.old, name.new)</code>，删除<code>os.remove(file)</code>。</p>
+<p>复制文件需要<code>shutil</code>模块提供的<code>copyfile()</code>函数。</p>
+<p>利用Python的特性对文件目录进行批量操作，例如列出所有文件。</p>
+<pre><code>&gt;&gt;&gt; [x for x in os.listdir(&apos;.&apos;) if not os.path.isdir(x)]
+</code></pre><p>要列出所有<code>.jpg</code>文件。</p>
+<pre><code>&gt;&gt;&gt; [x for x in os.listdir(&apos;.&apos;) if x not os.path.isdir(x) and os.path.splitext(x)[1] == &apos;.jpg&apos;]
+</code></pre><h3 id="3-序列化"><a href="#3-序列化" class="headerlink" title="3.序列化"></a>3.序列化</h3><p>把变量从内存中变成可存储或者可传输的过程称为序列化。反之称为反序列化。</p>
+<p>Python提供两个模块来实现序列化，<code>cPickle</code>和<code>pickle</code>，功能一样，但是<code>cPickle</code>用c写，速度快，一般优先调用。</p>
+<pre><code>try:
+    import cPickle as pickle
+except ImportError:
+    import pickle
+</code></pre><p>将对象写到文件。可以用<code>pickle.dumps()</code>方法将任意对象序列化成为一个str，然后将该str写入到文件。或者用<code>pickle.dump()</code>直接将对象序列化后写入到一个file-like Object。</p>
+<pre><code>with open(&apos;file_name&apos;, &apos;wb&apos;) as f:
+    pickle.dump(d, f)
+</code></pre><p>读入同理，<code>pickle.loads()</code>是从字符串读入，<code>pickle.load()</code>则是从file-like Object直接读入。</p>
+<p>Pickle的问题主要是保存的格式只适合Python，不同版本的Python可能都不兼容。如果有更加通用的序列化需求，用<code>json</code>格式才是一个比较好的选择。</p>
+<p><strong>JSON</strong>是标准的Javascript对象，表示出来就是一个字符串，可以被所有语言读取，也方便存储和传输。</p>
+<p>Python内置了<code>json</code>模块提供了完善的Python对象到JSON格式的转换，内置的序列化函数和反序列化函数与pickle类似。</p>
+<pre><code>&gt;&gt;&gt; import json
+&gt;&gt;&gt; d = dict(name=&apos;Bob&apos;, age=20, score=88)
+&gt;&gt;&gt; json.dumps(d)
+&apos;{&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;}&apos;
+</code></pre><p>需要注意的一点是反序列化得到的所有字符串对象都是<code>unicode</code>而不是<code>str</code>，因为JSON标准规定的编码是UTF-8。</p>
+<p><code>json</code>模块支持直接将Python的基本数据类型转换到JSON，对于自定义的类则需要用转换函数进行转换。</p>
+<pre><code>import json
+class Student(object):
+    def __init__(self, name, age, score):
+    self.name = name
+    self.age = age
+    self.score = score
+
+s = Student(&apos;Bob&apos;, 20, 88)
+print(json.dumps(s))
+</code></pre><p>运行会得到一个<code>TypeError</code>，因为Student不是一个可序列化为JSON的对象。利用可选参数<code>default</code>，写一个转换函数即可。</p>
+<pre><code>def studetn2dict(std):
+    return {
+        &apos;name&apos;: std.name,
+        &apos;age&apos;: std.age,
+        &apos;score&apos;: std.score
     }
-    f[0][0] = 0;
-    for (int i = 1; i &lt;= N; i++){
-        for (int j = v1; j &gt;= c1[i]; j--){
-            for (int k = v2; k &gt;= c2[i]; k--){
-                f[j][k] = max(f[j][k], f[j - c1[i]][k - c2[i]] + 1);
-            }
-        }
-    }
-    for (int k = 0; k &lt;= v2; k++){
-        if (f[v1][k] == f[v1][v2]){
-            cout &lt;&lt; f[v1][v2] &lt;&lt; &quot; &quot; &lt;&lt; v2 - k &lt;&lt; endl;
-            break;
-        }
-    }
-    return 0;
-}
+
+print(json.dumps(s, default=student2dict))
+</code></pre><p>遇到其他子类的实例时可能会无法转换，因而可以直接利用class中得<code>__dict__</code>属性，它就是一个用来存储实例变量的<code>dict</code>。</p>
+<pre><code>print(json.dumps(s, default=lambda obj: ojb.__dict__))
+</code></pre><p>反序列化则是先用<code>json.loads()</code>将JSON转换成一个<code>dict</code>，然后传入<code>object_hook</code>将dict转换成具体的实例。</p>
+<pre><code>def dict2student(d):
+    return Student(d[&apos;name&apos;], d[&apos;age&apos;], d[&apos;score])
+
+json_str = &apos;{&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;}&apos;
+print(json.loads(json_str, object_hook=dict2student))
+</code></pre><p>关于<code>json.dumps()</code>方法提供的可选参数，可以参考<a href="https://docs.python.org/2/library/json.html#json.dumps" target="_blank" rel="external">这里</a>。</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/07/python学习笔记7/" itemprop="url">
+                  Python学习笔记7
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:23:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##Python学习笔记–7.Exceptions and debugging</p>
+<p>MrZigZag @ Peking Universty</p>
+<p>2015-07-20</p>
+<hr>
+<p>###1.异常处理</p>
+<p>高级语言一般面对异常都会内置一套<code>try-catch-finally</code>机制。Python相应的机制是<code>try-except-finally</code>。</p>
+<p>当我们认为某些代码可能会出错时，可以用<code>try</code>块来运行这段代码，运行出错时会立即跳转到<code>except</code>块，执行完之后跳出，如果有<code>finally</code>块则执行，否则中断程序。</p>
+<p><strong>错误</strong>有许多种，例如<code>ValueError</code>、<code>ZeroDivisionError</code>等，面对不同的错误应该由不同的<code>except</code>块来处理。Python的错误都是类，继承自<code>BaseException</code>，因此使用<code>catch</code>块时应注意范围，基类应该放在后面，否则会出现后面的错误被前面的处理这种情况。（反正这个在Java会报错，Python应该不会。）</p>
+<p>如果没用<code>try-except-finally</code>机制，则出现错误时会根据堆栈逐步上传，直到<code>__main__</code>。</p>
+<p>用<code>raise</code>语句抛出错误，一般只有在必要的时候才会定义自己的错误类型。尽量选择Python内置的错误类型。</p>
+<pre><code>class FooError(StandardError):
+    pass
+
+def foo(s):
+    n = (int)s
+    if n == 0:
+        raise FooError(&apos;invalid value:%s&apos; % s)
+    return 10 / n
+</code></pre><p><code>raise</code>语句如果不带参数，会把当前的错误原样抛出，方便上一层进行处理。在<code>except</code>块中，还可以<code>raise</code>一个error然后将一种类型的错误转换成另一种错误。</p>
+<p><strong>logging</strong>，记录错误堆栈并让程序继续执行下去。利用<code>logging</code>模块可以非常容易记录错误信息。</p>
+<pre><code>import logging
+def foo(s):
+    return 10 / int(s)
+def bar(s):
+    return foo(s) * 2
+
+def main():
+    try:
+        bar(&apos;0&apos;)
+    except StandardError, e:
+        logging.exception(e)
+
+main()
+print &apos;END&apos;
+</code></pre><p>会出错，但是程序会打印错误信息，之后继续执行。</p>
+<p>通过配置，还可以将logging写入到文件里，方便时候排查。</p>
+<p>###2.调试</p>
+<p><strong>断言</strong>，<code>assert</code>语句判断是否成立，如果断言失败就会抛出<code>AssertError</code>并且终止程序。</p>
+<pre><code>def foo(s):
+    n = (int)s
+    assert n != 0, &apos;n is zero!&apos;
+    return 10 / n
+</code></pre><p>启动Python解释器时可以用<code>-O</code>参数来关闭<code>assert</code>。之后解释器会将<code>assert</code>语句当做<code>pass</code>来看。</p>
+<p><strong>logging</strong>，与<code>assert</code>相比，<code>logging</code>不会抛出错误，还可以输出到文件，而且<code>logging</code>还可以根据不同的配置指定记录信息的级别，有<code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>四个级别，指定级别时，低级的级别就会失效。</p>
+<pre><code>import logging
+logging.basicConfig(level=logging.INFO)
+
+logging.info(&apos;Test Logging&apos;)
+</code></pre><p><strong>PDB</strong>，利用pdb可以逐行执行，也可以调用<code>pdb.set_trace()</code>设置断点。</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/07/python学习笔记6/" itemprop="url">
+                  Python学习笔记6
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:22:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Python学习笔记—6正则表达式"><a href="#Python学习笔记—6正则表达式" class="headerlink" title="Python学习笔记—6正则表达式"></a>Python学习笔记—6正则表达式</h2><p>MrZigZag @ Peking University</p>
+<p>2015-07-18</p>
+<hr>
+<h3 id="1-正则表达式"><a href="#1-正则表达式" class="headerlink" title="1.正则表达式"></a>1.正则表达式</h3><p>正则表达式使用一种描述性的语言给字符串定义一个规则，只有符合规则的字符串才能认为是匹配，否则该字符串就是不合法的。</p>
+<h3 id="2-精确匹配"><a href="#2-精确匹配" class="headerlink" title="2.精确匹配"></a>2.精确匹配</h3><p>如果直接给出字符就是精确匹配。用<code>\d</code>可以匹配一个数字，<code>\w</code>匹配一个字母或者一个数字。<code>.</code>可以匹配任意字符，<code>\s</code>匹配一个空格或者Tab等空白符。</p>
+<ul>
+<li><code>12\d</code>可以匹配<code>123</code></li>
+<li><code>\w\w\w</code>可以匹配<code>www</code>也可以匹配<code>py3</code></li>
+<li><code>py.</code>可以匹配<code>py3</code>，<code>pyx</code>等。</li>
+</ul>
+<h3 id="3-变长字符匹配"><a href="#3-变长字符匹配" class="headerlink" title="3.变长字符匹配"></a>3.变长字符匹配</h3><p>正则表达式中，用<code>*</code>表示任意个字符，用<code>+</code>表示至少一个字符，用<code>?</code>表示0个或者1个字符，用<code>{n}</code>表示n个字符，<code>{n, m}</code>表示n到m个字符。</p>
+<p>例如<code>\d{3}\s+\d{3,8}</code>，<code>\d{3}</code>表示3个数字，<code>\s</code>表示一个空格，所以<code>\s+</code>表示至少有一个空格，<code>\d{3,8}</code>表示有3-8个数字。因而该正则表达式可以匹配用空格隔开的电话号码。</p>
+<p>对于<code>010-62767007</code>之类中间有<code>-</code>的电话号码，因为<code>-</code>是特殊字符，需要转义，可以表示为<code>\d{3}\-\d{3,8}</code>。</p>
+<h3 id="4-范围匹配"><a href="#4-范围匹配" class="headerlink" title="4.范围匹配"></a>4.范围匹配</h3><p>变长字符串无法解决<code>010 - 62767007</code>之类带有空格又带有<code>-</code>的字符串，需要引入<code>[]</code>表示范围。范围的使用示例。</p>
+<ul>
+<li><code>[0-9]</code>表示数字，<code>[a-z]</code>表示小写字母。</li>
+<li><code>[0-9a-zA-Z\_]</code>表示一个数字、字母或者下划线。</li>
+<li><code>[0-9a-zA-Z\_]+</code>表示至少由一个数字、字母或者下划线组成的字符串。</li>
+<li><code>[a-zA-Z][0-9a-zA-Z\_]*</code>匹配以字母开头后接任何数字、字母或者下划线的字符串。</li>
+<li><code>[a-zA-Z][0-9a-zA-Z]{0, 9}</code>匹配以一个字母开头，后接0-9个数字、字母或者下划线的字符串。</li>
+</ul>
+<h3 id="5-特殊符号"><a href="#5-特殊符号" class="headerlink" title="5.特殊符号"></a>5.特殊符号</h3><p><code>A|B</code>表示可以匹配A或者B，<code>[P|p]ython</code>可以匹配<code>Python</code>或者<code>python</code>。</p>
+<p><code>^</code>表示行的开头，<code>^\d</code>表示必须以数字开头。</p>
+<p><code>$</code>表示行的结束，<code>\d$</code>表示必须以数字结束。</p>
+<p>完全精确匹配可能会匹配比它长的字符串，例如<code>py</code>可以匹配<code>python</code>，要使<code>py</code>只能匹配<code>py</code>，可以加上<code>^</code>和<code>$</code>变成整行匹配，表示为<code>^py$</code>。</p>
+<h3 id="6-使用re模块"><a href="#6-使用re模块" class="headerlink" title="6.使用re模块"></a>6.使用re模块</h3><p>Python提供re模块，包含所有正则表达式的功能。因为Python的字符串本身就用<code>\</code>转义，与正则表达式产生冲突，因而一般使用Python的<code>r</code>前缀表示正则表达式，这样就不用考虑转义的问题了。</p>
+<p><code>match()</code>方法判断匹配是否成功，成功返回一个<code>Match</code>对象，否则返回一个<code>None</code>。</p>
+<pre><code>test_re = r&apos;^\d{3}\-\d{3,8}$`
+test_str = &apos;010-62767007`
+if re.match(test_re, test_str):
+    do something
+else:
+    do other things
+</code></pre><h3 id="7-切分字符串"><a href="#7-切分字符串" class="headerlink" title="7.切分字符串"></a>7.切分字符串</h3><p>用正则表达式切分字符串比用固定的字符更加灵活。</p>
+<p>一般的切分无法识别连续的空格。</p>
+<pre><code>&gt;&gt;&gt; &apos;a b   c&apos;.split(&apos; &apos;)
+[&apos;a&apos;, &apos;b&apos;, &apos;&apos;, &apos;&apos;, &apos;c&apos;]
+</code></pre><p>用正则表达式就可以解决这个问题。</p>
+<pre><code>&gt;&gt;&gt; re.split(r&apos;\s+&apos;, &apos;a b   c&apos;)
+[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]
+&gt;&gt;&gt; re.split(r&apos;[\s\,]+&apos;, &apos;a b,,,,  c  &apos;)
+[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]
+</code></pre><p>用正则表达式切分可以将用户输入的不规范的标签转化为正确的数组。</p>
+<h3 id="8-分组"><a href="#8-分组" class="headerlink" title="8.分组"></a>8.分组</h3><p>除了简单判断字符串是否匹配外，正则表达式还能提取字符串的子串。用<code>()</code>表示要提取的分组，可以直接从目标字符串中提取出需要的子串。</p>
+<p>例如要从010-62767007提取出区号和电话号码，可以定义为<code>^(\d{3,4})\-(\d{7,8})$</code>，得到的子串存储为一组<code>group</code>，其中<code>group(0)</code>为源字符串。</p>
+<pre><code>&gt;&gt;&gt; m = re.match(r&apos;^(\d{3,4})\-(\d{7,8})$&apos;, &apos;010-62767007&apos;)
+&gt;&gt;&gt; m.group(0)
+&apos;010-62767007&apos;
+&gt;&gt;&gt; m.group(1)
+&apos;010&apos;
+&gt;&gt;&gt; m.group(2)
+&apos;62767007&apos;
+</code></pre><p>例如给定一个时间，判断是否合法并提取出时分秒。</p>
+<pre><code>&gt;&gt;&gt; t_re = r&apos;^(0[0-9]|1[0-9]|2[0-3]|[3-9])\:([0-5][0-9])\:([0-5][0-9])$&apos;
+&gt;&gt;&gt; m.re.match(t_re, &apos;19:05:23&apos;)
+&gt;&gt;&gt; m.group(1)
+&apos;19&apos;
+&gt;&gt;&gt; m.group(2)
+&apos;05&apos;
+&gt;&gt;&gt; m.group(3)
+&apos;23&apos;
+</code></pre><p>但是这个例子比较难识别日期，因为每个月的天数之间存在差异。</p>
+<h3 id="9-贪婪匹配"><a href="#9-贪婪匹配" class="headerlink" title="9.贪婪匹配"></a>9.贪婪匹配</h3><p>正则表达式默认使用贪婪匹配，因此会尽量匹配尽可能多的字符，有时候会导致使用<code>+</code>时会出现问题，这时候需要引入非贪婪匹配，一般来说只需在<code>+</code>后面加一个<code>?</code>即可。例如用<code>^(\d+)(0*)$</code>匹配就无法提取出<code>102401</code>后面的01，可以改为<code>^(\d+?)(0*)$</code>。</p>
+<h3 id="10-编译"><a href="#10-编译" class="headerlink" title="10.编译"></a>10.编译</h3><p>使用正则表达式时，Python解释器内部会先编译正则表达式然后用编译好的表达式去匹配字符串。如果一个正则表达式要使用多次，可以先执行编译，接下来重复使用就不用编译了。</p>
+<pre><code>&gt;&gt;&gt; re_time = re.compile(r&apos;^(0[0-9]|1[0-9]|2[0-3]|[3-9])\:([0-5][0-9])\:([0-5][0-9])$&apos;)
+&gt;&gt;&gt; re_time.match(&apos;20:14:59&apos;).group(3)
+&apos;59&apos;
 </code></pre>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/07/python学习笔记5/" itemprop="url">
+                  Python学习笔记5
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:21:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##Python学习笔记–5.面向对象编程</p>
+<p>MrZigZag @ Peking University</p>
+<p>2015-07-17</p>
+<hr>
+<p>###1.定义</p>
+<p>通过<code>class</code>关键字定义类，父类<code>(object)</code>。</p>
+<pre><code>class MyClass(object):
+    pass
+</code></pre><p>没有合适的继承类时可以使用<code>object</code>类，这是所有的类都会继承的类。</p>
+<p><strong>自由绑定</strong>，Python是动态语言，可以在运行过程中实时地给实例<code>instance</code>绑定新的属性，同时还可以绑定新的方法。</p>
+<pre><code>&gt;&gt;&gt; ins1 = MyClass()
+&gt;&gt;&gt; ins1.name = &apos;Test&apos;
+
+def set_age(self, age):
+    self.age = age
+from types inport MethodType
+s = Student()
+s.set_age = MethodType(set_age, s, Student)
+</code></pre><p><strong>方法</strong>，类的初始化方法是<code>__init__(self, args)</code>，任何方法第一个参数都是<code>self</code>，但是使用时不需要传进去。</p>
+<p>###2.访问限制</p>
+<p>属性名称加上<code>__</code>表示private，<code>__prop</code>会被解释器解释成<code>_Classname__prop</code>，要访问<code>__prop</code>可以写<code>__Classname__prop</code>。</p>
+<p>双下划线开头双下划线结尾的属性属于特殊变量，可以访问，一般不能使用这个命名方法。</p>
+<p>单下划线开头的变量可以访问，但是一般被视为private变量。</p>
+<p>###3.继承和多态</p>
+<p>继承之后，子类的方法会覆盖父类的方法。</p>
+<p>多态保证了只需要知道父类，并不需要确切的子类就可以放心的使用父类中的方法。因而调用方只管调用不管细节。符合“开闭原则”。<code>对扩展开放，对修改封闭</code>。</p>
+<pre><code>class Animal(object):
+    def run(self):
+        print &apos;Animal is running!&apos;
+class Dog(Animal):
+    def run(self):
+        print &apos;Dog is runnning!&apos;
+def run_twice(animal):
+    animal.run()
+    animal.run()
+
+&gt;&gt;&gt; run_twice(Animal())
+Animal is running!
+Animal is running!
+&gt;&gt;&gt; run_twice(Dog())
+Dog is running!
+Dog is running!
+</code></pre><p>根据多态的性质，任何时候最好都要使用继承，如果没有合适的父类则直接继承<code>object</code>。</p>
+<p>###4.获取对象信息</p>
+<p>拿到一个对象的引用时，需要确定对象的类型和包含的方法。可以使用多种方法。</p>
+<p><strong>使用type()</strong>，基本类型都可以使用<code>type()</code>函数判断。</p>
+<pre><code>&gt;&gt;&gt; type(1)
+&lt;type &apos;int&apos;&gt;
+&gt;&gt;&gt; type(&apos;hello&apos;)
+&lt;type &apos;str&apos;&gt;
+&gt;&gt;&gt; type(None)
+&lt;type &apos;NoneType&apos;&gt;
+&gt;&gt;&gt; type(abs)
+&lt;type &apos;builtin_function or method&apos;&gt;
+&gt;&gt;&gt; type(Animal())
+&lt;type &apos;__main__.Animal&apos;&gt;
+</code></pre><p><code>type()</code>函数返回<code>type</code>类型，Python把每种type类型都定义好了常量，放在<code>types</code>模块中。</p>
+<pre><code>&gt;&gt;&gt; import types
+&gt;&gt;&gt; type(&apos;abc&apos;) == types.StringType
+True
+&gt;&gt;&gt; type(u&apos;abc&apos;) == types.UnicodeType
+True
+&gt;&gt;&gt; type([]) == types.ListType
+True
+&gt;&gt;&gt; type(int) = types.TypeType
+</code></pre><p>不同类型都有对应的type，所有类型本身的类型就是一种<code>TypeType</code>。</p>
+<p><strong>使用isinstance()</strong>，判断class的类型使用type()并不是很方便，直接使用<code>isinstance()</code>函数。</p>
+<pre><code>&gt;&gt;&gt; a = Ainimal()
+&gt;&gt;&gt; d = Dog()
+&gt;&gt;&gt; isinstance(d, Dog)
+True
+&gt;&gt;&gt; isinstance(d, Animal)
+True
+</code></pre><p>可见isinstance()对继承关系也是有用的。当然，isinstance()还可以判断变量是某些类型中之一。</p>
+<pre><code>&gt;&gt;&gt; isinstance(&apos;a&apos;, str)
+True
+&gt;&gt;&gt; isinstance(&apos;a&apos;, (str, unicode))
+True
+</code></pre><p><strong>使用dir()</strong>可以获得一个对象的所有属性和方法。返回一个包含字符串的list。</p>
+<p>同时配合<code>getattr()</code>、<code>setattr()</code>、<code>hassttr()</code>可以直接操作一个对象的状态。</p>
+<pre><code>&gt;&gt;&gt; hasattr(obj, &apos;x&apos;)
+True
+&gt;&gt;&gt; hasattr(obj, &apos;y&apos;)
+False
+&gt;&gt;&gt; setattr(obj, &apos;y&apos;, 10)
+&gt;&gt;&gt; getattr(obj, &apos;y&apos;)
+10
+&gt;&gt;&gt; obj.y
+10
+&gt;&gt;&gt; getattr(obj, &apos;z&apos;, 404)
+404
+</code></pre><p>一般正确的用法：</p>
+<pre><code>def readImage(fp):
+    if hasattr(fp, &apos;read&apos;):
+        return readData(fp)
+    return None
+</code></pre><p>###5.<strong>slots</strong></p>
+<p>基于Python的动态语言特性，创建class实例之后我们还可以在运行过程中给该实例绑定新的属性和方法，但是新绑定的属性和方法对其他实例是不起作用的。为了给所有实例都绑定方法，可以直接给class绑定新的方法。</p>
+<pre><code>def set_score(self, score):
+    self.score = score;
+Student.set_score = Method_Type(set_score, None, Student)
+</code></pre><p><strong>使用<strong>slots</strong></strong>可以限制class的属性。Python允许在定义class的时候，定义一个特殊的<code>__slots__</code>变量，来限制该class能添加的属性。<code>__slots__</code>仅仅对当前class有效，对继承的子类是不起作用的。</p>
+<pre><code>class Student(object):
+    __slots__ = (&apos;name&apos;, &apos;age&apos;) # Use tuple to describe __slots__
+</code></pre><p>如果在子类中定义<code>__slots__</code>，那么子类允许定义的属性就是自身的<code>__slots__</code>加上父类的<code>__slots__</code>。</p>
+<p>###6.@property</p>
+<p>绑定属性时，为了方便起见，有时候会将属性直接暴露出去，但是这样就没法检查参数，导致属性可以随便改。因此，我们需要限制属性的范围。</p>
+<pre><code>class Student(object):
+    def get_score(self):
+        return self._score
+    def set_score(self, val):
+        if not isinstance(val, int):
+            raise ValueError(&apos;score must be an integer&apos;)
+        if val &lt; 0 or val &gt; 100:
+            raise ValueError(&apos;score must between 0 - 100&apos;)
+        self._score = val
+</code></pre><p>但是这样做就没法将属性直接暴露出去方便读写了。因此我们可以用装饰器decorator给函数动态加上功能。Python内置的<code>@property</code>装饰器就是负责把一个方法变成属性调用。把一个getter方法变成属性只需加上<code>@property</code>，此时<code>@property</code>本身又创建了另一个装饰器<code>@property.setter</code>，负责把setter方法编程属性直接赋值。</p>
+<pre><code>class Student(object):
+    @property
+    def score(self):
+        return self._score
+    @property.setter
+    def score(self, val):
+        if not isinstance(val, int):
+            raise ValueError(&apos;score must be an integer&apos;)
+        if val &lt; 0 or val &gt; 100:
+            raise ValueError(&apos;score must between 0-100&apos;)
+        self._score = val
+</code></pre><p>这样可以把score当做public的属性来用。</p>
+<pre><code>&gt;&gt;&gt; s = Student()
+&gt;&gt;&gt; s.score = 100 # equals s.score(100)
+&gt;&gt;&gt; s.score # equals s.score()
+100
+</code></pre><p>当只使用<code>@property</code>而不使用<code>@property.setter</code>时相关的变量就是<strong>只读属性</strong>。</p>
+<p>###7.多重继承</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/07/python学习笔记4/" itemprop="url">
+                  Python学习笔记4
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:20:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##Python学习笔记–4.模块</p>
+<p>MrZigZag@Peking University</p>
+<p>2015-07-15</p>
+<p>###1.模块</p>
+<p>类似于Java中的Package，Python提供模块<code>module</code>来将相关的代码打包。编写程序的时候可以使用内置模块，也可以使用第三方模块。</p>
+<p>模块可以用于避免函数名冲突等问题，但是模块中尽量不要使用Python内置函数的<a href="https://docs.python.org/2/library/functions.html" target="_blank" rel="external">函数名</a>。</p>
+<p>避免模块名相同，提供了按照目录来组织模块的方法，称为包<code>package</code>，每个包都要有一个<code>__init__.py</code>文件，表示这是一个package，可以空。因为<code>__init__.py</code>本身就是一个模块，就表示包名。</p>
+<p>包可以嵌套，组成多级多层次的包结构。</p>
+<pre><code>&gt;MyPackage
+    &gt;Web
+        __init__.py
+        http.py
+    __init__.py
+    pytest.py
+    http.py
+</code></pre><p>###2.创建和使用模块</p>
+<p>以内置模块<code>sys</code>为例，创建一个新模块<code>test</code>。</p>
+<pre><code>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+&apos; a test module &apos;
+__author__ = &apos;MrZigZag&apos;
+
+import sys
+def my_test():
+    if len(sys.argv) == 1: # no other arguments
+        print &apos;Hello World!&apos;
+    elif len(sys.argv) == 2: # one other argument, treat as a name
+        print &apos;Hello %s!&apos; % sys.argv[1]
+    else:
+        print &apos;Too many arguments!&apos;
+
+if __name__ == &apos;__main__&apos;:
+    my_test()
+</code></pre><p>前两行是标准注释，第四行是一个字符串，任何模块的第一个字符串都会被视为模块的文档注释，之后可以使用<code>__author__</code>将作者写进去。</p>
+<p>导入模块<code>sys</code>之后，变量sys就指向该模块。</p>
+<p>最后两两句话常用在测试当中，如果直接命令行执行该模块，解释器就会把<code>__name__</code>置为<code>__main__</code>，如果其他地方导入<code>test</code>模块则不会，这一句就会失效。</p>
+<pre><code>&gt;&gt;&gt; python test.py MrZigZag
+Hello MrZigZag!
+&gt;&gt;&gt; python test.py
+Hello World!
+&gt;&gt;&gt; python test.py 1 2
+Too many arguments!
+</code></pre><p><strong>别名</strong>，可以给导入的模块赋别名。</p>
+<pre><code>import sys as SysModule
+</code></pre><p>还可以在运行时根据当前环境选择最合适的模块，比如</p>
+<pre><code>try:
+    import cStringIO as stringIO
+except ImportError: # catching import error
+    import stringIO
+</code></pre><p>可以优先调用<code>cStringIO</code>并且无论调用那个，执行时名称都是<code>stringIO</code>。</p>
+<p><strong>函数的可访问性</strong>，模块中可以把外部不需要的函数全部定义成private，外部引用的定义为public。</p>
+<p>将一个函数定义为private的，只需在命名上以<code>_</code>开头，如<code>def _private_function(name):</code>。</p>
+<p>值得注意的是，<code>__xxx__</code>之类一般都是特殊变量，可以直接被引用，但是有特殊用途，一般命名时避免使用这个格式。</p>
+<p>###3.安装模块</p>
+<p>Python中第三方模块一般使用easy_install或者pip来安装，mac自带pip。</p>
+<p>模块会有路径问题，加载模块时，Python会在指定的路径下搜索对应的.py文件。默认情况下，会搜索当前目录、所有已安装的内置模块和第三方模块，搜索路径放在sys模块的path变量中。要添加自己的搜索目录可以直接在<code>sys.path</code>后面增加，但是在<strong>运行结束时失效</strong>。</p>
+<pre><code>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.path
+&gt;&gt;&gt; sys.path.append(&apos;my_path&apos;)
+</code></pre><p>###4.使用<code>__future__</code></p>
+<p>Python3相对于Python2.x修改比较大，很多Python2.x的程序在Python3上无法正确运行，在Python2.x中要使用Python3的一些新特性可以使用<code>__future__</code>模块。</p>
+<pre><code>from __future__ import unicode_literals
+from __future__ import division
+</code></pre>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/07/python学习笔记3/" itemprop="url">
+                  Python学习笔记3
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:19:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##Python学习笔记–3.函数式编程</p>
+<p>MrZigZag@Peking University</p>
+<p>2015-07-12</p>
+<p>###1.函数式编程</p>
+<p>抽象层次比较高，允许把函数本身作为参数传入另一个函数，还允许返回一个函数。</p>
+<p>Python对函数式编程提供部分支持。</p>
+<p>###2.高阶函数</p>
+<p>将简单的函数作为参数传入高阶函数。</p>
+<pre><code>def add(x, y, f):
+    return f(x) + f(y)
+
+&gt;&gt;&gt; add(-5, 6, abs)
+11
+</code></pre><p><code>map()</code>接收两个参数，一个是函数另一个是序列，返回一个经函数处理过的序列。</p>
+<pre><code>def f(x):
+    return x * x
+
+&gt;&gt;&gt; map(f, range(1,10))
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+</code></pre><p><code>reduce()</code>是把一个函数f作用在一个序列list上，函数f接收两个参数，因而是逐个累积运算。</p>
+<pre><code>reduce(f, [1, 2, 3]) = f(f(1, 2), 3)
+</code></pre><p>利用reduce可以轻松将一个string转换成int，例如</p>
+<pre><code>def str2int(s):
+    def fn(x, y):
+        return x * 10 + y
+    def char2num(s):
+        return {&apos;0&apos;: 0, &apos;1&apos;: 1, &apos;2&apos;: 2, &apos;3&apos;: 3, &apos;4&apos;: 4, &apos;5&apos;: 5, &apos;6&apos;: 6, &apos;7&apos;: 7, &apos;8&apos;: 8, &apos;9&apos;: 9}[s]
+    return reduce(fn, map(char2num, s))
+</code></pre><p><code>filter()</code>过滤函数，给定一个序列和一个函数，函数依次作用于序列并根据结果的True/False决定是否丢弃。</p>
+<pre><code>def is_odd(n):
+    return n % 2 == 1
+
+&gt;&gt;&gt; filter(is_odd, range(0, 10))
+[1, 3, 5, 7, 9]
+</code></pre><p>例如删除1-100之间的素数。</p>
+<pre><code>def isn_prime(num):
+    if num == 1:
+        return True
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if (num % i == 0):
+            return True
+    return False
+
+filter(isn_prime, range(1, 101))
+</code></pre><p><code>sorted()</code>对一个list排序，默认对数字是升序排序，字符串则是首字母ASCII码。sorted()是一个高阶函数，可以输入一个比较函数实现自定义排序。</p>
+<pre><code>&gt;&gt;&gt; sorted([13, 2, 90, 33, 14, 5, 1])
+[1, 2, 5, 13, 14, 33, 90]
+
+def reversed_cmp(x, y):
+    if x &gt; y:
+        return -1
+    elif x == y:
+        return 0
+    else:
+        return 1
+&gt;&gt;&gt; sorted([13, 2, 90, 33, 14, 5, 1], reversed_cmp)
+[90, 33, 14, 13,5, 2, 1]
+</code></pre><p>###3.返回函数和闭包</p>
+<p>高阶函数除了接收函数作为参数，还可以把函数作为结果值返回。返回的函数包含了相关的参数。</p>
+<pre><code>def delay_sum(*args):
+    def sum():
+        ans = 0
+        for n in args:
+            ans = ans + n
+        return ans
+    return sum
+
+&gt;&gt;&gt; f = delay_sum(1, 2, 3, 4)
+&gt;&gt;&gt; f()
+10
+</code></pre><p><strong>闭包</strong>内部函数可以引用外部函数的参数和局部变量，外部函数返回内部函数时，相关的参数和变量都保存在返回的函数中。每次调用外部函数都会返回一个新的函数，即使传入相同的参数。因此不同的返回函数相互之间没有影响。</p>
+<p>返回函数不要引用任何后续会发生变化的变量，尤其是循环变量。返回函数只有在显式调用时才会使用变量执行。</p>
+<pre><code>def counter():
+    fs = []
+    for i in range(1, 4):
+        def f():
+            return i * i
+        fs.append(f)
+    return fs
+
+&gt;&gt;&gt; f1, f2, f3 = counter()
+&gt;&gt;&gt; f1()
+9
+&gt;&gt;&gt; f2()
+9
+&gt;&gt;&gt; f3()
+9
+</code></pre><p>一定要引用循环变量时可以新建一个函数，绑定循环变量。</p>
+<pre><code>def counter():
+    fs = []
+    for i in range(1, 4):
+        def f(j):
+            def g():
+                return j * j
+            return g
+        fs.append(f(j))
+    return fs
+
+&gt;&gt;&gt; f1, f2, f3 = counter()
+&gt;&gt;&gt; f1()
+1
+&gt;&gt;&gt; f2()
+4
+&gt;&gt;&gt; f3()
+9
+</code></pre><p>或者用匿名函数lambda来实现。</p>
+<pre><code>&gt;&gt;&gt; f1, f2, f3 = [(lambda i = i:i * i) for i in range(1, 4)]
+</code></pre><p>###4.匿名函数lambda</p>
+<p>简单的形式可以直接使用匿名函数<code>lambda *args:option</code>，匿名函数只能有一个表达式，但是没有名字，因此不用担心函数名冲突。</p>
+<p>匿名函数可以赋值给一个变量，也可以作为返回值。</p>
+<pre><code>def test_lambda(x, y):
+    return lambda: x * x + y * y
+</code></pre><p>匿名函数作为参数传入到高级函数中，具有简单直观的效果。</p>
+<pre><code>&gt;&gt;&gt; map(lambda x:x * x, range(1, 10))
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+</code></pre><p>###5.装饰器Decorator</p>
+<p>对于函数对象，在代码运行期间动态增加功能而没有修改原函数的方式称为装饰器。本质上装饰器就是一个返回函数的高阶函数。</p>
+<pre><code>def log(func):
+    def wrapper(*args, **kw):
+        print &apos;call %s():&apos; % func.__name__
+        return func(*args, **kw)
+    return wrapper
+</code></pre><p>定义好了Decorator之后，可用<code>@</code>将它置于函数的定义处，这样执行该函数时就会执行装饰器。即相当于执行了<code>func = log(func)</code></p>
+<pre><code>@log
+def test():
+    print &apos;Hello world!&apos;
+
+&gt;&gt;&gt; test()
+call test():
+Hello world!
+</code></pre><p>如果decorator本身需要传入参数，那就得写一个返回decorator的高阶函数。</p>
+<pre><code>def log(text):
+    def decorator(func):
+        def wrapper(*args, **kw):
+            print &apos;%s %s():&apos; % (text, func.__name__)
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+</code></pre><p>###6.偏函数</p>
+<p>可以把一个函数的某些参数固定住，然后返回一个新的函数。</p>
+<pre><code>import functools
+int2 = functool.partial(int, base = 2)
+
+&gt;&gt;&gt; int2(&apos;1001&apos;)
+9
+</code></pre><p>实际上就相当于</p>
+<pre><code>kw = {&apos;base&apos; : 2}
+int(&apos;1001&apos;, kw)
+</code></pre>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/07/python学习笔记2/" itemprop="url">
+                  Python学习笔记2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:17:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##Python学习笔记–2.函数和高级特性</p>
+<p>MrZigZag@Peking University</p>
+<p>2015-07-12</p>
+<p>###1.函数</p>
+<p><strong>数据类型转换函数</strong>，<code>int()</code>, <code>float()</code>, <code>str()</code>, <code>unicode()</code>, <code>bool()</code>。</p>
+<p>函数名实际上就是函数对象的引用，因此可以给函数复制给一个变量然后通过这个变量调用。相当于给函数起了个别名。</p>
+<pre><code>&gt;&gt;&gt; a = abs
+&gt;&gt;&gt; a(-1)
+1
+</code></pre><p><strong>自定义函数<code>def</code></strong>，作为占位符可以用<code>pass</code>。</p>
+<pre><code>def my_abs(x):
+    if x &gt;= 0:
+        return x
+    else:
+        return -x
+def my_abs2(x):
+    pass
+</code></pre><p><strong>参数检查</strong>可以用内置函数<code>isinstance</code>实现。</p>
+<pre><code>def my_abs(x):
+    if not isinstance(x, (int, float)):
+        raise TypeError(&apos;bad operand type&apos;)
+    if x &gt;= 0:
+        return x
+    else:
+        return -x
+</code></pre><p><strong>返回多个值</strong>，直接在return后面加入多个值即可，实际上返回的是一个Tuple。</p>
+<pre><code>def move(x, y):
+    return 2 * x, y / 2
+</code></pre><p>####参数</p>
+<p><strong>默认参数</strong>可以简化函数调用。必选参数在前，默认参数在后，并且变化大的默认参数尽量靠前。不按顺序提供默认参数时需要把参数名写上。</p>
+<pre><code>def enroll(name, gender, age = 6, city = &apos;Beijing&apos;):
+    #do something
+    pass
+
+&gt;&gt;&gt; enroll(&apos;Bob&apos;, &apos;M&apos;)
+&gt;&gt;&gt; enroll(&apos;Bob&apos;, &apos;M&apos;, city = &apos;Tianjin&apos;)
+</code></pre><p>值得注意的是，默认参数有时候会让人掉坑里，例如</p>
+<pre><code>def add_end(L = []):
+    L.append(&apos;END&apos;)
+    return L
+
+&gt;&gt;&gt; add_end()
+[&apos;END&apos;]
+&gt;&gt;&gt; add_end()
+[&apos;END&apos;, &apos;END&apos;]
+</code></pre><p>Python函数定义的时候默认参数L就被计算出来了，默认参数L是一个变量，指向<code>[]</code>，因此每一调用就改变了<code>[]</code>，下次调用还是指向这个位置，但是内容已经发生改变。因此，<strong>默认参数必须指向不变对象</strong>。以上例子可以用<code>None</code>这个不变对象来实现。</p>
+<pre><code>def add_end(L = None):
+    if L is None:
+        L = []
+    L.append(&apos;END&apos;)
+    return L
+</code></pre><p><strong>可变参数</strong>用<code>*</code>标记，可以将参数组成一个tuple然后传进去，如果参数本身是一个tuple或者list，只需在变量名前加一个<code>*</code>。</p>
+<pre><code>def calc(*numbers):
+    sum = 0
+    for x in numbers
+        sum = sum + x * x
+    return sum
+
+&gt;&gt;&gt; calc(1, 2, 3)
+14
+&gt;&gt;&gt; nums = [1, 2, 3]
+&gt;&gt;&gt; calc(*nums)
+14
+</code></pre><p><strong>关键字参数</strong>，Python允许传入0个或者多个带参数名的参数，这些参数在函数内部会被自动组装成一个dict。关键字参数的标记符是<code>**</code>。</p>
+<pre><code>def person(name, age, **kw):
+    print &apos;name:&apos;, name, &apos;age:&apos;, age, &apos;other:&apos;, kw
+
+&gt;&gt;&gt; person(&apos;Bob&apos;, 30)
+name: Bob age: 30 other: {}
+&gt;&gt;&gt; person(&apos;Alice&apos;, 25, city = &apos;Beijing&apos;, gender = &apos;F&apos;)
+name: Alice age: 30 other: {&apos;city&apos;:&apos;Beijing&apos;, &apos;gender&apos;:&apos;F&apos;}
+</code></pre><p>关键字参数可以扩展函数的功能。</p>
+<p><strong>参数组合</strong>：参数定义的顺序：必选参数，默认参数，可变参数和关键字参数。对于任意函数，无论它的参数是如何定义的，均可以通过类似<code>func(*args, **kw)</code>的形式调用它。</p>
+<pre><code>def func(a, b, c = 0, *args, **kw):
+    print &apos;a =&apos;, a, &apos;b =&apos;, b, &apos;c =&apos;, c, &apos;args =&apos;, args, &apos;kw =&apos;, kw
+
+&gt;&gt;&gt; func(1, 2)
+a = 1 b = 2 c = 0 args = () kw = {}
+&gt;&gt;&gt; func(1, 2, 3, &apos;a&apos;, &apos;b&apos;, x=99)
+a = 1 b = 2 c = 3 args = (&apos;a&apos;, &apos;b&apos;) kw = {&apos;x&apos;: 99}
+&gt;&gt;&gt; args = (1, 2, 3, 4)
+&gt;&gt;&gt; kw = {&apos;x&apos;: 99}
+&gt;&gt;&gt; func(*args, **kw)
+a = 1 b = 2 c = 3 args = (4,) kw = {&apos;x&apos;: 99}
+</code></pre><p>###2.切片Slice</p>
+<p>切片可以将按照不同的间隔将一个list或者tuple切成多段，是批量操作元素的手段。类似于Matlab中的用法。</p>
+<p><code>L[0:3]</code>表示从0开始到3为止，但是不包含3，因此有<code>3-0=3</code>个元素。第一个元素是0时可以忽略。<code>L[:3]</code></p>
+<p>倒数元素也支持切片，如<code>L[-3:-1]</code>，或者<code>L[-3:]</code></p>
+<p>默认间隔是1，也可以修改成其他间隔。<code>L[:10:2]</code>甚至<code>L[::2]</code>。什么都不写时表示直接复制，如<code>L[:]</code></p>
+<p>对Tuple做切片之后得到的仍然是tuple。</p>
+<p>有了切片，很多循环都可以直接用切片来完成。</p>
+<p>###3.迭代</p>
+<p>任何可迭代对象都可以用<code>for</code>循环，包括我们自定义的类型。</p>
+<p>对dict的迭代，直接用<code>for key in d</code>迭代key，如果要迭代value，用<code>for value in d.itervalues()</code>，一起则用<code>for key, value in d.iteritems()</code>。</p>
+<p>对字符串也可以迭代。<code>for ch in &#39;ABC&#39;</code>。</p>
+<p><strong>判断是否可迭代</strong>，用collections模块的Iterable类型来判断。</p>
+<pre><code>from collections import Iterable
+isinstance(&apos;abc&apos;, Iterable)
+</code></pre><p><strong><code>enumerate(li)</code></strong>可将一个list转换成一个索引-元素对。这样就可以用下标进行索引。</p>
+<pre><code>for i, value in enumerate([&apos;A&apos;, &apos;B&apos;, &apos;C&apos;]):
+    print i, value
+</code></pre><p>###4.列表生成式</p>
+<p>可以快速生成一个list，或者由一个list导出另一个list，代码简洁易懂。</p>
+<p>最简单的列表生成方法是<code>range(a, b)</code>方法。但是复杂的生成式要用for循环。</p>
+<pre><code>&gt;&gt;&gt; [x * x for x in range(1, 11)]
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre><p>for之后还可以加入if进行条件判断。</p>
+<pre><code>&gt;&gt;&gt; [x * x for x in range(1, 11) if x % 2]
+[1, 9, 25, 49, 81]
+</code></pre><p>还可以直接多层循环。</p>
+<pre><code>&gt;&gt;&gt; [x + y for x in &apos;ABC&apos; for y in &apos;XYZ&apos;]
+[&apos;AX&apos;, &apos;AY&apos;, &apos;AZ&apos;, &apos;BX&apos;, &apos;BY&apos;, &apos;BZ&apos;, &apos;CX&apos;, &apos;CY&apos;, &apos;CZ&apos;]
+&gt;&gt;&gt; L = [&apos;Hello&apos;, &apos;World&apos;, &apos;IBM&apos;]
+&gt;&gt;&gt; [ch for word in L for ch in word]
+[&apos;H&apos;, &apos;e&apos;, &apos;l&apos;, &apos;l&apos;, &apos;o&apos;, &apos;W&apos;, &apos;o&apos;, &apos;r&apos;, &apos;l&apos;, &apos;d&apos;, &apos;I&apos;, &apos;B&apos;, &apos;M&apos;]
+</code></pre><p>###5.生成器Generator</p>
+<p>类似于列表生成式，但是一边运算一边生成元素。不必一下子生成一整个list，可以节约大量的空间。</p>
+<p>生成器的构造方法类似于列表生成器，只需将<code>[]</code>改成<code>()</code>。调用下一个元素可以用<code>g.next()</code>，但是因为生成器是可迭代的，一般都直接用for。</p>
+<p>如果推算算法比较复杂还可以直接用函数来实现，具体的细节是在返回的地方加入<code>field</code>，运行到此处会返回一个数作为输出，下次调用<code>.next()</code>时直接回到<code>field</code>处继续执行。</p>
+<pre><code>def fib(num):
+    n, a, b = 0, 1, 1
+    while n &lt; num:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+</code></pre>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/07/Python学习笔记1/" itemprop="url">
+                  Python学习笔记1
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:16:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Python学习笔记–0-Python基础"><a href="#Python学习笔记–0-Python基础" class="headerlink" title="Python学习笔记–0.Python基础"></a>Python学习笔记–0.Python基础</h1><h2 id="0-Unix下直接运行-py文件"><a href="#0-Unix下直接运行-py文件" class="headerlink" title="0.Unix下直接运行.py文件"></a>0.Unix下直接运行.py文件</h2><p>在文件开头加入<code>#!/usr/bin/env python</code>,然后在命令行中修改权限，赋予其可执行的权限。<code>$ chmod a+x hello.py</code></p>
+<h2 id="1-输入输出"><a href="#1-输入输出" class="headerlink" title="1.输入输出"></a>1.输入输出</h2><ul>
+<li>命令行输入直接用<code>raw_input()</code>,括号里可以放提示语。 得到的是一个字符串，要转换成其他数据类型要用强制类型转换。如<code>int(raw_input())</code> </li>
+<li><p>命令行输入可以用<code>print</code>，后面可以带各种格式的数据，连接用<code>,</code>，但是需要注意，每次遇到<code>,</code>均会输出一个空格。</p>
+<pre><code>&gt;&gt;&gt;name = raw_input(&apos;please input your name:&apos;)
+&gt;&gt;&gt;print &apos;User name:&apos;, name
+User name: MrZigZag
+</code></pre></li>
+</ul>
+<h2 id="2-语法基础"><a href="#2-语法基础" class="headerlink" title="2.语法基础"></a>2.语法基础</h2><ul>
+<li>Python以缩进来进行控制，因此尽量用<strong>4个空格</strong>来做缩进。缩进会使代码的复制粘贴失效，因此应该尽量写出缩进较少的代码。</li>
+<li>大小写敏感</li>
+<li><code>#</code>为注释标记</li>
+</ul>
+<h2 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3.数据类型"></a>3.数据类型</h2><ul>
+<li><strong>整数</strong>可用16进制，<code>0xffff</code></li>
+<li><strong>浮点数</strong>直接写即可，但是也可以用科学记数法，如<code>1.23e-5</code></li>
+<li><strong>字符串</strong>的表示可以用双引号，也可以用单引号，两者等价。<code>&#39;Hello World!&#39;</code>=<code>&quot;Hello World!&quot;</code>，如果<code>&#39;</code>本身也是一个字符，则用<code>&quot;</code>包围起来，如<code>&quot;I&#39;m OK&quot;</code>。</li>
+<li><strong>转义符</strong>用<code>\</code>来转义，需要<code>\</code>时直接用<code>\\</code>表示。同时提供字符串不转义的方法，<code>r&#39;\n&#39;</code>直接就是<code>\n</code>。</li>
+<li><strong>多行字符串</strong>用<code>&#39;&#39;&#39;...&#39;&#39;&#39;</code>表示。</li>
+<li><strong>特殊值</strong> 布尔值<code>True</code>和<code>False</code>，空值<code>None</code>，</li>
+<li><strong>常量</strong>，在Python中，通常用全部大写的变量名表示常量。<code>PI = 3.14159265359</code></li>
+</ul>
+<h2 id="4-编码"><a href="#4-编码" class="headerlink" title="4.编码"></a>4.编码</h2><p>####编码方式</p>
+<p>Python使用UTF-8编码，一般英语字符串使用ASCII码表示。提供<code>ord()</code>和<code>chr()</code>来转换数字和字母。</p>
+<pre><code>&gt;&gt;&gt; ord(&apos;A&apos;)
+65
+&gt;&gt;&gt; chr(65)
+&apos;A&apos;
+</code></pre><p>要使用中文时，需添加标记以强制使用Unicode，Unicode字符<code>u&#39;...&#39;</code>，比如</p>
+<pre><code>&gt;&gt;&gt; print u&apos;中文&apos;
+中文
+&gt;&gt;&gt; u&apos;中&apos;
+u&apos;\4e2d&apos;
+</code></pre><p>转换可以用点取<code>.encode(&#39;utf-8&#39;)</code>，同时可用<code>decode(&#39;utf-8&#39;)</code>反向转换。</p>
+<pre><code>&gt;&gt;&gt; print &apos;\xe4\xb8\xad\xe6\x96\x87&apos;.decode(&apos;utf-8&apos;)
+中文
+</code></pre><p>可用<code>len()</code>方法获取在Unicode中字符串的长度。</p>
+<p>####字符串格式化</p>
+<p>Python字符串的格式化方式与C相同，都是用<code>%</code>来实现。</p>
+<pre><code>&gt;&gt;&gt; print &apos;This is %s university, the No.%d university in %s.&apos; % (&apos;Peking&apos;, 1, &apos;China&apos;)
+This is Peking university, the No.1 university in China.
+</code></pre><p><strong>整数</strong><code>%d</code>， <strong>浮点数</strong><code>%f</code>,加数字还可以补0和小数位数。<code>%2d</code>, <code>%02d</code>, <code>%02f</code>,不确定用什么时，<code>%s</code>永远有效。</p>
+<h2 id="5-List"><a href="#5-List" class="headerlink" title="5.List"></a>5.List</h2><p>List是Python内置的列表，有序的集合,类似于C++和Java的vector，可以随时添加和删除元素。定义时用<code>[...]</code>。访问可用正数索引，或者负数索引（从后往前取）</p>
+<pre><code>&gt;&gt;&gt; nums = [1, 2, 3, 4]
+&gt;&gt;&gt; nums[1]
+2
+&gt;&gt;&gt; nums[-1]
+4
+</code></pre><ul>
+<li>添加到末尾用<code>append()</code>方法</li>
+<li>插入到指定位置则用<code>insert(i, info)</code></li>
+<li>删除末尾用<code>pop()</code></li>
+<li>删除指定元素<code>pop(i)</code></li>
+<li><p>修改指定元素时直接改即可。</p>
+<pre><code>&gt;&gt;&gt; nums.append(5)
+&gt;&gt;&gt; nums.insert(0, -1)
+&gt;&gt;&gt; nums.pop();
+&gt;&gt;&gt; nums.pop(4);
+</code></pre></li>
+</ul>
+<p>list里边的元素类型可以不同，例如<code>mylist = [&#39;apple&#39;, 12, True]</code><br>list里边还可以嵌入一个list，要读取list内嵌的list直接用多维数组的方式。</p>
+<pre><code>&gt;&gt;&gt; p = [1, 2, 3]
+&gt;&gt;&gt; q = [0, p, 4, 5]
+&gt;&gt;&gt; len(q)
+4
+&gt;&gt;&gt; q[1][1]
+2
+</code></pre><h2 id="6-Tuple"><a href="#6-Tuple" class="headerlink" title="6.Tuple"></a>6.Tuple</h2><p>Tuple与list非常类似，但是一旦被初始化就不能修改，有点像一组固定的指针。访问类似于list，但不能赋值。<br>空Tuple直接写成<code>()</code>，只有元素的tuple需要在定义时加一个<code>,</code>以免表示为小括号。</p>
+<pre><code>&gt;&gt;&gt; t = ()
+&gt;&gt;&gt; t = (1, )
+&gt;&gt;&gt; t
+(1,)
+</code></pre><p>Tuple不能被修改是指Tuple本身的元素指向固定，不能被修改。但是如果元素是list等可变类型，则可以对list进行修改。因此，tuple是固定了顶层的元素，而内部的元素可根据运行时需要修改。</p>
+<pre><code>&gt;&gt;&gt; t = (&apos;a&apos;, &apos;b&apos;, [&apos;A&apos;, &apos;B&apos;])
+&gt;&gt;&gt; t[2][0] = &apos;X&apos;
+&gt;&gt;&gt; t[2][1] = &apos;Y&apos;
+&gt;&gt;&gt; t
+(&apos;a&apos;, &apos;b&apos;, [&apos;X&apos;, &apos;Y&apos;])
+</code></pre><h2 id="7-跳转"><a href="#7-跳转" class="headerlink" title="7.跳转"></a>7.跳转</h2><p><code>if</code>没有括号，直接跟在后面，但是条件结束要加一个<code>:</code>，else if用的是<code>elif</code></p>
+<pre><code>if age &gt;= 18:
+    print &apos;adult&apos;
+elif age &gt;= 6:
+    print &apos;teenager&apos;
+else:
+    print &apos;kid&apos;
+</code></pre><p><code>for</code>循环，类似于iterator，迭代获取list或者tuple中的元素，<code>for x in ...</code>。如果要获取一段整数序列，可以用<code>range(a, b)</code>获得从a开始到b-1的整数序列。</p>
+<pre><code>for x in range(2, 10):
+    sum = sum + x
+</code></pre><p>另一种循环是<code>while</code>循环，记得类似于if，要加冒号。</p>
+<h2 id="8-Dict"><a href="#8-Dict" class="headerlink" title="8.Dict"></a>8.Dict</h2><p>Dict类似于Map，提供<code>key-value</code>的存储方式，直接用key即可获得value。<strong>key要求不可变</strong>，只能用字符串、整数等，不能用list。而value可以是任何数据类型。初始化用<code>{key:value}</code>。</p>
+<p>访问某一个pair，可以直接用key，类似于list的访问，<code>score[&#39;MrZigZag&#39;]</code>。要避免key不存在的错误，先用<code>in</code>方法判断是否有这个key，或者直接用<code>get(key, value)</code>方法，找不到直接反悔<code>value</code>。</p>
+<pre><code>&gt;&gt;&gt; &apos;Thomas&apos; in score
+False
+&gt;&gt;&gt; score.get(&apos;Thomas&apos;, -1)
+-1
+</code></pre><p>删除对象用<code>pop(key)</code>。</p>
+<h2 id="9-Set"><a href="#9-Set" class="headerlink" title="9.Set"></a>9.Set</h2><p>Set类似于Dict，也是一组key的组合，但是只存储key不存储value。在Set中没用重复的key。</p>
+<p>Set的创建需要一个list作为输入。用<code>add(key)</code>添加key，但是重复添加的key只有一个。<code>remove(key)</code>删除元素。</p>
+<pre><code>&gt;&gt;&gt; s = set([1, 2, 3])
+&gt;&gt;&gt; s.add(3)
+&gt;&gt;&gt; s
+set([1, 2, 3])
+&gt;&gt;&gt; s.remove(3)
+&gt;&gt;&gt; s
+set([1, 2])
+</code></pre><p>Set是一个集合，可以用来进行交集<code>s1 &amp; s2</code>和并集<code>s1 | s2</code>操作。</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/02/背包问题/" itemprop="url">
+                  背包问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-02T00:04:06+08:00" content="2016-04-02">
+              2016-04-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="01背包问题"><a href="#01背包问题" class="headerlink" title="01背包问题"></a>01背包问题</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>有N件物体，体积为<em>v1、v2…vN</em>，价值为<em>w1、w2…wN</em>。<br>现在有一个容量为<em>V</em>的包，从N件物体中选择若干件放进包里，使得包里物体的<strong>总价值最大</strong>。</p>
+<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>利用动态规划，建立<code>(N+1)*(V+1)</code>的矩阵<code>F[N+1][V+1]</code>，<code>F[i][j]</code>表示在前i个物体中取若干个放入剩余容量为j的背包得到的最大的价值。于是有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F[i][j] = max(F[i-1][j], F[i-1][j-v[i]]+w[i])</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，矩阵第一行第一列为0，表示没有物体或者没有剩余空间时价值都是0。实际上<code>F[i-1][j]</code>表示没有放进第i个物体，<code>F[i-1][j-v[i]]+w[i]</code>表示放进了第i个物体时的价值。</p>
+<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">F[0][] &lt;- 0</span><br><span class="line">F[][0] &lt;- 0</span><br><span class="line">for i = 1...N</span><br><span class="line">	for j = 1...V</span><br><span class="line">		F[i][j] = F[i - 1][j]</span><br><span class="line">		if (j &gt;= v[i]) //能放进第i个物体</span><br><span class="line">			F[i][j] = max(F[i][j], F[i - 1][j - v[i]] + w[i])</span><br><span class="line">		end</span><br><span class="line">	end</span><br><span class="line">end</span><br><span class="line">F[N][V]即为所求</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="二维01背包问题"><a href="#二维01背包问题" class="headerlink" title="二维01背包问题"></a>二维01背包问题</h1><p>类似于01背包问题，有N件物体，消耗两种属性，背包也有两种待消耗属性。求总价值最大。</p>
+<h2 id="伪代码-1"><a href="#伪代码-1" class="headerlink" title="伪代码"></a>伪代码</h2><p>类似于01背包问题，<code>c1</code>, <code>c2</code>是物体的两种属性，<code>v1</code>和<code>v2</code>是背包的两种属性。建立<code>F[v1+1][v2+1]</code>，<code>F[i][j]</code>表示背包两种属性为i和j时可放下的最大价值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">F[0][0] = 0</span><br><span class="line">for i = 1...N</span><br><span class="line">	for j = v1...c1[i] // decrease</span><br><span class="line">		for k = v2...c2[i] // decrease</span><br><span class="line">			F[j][k] = max(F[j][k], F[j - c1[i]][k - c2[i]] + w[i])</span><br><span class="line">		end</span><br><span class="line">	end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p><strong><a href="http://bailian.openjudge.cn/practice/4102/" target="_blank" rel="external">宠物小精灵之收服</a></strong></p>
+<blockquote>
+<p><em>描述</em><br>一天，小智和皮卡丘来到了小精灵狩猎场，里面有很多珍贵的野生宠物小精灵。小智也想收服其中的一些小精灵。然而，野生的小精灵并不那么容易被收服。对于每一个野生小精灵而言，小智可能需要使用很多个精灵球才能收服它，而在收服过程中，野生小精灵也会对皮卡丘造成一定的伤害（从而减少皮卡丘的体力）。当皮卡丘的体力小于等于0时，小智就必须结束狩猎（因为他需要给皮卡丘疗伤），而使得皮卡丘体力小于等于0的野生小精灵也不会被小智收服。当小智的精灵球用完时，狩猎也宣告结束。<br>我们假设小智遇到野生小精灵时有两个选择：收服它，或者离开它。如果小智选择了收服，那么一定会扔出能够收服该小精灵的精灵球，而皮卡丘也一定会受到相应的伤害；如果选择离开它，那么小智不会损失精灵球，皮卡丘也不会损失体力。<br>小智的目标有两个：主要目标是收服尽可能多的野生小精灵；如果可以收服的小精灵数量一样，小智希望皮卡丘受到的伤害越小（剩余体力越大），因为他们还要继续冒险。<br>现在已知小智的精灵球数量和皮卡丘的初始体力，已知每一个小精灵需要的用于收服的精灵球数目和它在被收服过程中会对皮卡丘造成的伤害数目。请问，小智该如何选择收服哪些小精灵以达到他的目标呢？</p>
+<p><em>输入</em><br>输入数据的第一行包含三个整数：N(0 &lt; N &lt; 1000)，M(0 &lt; M &lt; 500)，K(0 &lt; K &lt; 100)，分别代表小智的精灵球数量、皮卡丘初始的体力值、野生小精灵的数量。<br>之后的K行，每一行代表一个野生小精灵，包括两个整数：收服该小精灵需要的精灵球的数量，以及收服过程中对皮卡丘造成的伤害。</p>
+<p><em>输出</em><br>输出为一行，包含两个整数：C，R，分别表示最多收服C个小精灵，以及收服C个小精灵时皮卡丘的剩余体力值最多为R。</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   	<span class="keyword">int</span> v1, v2, N;</span><br><span class="line">   	<span class="keyword">int</span> c1[<span class="number">100</span>], c2[<span class="number">100</span>], f[<span class="number">1000</span>][<span class="number">500</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">   	<span class="built_in">cin</span> &gt;&gt; v1 &gt;&gt; v2 &gt;&gt; N;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++)&#123;</span><br><span class="line">       	<span class="built_in">cin</span> &gt;&gt; c1[i] &gt;&gt; c2[i];</span><br><span class="line">   	&#125;</span><br><span class="line">   	f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++)&#123;</span><br><span class="line">      	<span class="keyword">for</span> (<span class="keyword">int</span> j = v1; j &gt;= c1[i]; j--)&#123;</span><br><span class="line">         	<span class="keyword">for</span> (<span class="keyword">int</span> k = v2; k &gt;= c2[i]; k--)&#123;</span><br><span class="line">             	f[j][k] = max(f[j][k], f[j - c1[i]][k - c2[i]] + <span class="number">1</span>);</span><br><span class="line">         	&#125;</span><br><span class="line">   		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= v2; k++)&#123;</span><br><span class="line">      	<span class="keyword">if</span> (f[v1][k] == f[v1][v2])&#123;</span><br><span class="line">         	<span class="built_in">cout</span> &lt;&lt; f[v1][v2] &lt;&lt; <span class="string">" "</span> &lt;&lt; v2 - k &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">         	<span class="keyword">break</span>;</span><br><span class="line">      	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -510,13 +2158,27 @@ int main(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>

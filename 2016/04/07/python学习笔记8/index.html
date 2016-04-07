@@ -1,0 +1,673 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="Python学习笔记–8.I/O2015-07-21
+MrZigZag @ Peking University
+1.文件Python内置读写文件的函数，用法与C类似。读写文件一般都是请求操作系统打开一个文件对象，然后通过操作系统的借口从这个文件对象读写数据。
+读文件，使用内置的open()函数，传入文件名和读写标识符。
+f = open(&amp;apos;file_name&amp;apos;, &amp;apos;r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习笔记8">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/python学习笔记8/index.html">
+<meta property="og:site_name" content="MrZigZag">
+<meta property="og:description" content="Python学习笔记–8.I/O2015-07-21
+MrZigZag @ Peking University
+1.文件Python内置读写文件的函数，用法与C类似。读写文件一般都是请求操作系统打开一个文件对象，然后通过操作系统的借口从这个文件对象读写数据。
+读文件，使用内置的open()函数，传入文件名和读写标识符。
+f = open(&amp;apos;file_name&amp;apos;, &amp;apos;r">
+<meta property="og:updated_time" content="2016-04-07T08:25:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python学习笔记8">
+<meta name="twitter:description" content="Python学习笔记–8.I/O2015-07-21
+MrZigZag @ Peking University
+1.文件Python内置读写文件的函数，用法与C类似。读写文件一般都是请求操作系统打开一个文件对象，然后通过操作系统的借口从这个文件对象读写数据。
+读文件，使用内置的open()函数，传入文件名和读写标识符。
+f = open(&amp;apos;file_name&amp;apos;, &amp;apos;r">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Python学习笔记8 | MrZigZag </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MrZigZag</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python学习笔记8
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:24:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Python学习笔记–8-I-O"><a href="#Python学习笔记–8-I-O" class="headerlink" title="Python学习笔记–8.I/O"></a>Python学习笔记–8.I/O</h2><p>2015-07-21</p>
+<p>MrZigZag @ Peking University</p>
+<h3 id="1-文件"><a href="#1-文件" class="headerlink" title="1.文件"></a>1.文件</h3><p>Python内置读写文件的函数，用法与C类似。读写文件一般都是请求操作系统打开一个文件对象，然后通过操作系统的借口从这个文件对象读写数据。</p>
+<p><strong>读文件</strong>，使用内置的<code>open()</code>函数，传入文件名和读写标识符。</p>
+<pre><code>f = open(&apos;file_name&apos;, &apos;r&apos;)
+</code></pre><p>调用<code>read()</code>方法可以一次性读取全部内容存放到一个str中，最后调用<code>close()</code>关闭文件。文件使用完毕之后必须关闭。每次都写<code>close()</code>并不方便，Python提供了<code>with</code>语句自动调用<code>close()</code>。</p>
+<pre><code>with open(&apos;file_name&apos;, &apos;r&apos;) as f:
+    str = f.read()
+</code></pre><p>与Java类似，Python要求读文件时要调用<code>try-except</code>机制来处理可能会出现的问题。</p>
+<pre><code>try:
+    f = open(&apos;file_name&apos;, &apos;r&apos;)
+    str = f.read()
+finally:
+    if f:
+        f.close()
+</code></pre><p>读文件还可以使用<code>read(size)</code>每次读取size字节的内容，或者用<code>readline()</code>读取一行，还可以用<code>readlines()</code>一次读取所有行并生成一个list。</p>
+<p><strong>读二进制文件</strong>，用<code>rb</code>模式打开文件即可。</p>
+<pre><code>with open(file_name, &apos;rb&apos;) as f:
+    u_str = f.read()
+</code></pre><p>一般而言，读取非Ascii编码的文本文件都是先用二进制打开，读取再解码。Python提供<code>codecs</code>模块处理读文件时的自动编码。</p>
+<pre><code>import codecs
+with codecs.open(file_name, &apos;r&apos;, &apos;gbk&apos;) as f:
+    f.read()
+</code></pre><p><strong>写文件</strong>，与读文件类似，区别在于用了<code>write()</code>，使用标识符<code>w</code>或者<code>wb</code>。同时可使用<code>with</code>。要写入特定编码的文件，可以使用<code>codecs</code>。</p>
+<h3 id="2-操作文件和目录"><a href="#2-操作文件和目录" class="headerlink" title="2.操作文件和目录"></a>2.操作文件和目录</h3><p>Python内置了<code>os</code>模块，可以直接调用操作系统提供的接口函数。例如：</p>
+<pre><code>&gt;&gt;&gt; import os
+&gt;&gt;&gt; os.name
+&apos;posix&apos;
+
+&gt;&gt;&gt; os.uname() #操作系统的详细信息
+(&apos;Darwin&apos;, &apos;MrZigZagdeMacBook-Pro.local&apos;, &apos;14.4.0&apos;, &apos;Darwin Kernel Version 14.4.0: Thu May 28 11:35:04 PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64&apos;, &apos;x86_64&apos;)
+
+&gt;&gt;&gt; os.environ #环境变量
+{&apos;VERSIONER_PYTHON_PREFER_32_BIT&apos;: &apos;no&apos;, &apos;TERM_PROGRAM_VERSION&apos;: &apos;326&apos;, &apos;LOGNAME&apos;: &apos;michael&apos;, &apos;USER&apos;: &apos;michael&apos;, &apos;PATH&apos;: &apos;/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/mysql/bin&apos;, ...}
+
+&gt;&gt;&gt; os.getenv(&apos;PATH&apos;) #获取环境变量的值
+&apos;/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/bin&apos;
+</code></pre><p>操作文件和目录的函数放在<code>os</code>和<code>os.path</code>模块中。</p>
+<pre><code>&gt;&gt;&gt; os.path.abspath(&apos;.&apos;) # 当前目录的绝对路径
+&apos;/Users/mrzigzag&apos;
+</code></pre><p>将两个路径组合时，根据操作系统的差异性，一般不要直接拼接字符串，最好用<code>os.path.join()</code>函数，这样可以处理不同操作系统的路径分隔符。</p>
+<p>拆分路径时用<code>os.path.split()</code>可以将路径拆分成 两个部分，最后一个部分总是最后级别的目录或者文件名。得到文件扩展名<code>os.path.splitext()</code>。</p>
+<p>创建目录<code>os.mkdir(dir)</code>，删除目录<code>os.rmdir(dir)</code>。</p>
+<pre><code>&gt;&gt;&gt; os.path.join(&apos;/Users/mrzigzag&apos;, &apos;testdir&apos;)
+&apos;/Users/mrzigzag/testdir&apos;
+&gt;&gt;&gt; os.mkdir(&apos;/Users/mrzigzag/testdir&apos;)
+&gt;&gt;&gt; os.rmdir(&apos;/Users/mrzigzag/testdir&apos;)
+&gt;&gt;&gt; os.path.split(&apos;/Users/mrzigzag/testdir&apos;)
+(&apos;/Users/mrzigzag&apos;, &apos;testdir&apos;)
+</code></pre><p>重命名<code>os.rename(name.old, name.new)</code>，删除<code>os.remove(file)</code>。</p>
+<p>复制文件需要<code>shutil</code>模块提供的<code>copyfile()</code>函数。</p>
+<p>利用Python的特性对文件目录进行批量操作，例如列出所有文件。</p>
+<pre><code>&gt;&gt;&gt; [x for x in os.listdir(&apos;.&apos;) if not os.path.isdir(x)]
+</code></pre><p>要列出所有<code>.jpg</code>文件。</p>
+<pre><code>&gt;&gt;&gt; [x for x in os.listdir(&apos;.&apos;) if x not os.path.isdir(x) and os.path.splitext(x)[1] == &apos;.jpg&apos;]
+</code></pre><h3 id="3-序列化"><a href="#3-序列化" class="headerlink" title="3.序列化"></a>3.序列化</h3><p>把变量从内存中变成可存储或者可传输的过程称为序列化。反之称为反序列化。</p>
+<p>Python提供两个模块来实现序列化，<code>cPickle</code>和<code>pickle</code>，功能一样，但是<code>cPickle</code>用c写，速度快，一般优先调用。</p>
+<pre><code>try:
+    import cPickle as pickle
+except ImportError:
+    import pickle
+</code></pre><p>将对象写到文件。可以用<code>pickle.dumps()</code>方法将任意对象序列化成为一个str，然后将该str写入到文件。或者用<code>pickle.dump()</code>直接将对象序列化后写入到一个file-like Object。</p>
+<pre><code>with open(&apos;file_name&apos;, &apos;wb&apos;) as f:
+    pickle.dump(d, f)
+</code></pre><p>读入同理，<code>pickle.loads()</code>是从字符串读入，<code>pickle.load()</code>则是从file-like Object直接读入。</p>
+<p>Pickle的问题主要是保存的格式只适合Python，不同版本的Python可能都不兼容。如果有更加通用的序列化需求，用<code>json</code>格式才是一个比较好的选择。</p>
+<p><strong>JSON</strong>是标准的Javascript对象，表示出来就是一个字符串，可以被所有语言读取，也方便存储和传输。</p>
+<p>Python内置了<code>json</code>模块提供了完善的Python对象到JSON格式的转换，内置的序列化函数和反序列化函数与pickle类似。</p>
+<pre><code>&gt;&gt;&gt; import json
+&gt;&gt;&gt; d = dict(name=&apos;Bob&apos;, age=20, score=88)
+&gt;&gt;&gt; json.dumps(d)
+&apos;{&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;}&apos;
+</code></pre><p>需要注意的一点是反序列化得到的所有字符串对象都是<code>unicode</code>而不是<code>str</code>，因为JSON标准规定的编码是UTF-8。</p>
+<p><code>json</code>模块支持直接将Python的基本数据类型转换到JSON，对于自定义的类则需要用转换函数进行转换。</p>
+<pre><code>import json
+class Student(object):
+    def __init__(self, name, age, score):
+    self.name = name
+    self.age = age
+    self.score = score
+
+s = Student(&apos;Bob&apos;, 20, 88)
+print(json.dumps(s))
+</code></pre><p>运行会得到一个<code>TypeError</code>，因为Student不是一个可序列化为JSON的对象。利用可选参数<code>default</code>，写一个转换函数即可。</p>
+<pre><code>def studetn2dict(std):
+    return {
+        &apos;name&apos;: std.name,
+        &apos;age&apos;: std.age,
+        &apos;score&apos;: std.score
+    }
+
+print(json.dumps(s, default=student2dict))
+</code></pre><p>遇到其他子类的实例时可能会无法转换，因而可以直接利用class中得<code>__dict__</code>属性，它就是一个用来存储实例变量的<code>dict</code>。</p>
+<pre><code>print(json.dumps(s, default=lambda obj: ojb.__dict__))
+</code></pre><p>反序列化则是先用<code>json.loads()</code>将JSON转换成一个<code>dict</code>，然后传入<code>object_hook</code>将dict转换成具体的实例。</p>
+<pre><code>def dict2student(d):
+    return Student(d[&apos;name&apos;], d[&apos;age&apos;], d[&apos;score])
+
+json_str = &apos;{&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;}&apos;
+print(json.loads(json_str, object_hook=dict2student))
+</code></pre><p>关于<code>json.dumps()</code>方法提供的可选参数，可以参考<a href="https://docs.python.org/2/library/json.html#json.dumps" target="_blank" rel="external">这里</a>。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/07/python学习笔记7/" rel="next" title="Python学习笔记7">
+                <i class="fa fa-chevron-left"></i> Python学习笔记7
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="李松江" />
+          <p class="site-author-name" itemprop="name">李松江</p>
+          <p class="site-description motion-element" itemprop="description">So long and thanks for all the fish.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python学习笔记–8-I-O"><span class="nav-number">1.</span> <span class="nav-text">Python学习笔记–8.I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-文件"><span class="nav-number">1.1.</span> <span class="nav-text">1.文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-操作文件和目录"><span class="nav-number">1.2.</span> <span class="nav-text">2.操作文件和目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-序列化"><span class="nav-number">1.3.</span> <span class="nav-text">3.序列化</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李松江</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

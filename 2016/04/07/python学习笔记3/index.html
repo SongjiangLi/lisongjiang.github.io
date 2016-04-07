@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -57,19 +57,49 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="##Python学习笔记–3.函数式编程
+MrZigZag@Peking University
+2015-07-12
+###1.函数式编程
+抽象层次比较高，允许把函数本身作为参数传入另一个函数，还允许返回一个函数。
+Python对函数式编程提供部分支持。
+###2.高阶函数
+将简单的函数作为参数传入高阶函数。
+def add(x, y, f):
+    return f(x) + f(y)
+
+&amp;g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/04/01/hello-world/index.html">
+<meta property="og:title" content="Python学习笔记3">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/python学习笔记3/index.html">
 <meta property="og:site_name" content="MrZigZag">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-04-01T15:53:37.000Z">
+<meta property="og:description" content="##Python学习笔记–3.函数式编程
+MrZigZag@Peking University
+2015-07-12
+###1.函数式编程
+抽象层次比较高，允许把函数本身作为参数传入另一个函数，还允许返回一个函数。
+Python对函数式编程提供部分支持。
+###2.高阶函数
+将简单的函数作为参数传入高阶函数。
+def add(x, y, f):
+    return f(x) + f(y)
+
+&amp;g">
+<meta property="og:updated_time" content="2016-04-07T08:25:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Python学习笔记3">
+<meta name="twitter:description" content="##Python学习笔记–3.函数式编程
+MrZigZag@Peking University
+2015-07-12
+###1.函数式编程
+抽象层次比较高，允许把函数本身作为参数传入另一个函数，还允许返回一个函数。
+Python对函数式编程提供部分支持。
+###2.高阶函数
+将简单的函数作为参数传入高阶函数。
+def add(x, y, f):
+    return f(x) + f(y)
+
+&amp;g">
 
 
 
@@ -87,7 +117,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | MrZigZag </title>
+  <title> Python学习笔记3 | MrZigZag </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -227,7 +257,7 @@ Quick">
             
             
               
-                Hello World
+                Python学习笔记3
               
             
           </h1>
@@ -239,11 +269,30 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-01T23:53:37+08:00" content="2016-04-01">
-              2016-04-01
+            <time itemprop="dateCreated" datetime="2016-04-07T16:19:05+08:00" content="2016-04-07">
+              2016-04-07
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -266,16 +315,155 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>##Python学习笔记–3.函数式编程</p>
+<p>MrZigZag@Peking University</p>
+<p>2015-07-12</p>
+<p>###1.函数式编程</p>
+<p>抽象层次比较高，允许把函数本身作为参数传入另一个函数，还允许返回一个函数。</p>
+<p>Python对函数式编程提供部分支持。</p>
+<p>###2.高阶函数</p>
+<p>将简单的函数作为参数传入高阶函数。</p>
+<pre><code>def add(x, y, f):
+    return f(x) + f(y)
 
+&gt;&gt;&gt; add(-5, 6, abs)
+11
+</code></pre><p><code>map()</code>接收两个参数，一个是函数另一个是序列，返回一个经函数处理过的序列。</p>
+<pre><code>def f(x):
+    return x * x
+
+&gt;&gt;&gt; map(f, range(1,10))
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+</code></pre><p><code>reduce()</code>是把一个函数f作用在一个序列list上，函数f接收两个参数，因而是逐个累积运算。</p>
+<pre><code>reduce(f, [1, 2, 3]) = f(f(1, 2), 3)
+</code></pre><p>利用reduce可以轻松将一个string转换成int，例如</p>
+<pre><code>def str2int(s):
+    def fn(x, y):
+        return x * 10 + y
+    def char2num(s):
+        return {&apos;0&apos;: 0, &apos;1&apos;: 1, &apos;2&apos;: 2, &apos;3&apos;: 3, &apos;4&apos;: 4, &apos;5&apos;: 5, &apos;6&apos;: 6, &apos;7&apos;: 7, &apos;8&apos;: 8, &apos;9&apos;: 9}[s]
+    return reduce(fn, map(char2num, s))
+</code></pre><p><code>filter()</code>过滤函数，给定一个序列和一个函数，函数依次作用于序列并根据结果的True/False决定是否丢弃。</p>
+<pre><code>def is_odd(n):
+    return n % 2 == 1
+
+&gt;&gt;&gt; filter(is_odd, range(0, 10))
+[1, 3, 5, 7, 9]
+</code></pre><p>例如删除1-100之间的素数。</p>
+<pre><code>def isn_prime(num):
+    if num == 1:
+        return True
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if (num % i == 0):
+            return True
+    return False
+
+filter(isn_prime, range(1, 101))
+</code></pre><p><code>sorted()</code>对一个list排序，默认对数字是升序排序，字符串则是首字母ASCII码。sorted()是一个高阶函数，可以输入一个比较函数实现自定义排序。</p>
+<pre><code>&gt;&gt;&gt; sorted([13, 2, 90, 33, 14, 5, 1])
+[1, 2, 5, 13, 14, 33, 90]
+
+def reversed_cmp(x, y):
+    if x &gt; y:
+        return -1
+    elif x == y:
+        return 0
+    else:
+        return 1
+&gt;&gt;&gt; sorted([13, 2, 90, 33, 14, 5, 1], reversed_cmp)
+[90, 33, 14, 13,5, 2, 1]
+</code></pre><p>###3.返回函数和闭包</p>
+<p>高阶函数除了接收函数作为参数，还可以把函数作为结果值返回。返回的函数包含了相关的参数。</p>
+<pre><code>def delay_sum(*args):
+    def sum():
+        ans = 0
+        for n in args:
+            ans = ans + n
+        return ans
+    return sum
+
+&gt;&gt;&gt; f = delay_sum(1, 2, 3, 4)
+&gt;&gt;&gt; f()
+10
+</code></pre><p><strong>闭包</strong>内部函数可以引用外部函数的参数和局部变量，外部函数返回内部函数时，相关的参数和变量都保存在返回的函数中。每次调用外部函数都会返回一个新的函数，即使传入相同的参数。因此不同的返回函数相互之间没有影响。</p>
+<p>返回函数不要引用任何后续会发生变化的变量，尤其是循环变量。返回函数只有在显式调用时才会使用变量执行。</p>
+<pre><code>def counter():
+    fs = []
+    for i in range(1, 4):
+        def f():
+            return i * i
+        fs.append(f)
+    return fs
+
+&gt;&gt;&gt; f1, f2, f3 = counter()
+&gt;&gt;&gt; f1()
+9
+&gt;&gt;&gt; f2()
+9
+&gt;&gt;&gt; f3()
+9
+</code></pre><p>一定要引用循环变量时可以新建一个函数，绑定循环变量。</p>
+<pre><code>def counter():
+    fs = []
+    for i in range(1, 4):
+        def f(j):
+            def g():
+                return j * j
+            return g
+        fs.append(f(j))
+    return fs
+
+&gt;&gt;&gt; f1, f2, f3 = counter()
+&gt;&gt;&gt; f1()
+1
+&gt;&gt;&gt; f2()
+4
+&gt;&gt;&gt; f3()
+9
+</code></pre><p>或者用匿名函数lambda来实现。</p>
+<pre><code>&gt;&gt;&gt; f1, f2, f3 = [(lambda i = i:i * i) for i in range(1, 4)]
+</code></pre><p>###4.匿名函数lambda</p>
+<p>简单的形式可以直接使用匿名函数<code>lambda *args:option</code>，匿名函数只能有一个表达式，但是没有名字，因此不用担心函数名冲突。</p>
+<p>匿名函数可以赋值给一个变量，也可以作为返回值。</p>
+<pre><code>def test_lambda(x, y):
+    return lambda: x * x + y * y
+</code></pre><p>匿名函数作为参数传入到高级函数中，具有简单直观的效果。</p>
+<pre><code>&gt;&gt;&gt; map(lambda x:x * x, range(1, 10))
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+</code></pre><p>###5.装饰器Decorator</p>
+<p>对于函数对象，在代码运行期间动态增加功能而没有修改原函数的方式称为装饰器。本质上装饰器就是一个返回函数的高阶函数。</p>
+<pre><code>def log(func):
+    def wrapper(*args, **kw):
+        print &apos;call %s():&apos; % func.__name__
+        return func(*args, **kw)
+    return wrapper
+</code></pre><p>定义好了Decorator之后，可用<code>@</code>将它置于函数的定义处，这样执行该函数时就会执行装饰器。即相当于执行了<code>func = log(func)</code></p>
+<pre><code>@log
+def test():
+    print &apos;Hello world!&apos;
+
+&gt;&gt;&gt; test()
+call test():
+Hello world!
+</code></pre><p>如果decorator本身需要传入参数，那就得写一个返回decorator的高阶函数。</p>
+<pre><code>def log(text):
+    def decorator(func):
+        def wrapper(*args, **kw):
+            print &apos;%s %s():&apos; % (text, func.__name__)
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+</code></pre><p>###6.偏函数</p>
+<p>可以把一个函数的某些参数固定住，然后返回一个新的函数。</p>
+<pre><code>import functools
+int2 = functool.partial(int, base = 2)
+
+&gt;&gt;&gt; int2(&apos;1001&apos;)
+9
+</code></pre><p>实际上就相当于</p>
+<pre><code>kw = {&apos;base&apos; : 2}
+int(&apos;1001&apos;, kw)
+</code></pre>
       
     </div>
     
@@ -293,17 +481,27 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/07/python学习笔记2/" rel="next" title="Python学习笔记2">
+                <i class="fa fa-chevron-left"></i> Python学习笔记2
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/02/背包问题/" rel="prev" title="背包问题">
-                背包问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/07/python学习笔记4/" rel="prev" title="Python学习笔记4">
+                Python学习笔记4 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -420,7 +618,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

@@ -1,0 +1,726 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="##Python学习笔记–5.面向对象编程
+MrZigZag @ Peking University
+2015-07-17
+
+###1.定义
+通过class关键字定义类，父类(object)。
+class MyClass(object):
+    pass
+没有合适的继承类时可以使用object类，这是所有的类都会继承的类。
+自由绑定，Python是动态语言，可以在运行过程中实时地给实例insta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习笔记5">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/python学习笔记5/index.html">
+<meta property="og:site_name" content="MrZigZag">
+<meta property="og:description" content="##Python学习笔记–5.面向对象编程
+MrZigZag @ Peking University
+2015-07-17
+
+###1.定义
+通过class关键字定义类，父类(object)。
+class MyClass(object):
+    pass
+没有合适的继承类时可以使用object类，这是所有的类都会继承的类。
+自由绑定，Python是动态语言，可以在运行过程中实时地给实例insta">
+<meta property="og:updated_time" content="2016-04-07T08:25:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python学习笔记5">
+<meta name="twitter:description" content="##Python学习笔记–5.面向对象编程
+MrZigZag @ Peking University
+2015-07-17
+
+###1.定义
+通过class关键字定义类，父类(object)。
+class MyClass(object):
+    pass
+没有合适的继承类时可以使用object类，这是所有的类都会继承的类。
+自由绑定，Python是动态语言，可以在运行过程中实时地给实例insta">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Python学习笔记5 | MrZigZag </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MrZigZag</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python学习笔记5
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:21:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##Python学习笔记–5.面向对象编程</p>
+<p>MrZigZag @ Peking University</p>
+<p>2015-07-17</p>
+<hr>
+<p>###1.定义</p>
+<p>通过<code>class</code>关键字定义类，父类<code>(object)</code>。</p>
+<pre><code>class MyClass(object):
+    pass
+</code></pre><p>没有合适的继承类时可以使用<code>object</code>类，这是所有的类都会继承的类。</p>
+<p><strong>自由绑定</strong>，Python是动态语言，可以在运行过程中实时地给实例<code>instance</code>绑定新的属性，同时还可以绑定新的方法。</p>
+<pre><code>&gt;&gt;&gt; ins1 = MyClass()
+&gt;&gt;&gt; ins1.name = &apos;Test&apos;
+
+def set_age(self, age):
+    self.age = age
+from types inport MethodType
+s = Student()
+s.set_age = MethodType(set_age, s, Student)
+</code></pre><p><strong>方法</strong>，类的初始化方法是<code>__init__(self, args)</code>，任何方法第一个参数都是<code>self</code>，但是使用时不需要传进去。</p>
+<p>###2.访问限制</p>
+<p>属性名称加上<code>__</code>表示private，<code>__prop</code>会被解释器解释成<code>_Classname__prop</code>，要访问<code>__prop</code>可以写<code>__Classname__prop</code>。</p>
+<p>双下划线开头双下划线结尾的属性属于特殊变量，可以访问，一般不能使用这个命名方法。</p>
+<p>单下划线开头的变量可以访问，但是一般被视为private变量。</p>
+<p>###3.继承和多态</p>
+<p>继承之后，子类的方法会覆盖父类的方法。</p>
+<p>多态保证了只需要知道父类，并不需要确切的子类就可以放心的使用父类中的方法。因而调用方只管调用不管细节。符合“开闭原则”。<code>对扩展开放，对修改封闭</code>。</p>
+<pre><code>class Animal(object):
+    def run(self):
+        print &apos;Animal is running!&apos;
+class Dog(Animal):
+    def run(self):
+        print &apos;Dog is runnning!&apos;
+def run_twice(animal):
+    animal.run()
+    animal.run()
+
+&gt;&gt;&gt; run_twice(Animal())
+Animal is running!
+Animal is running!
+&gt;&gt;&gt; run_twice(Dog())
+Dog is running!
+Dog is running!
+</code></pre><p>根据多态的性质，任何时候最好都要使用继承，如果没有合适的父类则直接继承<code>object</code>。</p>
+<p>###4.获取对象信息</p>
+<p>拿到一个对象的引用时，需要确定对象的类型和包含的方法。可以使用多种方法。</p>
+<p><strong>使用type()</strong>，基本类型都可以使用<code>type()</code>函数判断。</p>
+<pre><code>&gt;&gt;&gt; type(1)
+&lt;type &apos;int&apos;&gt;
+&gt;&gt;&gt; type(&apos;hello&apos;)
+&lt;type &apos;str&apos;&gt;
+&gt;&gt;&gt; type(None)
+&lt;type &apos;NoneType&apos;&gt;
+&gt;&gt;&gt; type(abs)
+&lt;type &apos;builtin_function or method&apos;&gt;
+&gt;&gt;&gt; type(Animal())
+&lt;type &apos;__main__.Animal&apos;&gt;
+</code></pre><p><code>type()</code>函数返回<code>type</code>类型，Python把每种type类型都定义好了常量，放在<code>types</code>模块中。</p>
+<pre><code>&gt;&gt;&gt; import types
+&gt;&gt;&gt; type(&apos;abc&apos;) == types.StringType
+True
+&gt;&gt;&gt; type(u&apos;abc&apos;) == types.UnicodeType
+True
+&gt;&gt;&gt; type([]) == types.ListType
+True
+&gt;&gt;&gt; type(int) = types.TypeType
+</code></pre><p>不同类型都有对应的type，所有类型本身的类型就是一种<code>TypeType</code>。</p>
+<p><strong>使用isinstance()</strong>，判断class的类型使用type()并不是很方便，直接使用<code>isinstance()</code>函数。</p>
+<pre><code>&gt;&gt;&gt; a = Ainimal()
+&gt;&gt;&gt; d = Dog()
+&gt;&gt;&gt; isinstance(d, Dog)
+True
+&gt;&gt;&gt; isinstance(d, Animal)
+True
+</code></pre><p>可见isinstance()对继承关系也是有用的。当然，isinstance()还可以判断变量是某些类型中之一。</p>
+<pre><code>&gt;&gt;&gt; isinstance(&apos;a&apos;, str)
+True
+&gt;&gt;&gt; isinstance(&apos;a&apos;, (str, unicode))
+True
+</code></pre><p><strong>使用dir()</strong>可以获得一个对象的所有属性和方法。返回一个包含字符串的list。</p>
+<p>同时配合<code>getattr()</code>、<code>setattr()</code>、<code>hassttr()</code>可以直接操作一个对象的状态。</p>
+<pre><code>&gt;&gt;&gt; hasattr(obj, &apos;x&apos;)
+True
+&gt;&gt;&gt; hasattr(obj, &apos;y&apos;)
+False
+&gt;&gt;&gt; setattr(obj, &apos;y&apos;, 10)
+&gt;&gt;&gt; getattr(obj, &apos;y&apos;)
+10
+&gt;&gt;&gt; obj.y
+10
+&gt;&gt;&gt; getattr(obj, &apos;z&apos;, 404)
+404
+</code></pre><p>一般正确的用法：</p>
+<pre><code>def readImage(fp):
+    if hasattr(fp, &apos;read&apos;):
+        return readData(fp)
+    return None
+</code></pre><p>###5.<strong>slots</strong></p>
+<p>基于Python的动态语言特性，创建class实例之后我们还可以在运行过程中给该实例绑定新的属性和方法，但是新绑定的属性和方法对其他实例是不起作用的。为了给所有实例都绑定方法，可以直接给class绑定新的方法。</p>
+<pre><code>def set_score(self, score):
+    self.score = score;
+Student.set_score = Method_Type(set_score, None, Student)
+</code></pre><p><strong>使用<strong>slots</strong></strong>可以限制class的属性。Python允许在定义class的时候，定义一个特殊的<code>__slots__</code>变量，来限制该class能添加的属性。<code>__slots__</code>仅仅对当前class有效，对继承的子类是不起作用的。</p>
+<pre><code>class Student(object):
+    __slots__ = (&apos;name&apos;, &apos;age&apos;) # Use tuple to describe __slots__
+</code></pre><p>如果在子类中定义<code>__slots__</code>，那么子类允许定义的属性就是自身的<code>__slots__</code>加上父类的<code>__slots__</code>。</p>
+<p>###6.@property</p>
+<p>绑定属性时，为了方便起见，有时候会将属性直接暴露出去，但是这样就没法检查参数，导致属性可以随便改。因此，我们需要限制属性的范围。</p>
+<pre><code>class Student(object):
+    def get_score(self):
+        return self._score
+    def set_score(self, val):
+        if not isinstance(val, int):
+            raise ValueError(&apos;score must be an integer&apos;)
+        if val &lt; 0 or val &gt; 100:
+            raise ValueError(&apos;score must between 0 - 100&apos;)
+        self._score = val
+</code></pre><p>但是这样做就没法将属性直接暴露出去方便读写了。因此我们可以用装饰器decorator给函数动态加上功能。Python内置的<code>@property</code>装饰器就是负责把一个方法变成属性调用。把一个getter方法变成属性只需加上<code>@property</code>，此时<code>@property</code>本身又创建了另一个装饰器<code>@property.setter</code>，负责把setter方法编程属性直接赋值。</p>
+<pre><code>class Student(object):
+    @property
+    def score(self):
+        return self._score
+    @property.setter
+    def score(self, val):
+        if not isinstance(val, int):
+            raise ValueError(&apos;score must be an integer&apos;)
+        if val &lt; 0 or val &gt; 100:
+            raise ValueError(&apos;score must between 0-100&apos;)
+        self._score = val
+</code></pre><p>这样可以把score当做public的属性来用。</p>
+<pre><code>&gt;&gt;&gt; s = Student()
+&gt;&gt;&gt; s.score = 100 # equals s.score(100)
+&gt;&gt;&gt; s.score # equals s.score()
+100
+</code></pre><p>当只使用<code>@property</code>而不使用<code>@property.setter</code>时相关的变量就是<strong>只读属性</strong>。</p>
+<p>###7.多重继承</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/07/python学习笔记4/" rel="next" title="Python学习笔记4">
+                <i class="fa fa-chevron-left"></i> Python学习笔记4
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/07/python学习笔记6/" rel="prev" title="Python学习笔记6">
+                Python学习笔记6 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="李松江" />
+          <p class="site-author-name" itemprop="name">李松江</p>
+          <p class="site-description motion-element" itemprop="description">So long and thanks for all the fish.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李松江</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

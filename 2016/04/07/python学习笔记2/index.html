@@ -1,0 +1,710 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="##Python学习笔记–2.函数和高级特性
+MrZigZag@Peking University
+2015-07-12
+###1.函数
+数据类型转换函数，int(), float(), str(), unicode(), bool()。
+函数名实际上就是函数对象的引用，因此可以给函数复制给一个变量然后通过这个变量调用。相当于给函数起了个别名。
+&amp;gt;&amp;gt;&amp;gt; a = abs
+&amp;gt;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习笔记2">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/python学习笔记2/index.html">
+<meta property="og:site_name" content="MrZigZag">
+<meta property="og:description" content="##Python学习笔记–2.函数和高级特性
+MrZigZag@Peking University
+2015-07-12
+###1.函数
+数据类型转换函数，int(), float(), str(), unicode(), bool()。
+函数名实际上就是函数对象的引用，因此可以给函数复制给一个变量然后通过这个变量调用。相当于给函数起了个别名。
+&amp;gt;&amp;gt;&amp;gt; a = abs
+&amp;gt;&amp;">
+<meta property="og:updated_time" content="2016-04-07T08:24:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python学习笔记2">
+<meta name="twitter:description" content="##Python学习笔记–2.函数和高级特性
+MrZigZag@Peking University
+2015-07-12
+###1.函数
+数据类型转换函数，int(), float(), str(), unicode(), bool()。
+函数名实际上就是函数对象的引用，因此可以给函数复制给一个变量然后通过这个变量调用。相当于给函数起了个别名。
+&amp;gt;&amp;gt;&amp;gt; a = abs
+&amp;gt;&amp;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Python学习笔记2 | MrZigZag </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MrZigZag</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python学习笔记2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:17:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##Python学习笔记–2.函数和高级特性</p>
+<p>MrZigZag@Peking University</p>
+<p>2015-07-12</p>
+<p>###1.函数</p>
+<p><strong>数据类型转换函数</strong>，<code>int()</code>, <code>float()</code>, <code>str()</code>, <code>unicode()</code>, <code>bool()</code>。</p>
+<p>函数名实际上就是函数对象的引用，因此可以给函数复制给一个变量然后通过这个变量调用。相当于给函数起了个别名。</p>
+<pre><code>&gt;&gt;&gt; a = abs
+&gt;&gt;&gt; a(-1)
+1
+</code></pre><p><strong>自定义函数<code>def</code></strong>，作为占位符可以用<code>pass</code>。</p>
+<pre><code>def my_abs(x):
+    if x &gt;= 0:
+        return x
+    else:
+        return -x
+def my_abs2(x):
+    pass
+</code></pre><p><strong>参数检查</strong>可以用内置函数<code>isinstance</code>实现。</p>
+<pre><code>def my_abs(x):
+    if not isinstance(x, (int, float)):
+        raise TypeError(&apos;bad operand type&apos;)
+    if x &gt;= 0:
+        return x
+    else:
+        return -x
+</code></pre><p><strong>返回多个值</strong>，直接在return后面加入多个值即可，实际上返回的是一个Tuple。</p>
+<pre><code>def move(x, y):
+    return 2 * x, y / 2
+</code></pre><p>####参数</p>
+<p><strong>默认参数</strong>可以简化函数调用。必选参数在前，默认参数在后，并且变化大的默认参数尽量靠前。不按顺序提供默认参数时需要把参数名写上。</p>
+<pre><code>def enroll(name, gender, age = 6, city = &apos;Beijing&apos;):
+    #do something
+    pass
+
+&gt;&gt;&gt; enroll(&apos;Bob&apos;, &apos;M&apos;)
+&gt;&gt;&gt; enroll(&apos;Bob&apos;, &apos;M&apos;, city = &apos;Tianjin&apos;)
+</code></pre><p>值得注意的是，默认参数有时候会让人掉坑里，例如</p>
+<pre><code>def add_end(L = []):
+    L.append(&apos;END&apos;)
+    return L
+
+&gt;&gt;&gt; add_end()
+[&apos;END&apos;]
+&gt;&gt;&gt; add_end()
+[&apos;END&apos;, &apos;END&apos;]
+</code></pre><p>Python函数定义的时候默认参数L就被计算出来了，默认参数L是一个变量，指向<code>[]</code>，因此每一调用就改变了<code>[]</code>，下次调用还是指向这个位置，但是内容已经发生改变。因此，<strong>默认参数必须指向不变对象</strong>。以上例子可以用<code>None</code>这个不变对象来实现。</p>
+<pre><code>def add_end(L = None):
+    if L is None:
+        L = []
+    L.append(&apos;END&apos;)
+    return L
+</code></pre><p><strong>可变参数</strong>用<code>*</code>标记，可以将参数组成一个tuple然后传进去，如果参数本身是一个tuple或者list，只需在变量名前加一个<code>*</code>。</p>
+<pre><code>def calc(*numbers):
+    sum = 0
+    for x in numbers
+        sum = sum + x * x
+    return sum
+
+&gt;&gt;&gt; calc(1, 2, 3)
+14
+&gt;&gt;&gt; nums = [1, 2, 3]
+&gt;&gt;&gt; calc(*nums)
+14
+</code></pre><p><strong>关键字参数</strong>，Python允许传入0个或者多个带参数名的参数，这些参数在函数内部会被自动组装成一个dict。关键字参数的标记符是<code>**</code>。</p>
+<pre><code>def person(name, age, **kw):
+    print &apos;name:&apos;, name, &apos;age:&apos;, age, &apos;other:&apos;, kw
+
+&gt;&gt;&gt; person(&apos;Bob&apos;, 30)
+name: Bob age: 30 other: {}
+&gt;&gt;&gt; person(&apos;Alice&apos;, 25, city = &apos;Beijing&apos;, gender = &apos;F&apos;)
+name: Alice age: 30 other: {&apos;city&apos;:&apos;Beijing&apos;, &apos;gender&apos;:&apos;F&apos;}
+</code></pre><p>关键字参数可以扩展函数的功能。</p>
+<p><strong>参数组合</strong>：参数定义的顺序：必选参数，默认参数，可变参数和关键字参数。对于任意函数，无论它的参数是如何定义的，均可以通过类似<code>func(*args, **kw)</code>的形式调用它。</p>
+<pre><code>def func(a, b, c = 0, *args, **kw):
+    print &apos;a =&apos;, a, &apos;b =&apos;, b, &apos;c =&apos;, c, &apos;args =&apos;, args, &apos;kw =&apos;, kw
+
+&gt;&gt;&gt; func(1, 2)
+a = 1 b = 2 c = 0 args = () kw = {}
+&gt;&gt;&gt; func(1, 2, 3, &apos;a&apos;, &apos;b&apos;, x=99)
+a = 1 b = 2 c = 3 args = (&apos;a&apos;, &apos;b&apos;) kw = {&apos;x&apos;: 99}
+&gt;&gt;&gt; args = (1, 2, 3, 4)
+&gt;&gt;&gt; kw = {&apos;x&apos;: 99}
+&gt;&gt;&gt; func(*args, **kw)
+a = 1 b = 2 c = 3 args = (4,) kw = {&apos;x&apos;: 99}
+</code></pre><p>###2.切片Slice</p>
+<p>切片可以将按照不同的间隔将一个list或者tuple切成多段，是批量操作元素的手段。类似于Matlab中的用法。</p>
+<p><code>L[0:3]</code>表示从0开始到3为止，但是不包含3，因此有<code>3-0=3</code>个元素。第一个元素是0时可以忽略。<code>L[:3]</code></p>
+<p>倒数元素也支持切片，如<code>L[-3:-1]</code>，或者<code>L[-3:]</code></p>
+<p>默认间隔是1，也可以修改成其他间隔。<code>L[:10:2]</code>甚至<code>L[::2]</code>。什么都不写时表示直接复制，如<code>L[:]</code></p>
+<p>对Tuple做切片之后得到的仍然是tuple。</p>
+<p>有了切片，很多循环都可以直接用切片来完成。</p>
+<p>###3.迭代</p>
+<p>任何可迭代对象都可以用<code>for</code>循环，包括我们自定义的类型。</p>
+<p>对dict的迭代，直接用<code>for key in d</code>迭代key，如果要迭代value，用<code>for value in d.itervalues()</code>，一起则用<code>for key, value in d.iteritems()</code>。</p>
+<p>对字符串也可以迭代。<code>for ch in &#39;ABC&#39;</code>。</p>
+<p><strong>判断是否可迭代</strong>，用collections模块的Iterable类型来判断。</p>
+<pre><code>from collections import Iterable
+isinstance(&apos;abc&apos;, Iterable)
+</code></pre><p><strong><code>enumerate(li)</code></strong>可将一个list转换成一个索引-元素对。这样就可以用下标进行索引。</p>
+<pre><code>for i, value in enumerate([&apos;A&apos;, &apos;B&apos;, &apos;C&apos;]):
+    print i, value
+</code></pre><p>###4.列表生成式</p>
+<p>可以快速生成一个list，或者由一个list导出另一个list，代码简洁易懂。</p>
+<p>最简单的列表生成方法是<code>range(a, b)</code>方法。但是复杂的生成式要用for循环。</p>
+<pre><code>&gt;&gt;&gt; [x * x for x in range(1, 11)]
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre><p>for之后还可以加入if进行条件判断。</p>
+<pre><code>&gt;&gt;&gt; [x * x for x in range(1, 11) if x % 2]
+[1, 9, 25, 49, 81]
+</code></pre><p>还可以直接多层循环。</p>
+<pre><code>&gt;&gt;&gt; [x + y for x in &apos;ABC&apos; for y in &apos;XYZ&apos;]
+[&apos;AX&apos;, &apos;AY&apos;, &apos;AZ&apos;, &apos;BX&apos;, &apos;BY&apos;, &apos;BZ&apos;, &apos;CX&apos;, &apos;CY&apos;, &apos;CZ&apos;]
+&gt;&gt;&gt; L = [&apos;Hello&apos;, &apos;World&apos;, &apos;IBM&apos;]
+&gt;&gt;&gt; [ch for word in L for ch in word]
+[&apos;H&apos;, &apos;e&apos;, &apos;l&apos;, &apos;l&apos;, &apos;o&apos;, &apos;W&apos;, &apos;o&apos;, &apos;r&apos;, &apos;l&apos;, &apos;d&apos;, &apos;I&apos;, &apos;B&apos;, &apos;M&apos;]
+</code></pre><p>###5.生成器Generator</p>
+<p>类似于列表生成式，但是一边运算一边生成元素。不必一下子生成一整个list，可以节约大量的空间。</p>
+<p>生成器的构造方法类似于列表生成器，只需将<code>[]</code>改成<code>()</code>。调用下一个元素可以用<code>g.next()</code>，但是因为生成器是可迭代的，一般都直接用for。</p>
+<p>如果推算算法比较复杂还可以直接用函数来实现，具体的细节是在返回的地方加入<code>field</code>，运行到此处会返回一个数作为输出，下次调用<code>.next()</code>时直接回到<code>field</code>处继续执行。</p>
+<pre><code>def fib(num):
+    n, a, b = 0, 1, 1
+    while n &lt; num:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+</code></pre>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/07/Python学习笔记1/" rel="next" title="Python学习笔记1">
+                <i class="fa fa-chevron-left"></i> Python学习笔记1
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/07/python学习笔记3/" rel="prev" title="Python学习笔记3">
+                Python学习笔记3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="李松江" />
+          <p class="site-author-name" itemprop="name">李松江</p>
+          <p class="site-description motion-element" itemprop="description">So long and thanks for all the fish.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李松江</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

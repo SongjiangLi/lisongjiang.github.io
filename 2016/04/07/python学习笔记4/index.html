@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -57,34 +57,34 @@
 
 
 
-<meta name="description" content="##01背包问题
-2015-09-08
-####问题描述
-有N件物体，体积为v1、v2…vN，价值为w1、w2…wN。现在有一个容量为V的包，从N件物体中选择若干件放进包里，使得包里物体的总价值最大。
-####基本思路
-利用动态规划，建立(N+1)*(V+1)的矩阵F[N+1][V+1]，F[i][j]表示在前i个物体中取若干个放入剩余容量为j的背包得到的最大的价值。于是有：
-F[i][j] =">
+<meta name="description" content="##Python学习笔记–4.模块
+MrZigZag@Peking University
+2015-07-15
+###1.模块
+类似于Java中的Package，Python提供模块module来将相关的代码打包。编写程序的时候可以使用内置模块，也可以使用第三方模块。
+模块可以用于避免函数名冲突等问题，但是模块中尽量不要使用Python内置函数的函数名。
+避免模块名相同，提供了按照目录来组织模块的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo Study Test">
-<meta property="og:url" content="http://yoursite.com/2016/04/02/Hexo-Study-Test/index.html">
+<meta property="og:title" content="Python学习笔记4">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/python学习笔记4/index.html">
 <meta property="og:site_name" content="MrZigZag">
-<meta property="og:description" content="##01背包问题
-2015-09-08
-####问题描述
-有N件物体，体积为v1、v2…vN，价值为w1、w2…wN。现在有一个容量为V的包，从N件物体中选择若干件放进包里，使得包里物体的总价值最大。
-####基本思路
-利用动态规划，建立(N+1)*(V+1)的矩阵F[N+1][V+1]，F[i][j]表示在前i个物体中取若干个放入剩余容量为j的背包得到的最大的价值。于是有：
-F[i][j] =">
-<meta property="og:updated_time" content="2016-04-01T16:04:56.000Z">
+<meta property="og:description" content="##Python学习笔记–4.模块
+MrZigZag@Peking University
+2015-07-15
+###1.模块
+类似于Java中的Package，Python提供模块module来将相关的代码打包。编写程序的时候可以使用内置模块，也可以使用第三方模块。
+模块可以用于避免函数名冲突等问题，但是模块中尽量不要使用Python内置函数的函数名。
+避免模块名相同，提供了按照目录来组织模块的">
+<meta property="og:updated_time" content="2016-04-07T08:25:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo Study Test">
-<meta name="twitter:description" content="##01背包问题
-2015-09-08
-####问题描述
-有N件物体，体积为v1、v2…vN，价值为w1、w2…wN。现在有一个容量为V的包，从N件物体中选择若干件放进包里，使得包里物体的总价值最大。
-####基本思路
-利用动态规划，建立(N+1)*(V+1)的矩阵F[N+1][V+1]，F[i][j]表示在前i个物体中取若干个放入剩余容量为j的背包得到的最大的价值。于是有：
-F[i][j] =">
+<meta name="twitter:title" content="Python学习笔记4">
+<meta name="twitter:description" content="##Python学习笔记–4.模块
+MrZigZag@Peking University
+2015-07-15
+###1.模块
+类似于Java中的Package，Python提供模块module来将相关的代码打包。编写程序的时候可以使用内置模块，也可以使用第三方模块。
+模块可以用于避免函数名冲突等问题，但是模块中尽量不要使用Python内置函数的函数名。
+避免模块名相同，提供了按照目录来组织模块的">
 
 
 
@@ -102,7 +102,7 @@ F[i][j] =">
   };
 </script>
 
-  <title> Hexo Study Test | MrZigZag </title>
+  <title> Python学习笔记4 | MrZigZag </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -242,7 +242,7 @@ F[i][j] =">
             
             
               
-                Hexo Study Test
+                Python学习笔记4
               
             
           </h1>
@@ -254,11 +254,30 @@ F[i][j] =">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-02T00:04:06+08:00" content="2016-04-02">
-              2016-04-02
+            <time itemprop="dateCreated" datetime="2016-04-07T16:20:05+08:00" content="2016-04-07">
+              2016-04-07
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -281,77 +300,70 @@ F[i][j] =">
       
 
       
-        <p>##01背包问题</p>
-<p>2015-09-08</p>
-<p>####问题描述</p>
-<p>有N件物体，体积为<em>v1、v2…vN</em>，价值为<em>w1、w2…wN</em>。<br>现在有一个容量为<em>V</em>的包，从N件物体中选择若干件放进包里，使得包里物体的<strong>总价值最大</strong>。</p>
-<p>####基本思路</p>
-<p>利用动态规划，建立<code>(N+1)*(V+1)</code>的矩阵<code>F[N+1][V+1]</code>，<code>F[i][j]</code>表示在前i个物体中取若干个放入剩余容量为j的背包得到的最大的价值。于是有：</p>
-<pre><code>F[i][j] = max(F[i-1][j], F[i-1][j-v[i]]+w[i])
-</code></pre><p>需要注意的是，矩阵第一行第一列为0，表示没有物体或者没有剩余空间时价值都是0。实际上<code>F[i-1][j]</code>表示没有放进第i个物体，<code>F[i-1][j-v[i]]+w[i]</code>表示放进了第i个物体时的价值。</p>
-<p>####伪代码</p>
-<pre><code>F[0][] &lt;- 0
-F[][0] &lt;- 0
-for i = 1...N
-    for j = 1...V
-        F[i][j] = F[i - 1][j]
-        if (j &gt;= v[i]) //能放进第i个物体
-            F[i][j] = max(F[i][j], F[i - 1][j - v[i]] + w[i])
-        end
-    end
-end
-F[N][V]即为所求
-</code></pre><p>###二维01背包问题</p>
-<p>类似于01背包问题，有N件物体，消耗两种属性，背包也有两种待消耗属性。求总价值最大。</p>
-<p>####伪代码</p>
-<p>类似于01背包问题，<code>c1</code>, <code>c2</code>是物体的两种属性，<code>v1</code>和<code>v2</code>是背包的两种属性。建立<code>F[v1+1][v2+1]</code>，<code>F[i][j]</code>表示背包两种属性为i和j时可放下的最大价值。</p>
-<pre><code>F[0][0] = 0
-for i = 1...N
-    for j = v1...c1[i] // decrease
-        for k = v2...c2[i] // decrease
-            F[j][k] = max(F[j][k], F[j - c1[i]][k - c2[i]] + w[i])
-        end
-    end
-end
-</code></pre><p>####实例</p>
-<p><strong><a href="http://bailian.openjudge.cn/practice/4102/" target="_blank" rel="external">宠物小精灵之收服</a></strong></p>
-<p><em>描述</em></p>
-<p>一天，小智和皮卡丘来到了小精灵狩猎场，里面有很多珍贵的野生宠物小精灵。小智也想收服其中的一些小精灵。然而，野生的小精灵并不那么容易被收服。对于每一个野生小精灵而言，小智可能需要使用很多个精灵球才能收服它，而在收服过程中，野生小精灵也会对皮卡丘造成一定的伤害（从而减少皮卡丘的体力）。当皮卡丘的体力小于等于0时，小智就必须结束狩猎（因为他需要给皮卡丘疗伤），而使得皮卡丘体力小于等于0的野生小精灵也不会被小智收服。当小智的精灵球用完时，狩猎也宣告结束。</p>
-<p>我们假设小智遇到野生小精灵时有两个选择：收服它，或者离开它。如果小智选择了收服，那么一定会扔出能够收服该小精灵的精灵球，而皮卡丘也一定会受到相应的伤害；如果选择离开它，那么小智不会损失精灵球，皮卡丘也不会损失体力。</p>
-<p>小智的目标有两个：主要目标是收服尽可能多的野生小精灵；如果可以收服的小精灵数量一样，小智希望皮卡丘受到的伤害越小（剩余体力越大），因为他们还要继续冒险。</p>
-<p>现在已知小智的精灵球数量和皮卡丘的初始体力，已知每一个小精灵需要的用于收服的精灵球数目和它在被收服过程中会对皮卡丘造成的伤害数目。请问，小智该如何选择收服哪些小精灵以达到他的目标呢？</p>
-<p><em>输入</em></p>
-<p>输入数据的第一行包含三个整数：N(0 &lt; N &lt; 1000)，M(0 &lt; M &lt; 500)，K(0 &lt; K &lt; 100)，分别代表小智的精灵球数量、皮卡丘初始的体力值、野生小精灵的数量。</p>
-<p>之后的K行，每一行代表一个野生小精灵，包括两个整数：收服该小精灵需要的精灵球的数量，以及收服过程中对皮卡丘造成的伤害。</p>
-<p><em>输出</em></p>
-<p>输出为一行，包含两个整数：C，R，分别表示最多收服C个小精灵，以及收服C个小精灵时皮卡丘的剩余体力值最多为R。</p>
-<p>#####代码</p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-using namespace std;
-int main(){
-    int v1, v2, N;
-    int c1[100], c2[100], f[1000][500] = {0};
-    cin &gt;&gt; v1 &gt;&gt; v2 &gt;&gt; N;
-    for (int i = 1; i &lt;= N; i++){
-        cin &gt;&gt; c1[i] &gt;&gt; c2[i];
-    }
-    f[0][0] = 0;
-    for (int i = 1; i &lt;= N; i++){
-        for (int j = v1; j &gt;= c1[i]; j--){
-            for (int k = v2; k &gt;= c2[i]; k--){
-                f[j][k] = max(f[j][k], f[j - c1[i]][k - c2[i]] + 1);
-            }
-        }
-    }
-    for (int k = 0; k &lt;= v2; k++){
-        if (f[v1][k] == f[v1][v2]){
-            cout &lt;&lt; f[v1][v2] &lt;&lt; &quot; &quot; &lt;&lt; v2 - k &lt;&lt; endl;
-            break;
-        }
-    }
-    return 0;
-}
+        <p>##Python学习笔记–4.模块</p>
+<p>MrZigZag@Peking University</p>
+<p>2015-07-15</p>
+<p>###1.模块</p>
+<p>类似于Java中的Package，Python提供模块<code>module</code>来将相关的代码打包。编写程序的时候可以使用内置模块，也可以使用第三方模块。</p>
+<p>模块可以用于避免函数名冲突等问题，但是模块中尽量不要使用Python内置函数的<a href="https://docs.python.org/2/library/functions.html" target="_blank" rel="external">函数名</a>。</p>
+<p>避免模块名相同，提供了按照目录来组织模块的方法，称为包<code>package</code>，每个包都要有一个<code>__init__.py</code>文件，表示这是一个package，可以空。因为<code>__init__.py</code>本身就是一个模块，就表示包名。</p>
+<p>包可以嵌套，组成多级多层次的包结构。</p>
+<pre><code>&gt;MyPackage
+    &gt;Web
+        __init__.py
+        http.py
+    __init__.py
+    pytest.py
+    http.py
+</code></pre><p>###2.创建和使用模块</p>
+<p>以内置模块<code>sys</code>为例，创建一个新模块<code>test</code>。</p>
+<pre><code>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+&apos; a test module &apos;
+__author__ = &apos;MrZigZag&apos;
+
+import sys
+def my_test():
+    if len(sys.argv) == 1: # no other arguments
+        print &apos;Hello World!&apos;
+    elif len(sys.argv) == 2: # one other argument, treat as a name
+        print &apos;Hello %s!&apos; % sys.argv[1]
+    else:
+        print &apos;Too many arguments!&apos;
+
+if __name__ == &apos;__main__&apos;:
+    my_test()
+</code></pre><p>前两行是标准注释，第四行是一个字符串，任何模块的第一个字符串都会被视为模块的文档注释，之后可以使用<code>__author__</code>将作者写进去。</p>
+<p>导入模块<code>sys</code>之后，变量sys就指向该模块。</p>
+<p>最后两两句话常用在测试当中，如果直接命令行执行该模块，解释器就会把<code>__name__</code>置为<code>__main__</code>，如果其他地方导入<code>test</code>模块则不会，这一句就会失效。</p>
+<pre><code>&gt;&gt;&gt; python test.py MrZigZag
+Hello MrZigZag!
+&gt;&gt;&gt; python test.py
+Hello World!
+&gt;&gt;&gt; python test.py 1 2
+Too many arguments!
+</code></pre><p><strong>别名</strong>，可以给导入的模块赋别名。</p>
+<pre><code>import sys as SysModule
+</code></pre><p>还可以在运行时根据当前环境选择最合适的模块，比如</p>
+<pre><code>try:
+    import cStringIO as stringIO
+except ImportError: # catching import error
+    import stringIO
+</code></pre><p>可以优先调用<code>cStringIO</code>并且无论调用那个，执行时名称都是<code>stringIO</code>。</p>
+<p><strong>函数的可访问性</strong>，模块中可以把外部不需要的函数全部定义成private，外部引用的定义为public。</p>
+<p>将一个函数定义为private的，只需在命名上以<code>_</code>开头，如<code>def _private_function(name):</code>。</p>
+<p>值得注意的是，<code>__xxx__</code>之类一般都是特殊变量，可以直接被引用，但是有特殊用途，一般命名时避免使用这个格式。</p>
+<p>###3.安装模块</p>
+<p>Python中第三方模块一般使用easy_install或者pip来安装，mac自带pip。</p>
+<p>模块会有路径问题，加载模块时，Python会在指定的路径下搜索对应的.py文件。默认情况下，会搜索当前目录、所有已安装的内置模块和第三方模块，搜索路径放在sys模块的path变量中。要添加自己的搜索目录可以直接在<code>sys.path</code>后面增加，但是在<strong>运行结束时失效</strong>。</p>
+<pre><code>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.path
+&gt;&gt;&gt; sys.path.append(&apos;my_path&apos;)
+</code></pre><p>###4.使用<code>__future__</code></p>
+<p>Python3相对于Python2.x修改比较大，很多Python2.x的程序在Python3上无法正确运行，在Python2.x中要使用Python3的一些新特性可以使用<code>__future__</code>模块。</p>
+<pre><code>from __future__ import unicode_literals
+from __future__ import division
 </code></pre>
       
     </div>
@@ -370,18 +382,28 @@ int main(){
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/01/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/04/07/python学习笔记3/" rel="next" title="Python学习笔记3">
+                <i class="fa fa-chevron-left"></i> Python学习笔记3
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/07/python学习笔记5/" rel="prev" title="Python学习笔记5">
+                Python学习笔记5 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -449,13 +471,27 @@ int main(){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
