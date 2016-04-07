@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Algorithm," />
 
 
 
@@ -57,19 +57,28 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="整数划分问题2015-09-13
+问题描述将正整数n表示成一系列正整数之和，n=n1+n2+...+nk，其中有n1&amp;gt;=n2&amp;gt;=...&amp;gt;=nk&amp;gt;=1, k&amp;gt;=1，这种表示成为正整数n的划分。如果限定k则称为n的k划分。
+基本思路考虑n的划分。
+记F[n,k]为n的1划分+2划分+…+k划分的数目，则n的划分即为F[n,n]。
+则n的k划分为F[n,k]-F[n,k-1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/04/01/hello-world/index.html">
+<meta property="og:title" content="整数划分问题">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/整数划分问题/index.html">
 <meta property="og:site_name" content="MrZigZag">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-04-01T15:53:37.000Z">
+<meta property="og:description" content="整数划分问题2015-09-13
+问题描述将正整数n表示成一系列正整数之和，n=n1+n2+...+nk，其中有n1&amp;gt;=n2&amp;gt;=...&amp;gt;=nk&amp;gt;=1, k&amp;gt;=1，这种表示成为正整数n的划分。如果限定k则称为n的k划分。
+基本思路考虑n的划分。
+记F[n,k]为n的1划分+2划分+…+k划分的数目，则n的划分即为F[n,n]。
+则n的k划分为F[n,k]-F[n,k-1">
+<meta property="og:updated_time" content="2016-04-07T08:44:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="整数划分问题">
+<meta name="twitter:description" content="整数划分问题2015-09-13
+问题描述将正整数n表示成一系列正整数之和，n=n1+n2+...+nk，其中有n1&amp;gt;=n2&amp;gt;=...&amp;gt;=nk&amp;gt;=1, k&amp;gt;=1，这种表示成为正整数n的划分。如果限定k则称为n的k划分。
+基本思路考虑n的划分。
+记F[n,k]为n的1划分+2划分+…+k划分的数目，则n的划分即为F[n,n]。
+则n的k划分为F[n,k]-F[n,k-1">
 
 
 
@@ -87,7 +96,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | MrZigZag </title>
+  <title> 整数划分问题 | MrZigZag </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -227,7 +236,7 @@ Quick">
             
             
               
-                Hello World
+                整数划分问题
               
             
           </h1>
@@ -239,11 +248,30 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-01T23:53:37+08:00" content="2016-04-01">
-              2016-04-01
+            <time itemprop="dateCreated" datetime="2016-04-07T18:00:07+08:00" content="2016-04-07">
+              2016-04-07
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -266,15 +294,41 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1 id="整数划分问题"><a href="#整数划分问题" class="headerlink" title="整数划分问题"></a><a href="http://www.cnblogs.com/wanghetao/archive/2013/11/25/3442192.html" target="_blank" rel="external">整数划分问题</a></h1><p>2015-09-13</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>将正整数n表示成一系列正整数之和，<code>n=n1+n2+...+nk</code>，其中有<code>n1&gt;=n2&gt;=...&gt;=nk&gt;=1, k&gt;=1</code>，这种表示成为正整数n的划分。如果限定k则称为n的k划分。</p>
+<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>考虑n的划分。</p>
+<p>记F[n,k]为n的1划分+2划分+…+k划分的数目，则n的划分即为F[n,n]。</p>
+<p>则n的k划分为F[n,k]-F[n,k-1]。</p>
+<p>考虑以下5种情况：</p>
+<ol>
+<li>n=1，显然只能有一个情况，F[1,]=1</li>
+<li>k=1，只有一个划分，F[,1]=1</li>
+<li>n=k，如果划分中有n，则只有一种情况；如果没有n，则最大的数为n-1，此时划分数为F[n,n-1]。因此加起来就是F[n,n]=1+F[n,n-1]</li>
+<li>n&lt;k，显然k不能超过n，因此等价于n=k，F[n,k]=F[n,n]</li>
+<li>n&gt;k，如果有k划分，则等价于F[n-k,k]；否则没有k划分，等价于F[n,k-1]；加起来就是F[n-k,k]+F[n,k-1]。</li>
+</ol>
+<p>因此得到伪代码1：</p>
+<p><strong>[CODE]</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">1</span> || k == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (n &lt;= k) <span class="keyword">return</span> <span class="number">1</span> + fun(n, n - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> fun(n - k, k) + fun(n, k - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>伪代码2：放苹果</p>
+<p><strong>[CODE]</strong></p>
+<pre><code class="cpp"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span>{
+    <span class="keyword">if</span> (k == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;
+    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;
+    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;
+    <span class="keyword">return</span> fun(n - k, k) + fun(n, k - <span class="number">1</span>);
+}
+</code></pre>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><strong><a href="http://cxsjsx.openjudge.cn/2015finalpractice/35/" target="_blank" rel="external">简单的整数划分问题</a></strong></p>
+<blockquote>
+<p><em>描述</em></p>
+<p>将正整数n 表示成一系列正整数之和，n=n1+n2+…+nk, 其中n1&gt;=n2&gt;=…&gt;=nk&gt;=1 ，k&gt;=1 。<br>正整数n 的这种表示称为正整数n 的划分。正整数n 的不同的划分个数称为正整数n 的划分数。<br><em>输入</em><br>标准的输入包含若干组测试数据。每组测试数据是一个整数N(0 &lt; N &lt;= 50)。<br><em>输出</em><br>对于每组测试数据，输出N的划分数。<br><em>样例输入</em><br>5<br><em>样例输出</em><br>7<br><em>提示</em><br>5, 4+1, 3+2, 3+1+1, 2+2+1, 2+1+1+1, 1+1+1+1+1</p>
+</blockquote>
+<p><strong>放苹果</strong></p>
+<blockquote>
+<p><em>描述</em></p>
+<p>将n个苹果放到m个盘子上，允许盘子放空，问有几种放法。</p>
+</blockquote>
 
       
     </div>
@@ -293,17 +347,27 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/07/Dijkstra单源最短路径算法/" rel="next" title="Dijkstra单源最短路径">
+                <i class="fa fa-chevron-left"></i> Dijkstra单源最短路径
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/02/背包问题/" rel="prev" title="背包问题">
-                背包问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/07/用C++的编译器优化实现记忆功能/" rel="prev" title="用C++编译器优化实现记忆化">
+                用C++编译器优化实现记忆化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -372,7 +436,7 @@ Quick">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -420,7 +484,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整数划分问题"><span class="nav-number">1.</span> <span class="nav-text">整数划分问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本思路"><span class="nav-number">1.2.</span> <span class="nav-text">基本思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.3.</span> <span class="nav-text">题目</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

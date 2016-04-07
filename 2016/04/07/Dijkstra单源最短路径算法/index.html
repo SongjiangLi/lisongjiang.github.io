@@ -1,0 +1,582 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Algorithm," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="关于最短路径给定一张图，从一点出发，到达图中所有点的最短路径。
+该性质描述为：如果P(i,j)={Vi....Vk..Vs...Vj}是从顶点i到j的最短路径，k和s是这条路径上的一个中间顶点，那么P(k,s)必定是从k到s的最短路径。下面证明该性质的正确性。
+假设P(i,j)={Vi....Vk..Vs...Vj}是从顶点i到j的最短路径，则有P(i,j)=P(i,k)+P(k,s)+P(s,j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dijkstra单源最短路径">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/Dijkstra单源最短路径算法/index.html">
+<meta property="og:site_name" content="MrZigZag">
+<meta property="og:description" content="关于最短路径给定一张图，从一点出发，到达图中所有点的最短路径。
+该性质描述为：如果P(i,j)={Vi....Vk..Vs...Vj}是从顶点i到j的最短路径，k和s是这条路径上的一个中间顶点，那么P(k,s)必定是从k到s的最短路径。下面证明该性质的正确性。
+假设P(i,j)={Vi....Vk..Vs...Vj}是从顶点i到j的最短路径，则有P(i,j)=P(i,k)+P(k,s)+P(s,j">
+<meta property="og:updated_time" content="2016-04-07T08:39:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dijkstra单源最短路径">
+<meta name="twitter:description" content="关于最短路径给定一张图，从一点出发，到达图中所有点的最短路径。
+该性质描述为：如果P(i,j)={Vi....Vk..Vs...Vj}是从顶点i到j的最短路径，k和s是这条路径上的一个中间顶点，那么P(k,s)必定是从k到s的最短路径。下面证明该性质的正确性。
+假设P(i,j)={Vi....Vk..Vs...Vj}是从顶点i到j的最短路径，则有P(i,j)=P(i,k)+P(k,s)+P(s,j">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Dijkstra单源最短路径 | MrZigZag </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MrZigZag</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Dijkstra单源最短路径
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T17:39:11+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="关于最短路径"><a href="#关于最短路径" class="headerlink" title="关于最短路径"></a>关于最短路径</h2><p>给定一张图，从一点出发，到达图中所有点的最短路径。</p>
+<p>该性质描述为：如果<code>P(i,j)={Vi....Vk..Vs...Vj}</code>是从顶点i到j的最短路径，k和s是这条路径上的一个中间顶点，那么P(k,s)必定是从k到s的最短路径。下面证明该性质的正确性。</p>
+<p>假设P<code>(i,j)={Vi....Vk..Vs...Vj}</code>是从顶点i到j的最短路径，则有<code>P(i,j)=P(i,k)+P(k,s)+P(s,j)</code>。而P<code>(k,s)</code>不是从k到s的最短距离，那么必定存在另一条从k到s的最短路径<code>P&#39;(k,s)</code>，那么<code>P&#39;(i,j)=P(i,k)+P&#39;(k,s)+P(s,j)&lt;P(i,j)</code>。则与<code>P(i,j)</code>是从i到j的最短路径相矛盾。因此该性质得证。</p>
+<p>由上述性质可知，如果存在一条从i到j的最短路径<code>(Vi.....Vk,Vj)</code>，Vk是Vj前面的一顶点。那么<code>(Vi...Vk)</code>也必定是从i到k的最短路径。为了求出最短路径，Dijkstra就提出了以最短路径长度递增，逐次生成最短路径的算法。譬如对于源顶点V0，首先选择其直接相邻的顶点中长度最短的顶点Vi，那么当前已知可得从V0到达Vj顶点的最短距离<code>dist[j]=min{dist[j],dist[i]+matrix[i][j]}</code>。根据这种思路，</p>
+<p>假设存在<code>G=&lt;V,E&gt;</code>，源顶点为V0，<code>U={V0}</code>,<code>dist[i]</code>记录V0到i的最短距离，<code>path[i]</code>记录从V0到i路径上的i前面的一个顶点。</p>
+<ol>
+<li>从V-U中选择使<code>dist[i]</code>值最小的顶点i，将i加入到U中；</li>
+<li>更新与i直接相邻顶点的dist值。<code>(dist[j]=min{dist[j],dist[i]+matrix[i][j]})</code></li>
+<li>直到U=V，停止。</li>
+</ol>
+<p>[CODE]</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">struct</span> Graphs&#123;</span><br><span class="line">   	<span class="keyword">int</span> n;</span><br><span class="line">   	<span class="keyword">int</span> e;</span><br><span class="line">   	<span class="keyword">int</span> matrix[<span class="number">50</span>][<span class="number">50</span>];</span><br><span class="line">   	<span class="built_in">string</span> spots[<span class="number">50</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shortestPath</span><span class="params">(Graphs g, <span class="keyword">int</span> *dist, <span class="keyword">int</span> *path, <span class="keyword">int</span> v0)</span></span>&#123;</span><br><span class="line">   	<span class="comment">// 初始化</span></span><br><span class="line">   	<span class="keyword">int</span> *visited = <span class="keyword">new</span> <span class="keyword">int</span>[g.n];</span><br><span class="line">   	<span class="built_in">memset</span>(visited, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>) * g.n);</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; g.n; i++)&#123;</span><br><span class="line">       	<span class="keyword">if</span> (g.matrix[v0][i] &gt;= <span class="number">0</span> &amp;&amp; i != v0)&#123;</span><br><span class="line">           	dist[i] = g.matrix[v0][i];</span><br><span class="line">           	path[i] = v0;</span><br><span class="line">       	&#125;</span><br><span class="line">       	<span class="keyword">else</span>&#123;</span><br><span class="line">           	dist[i] = INT_MAX;</span><br><span class="line">           	path[i] = <span class="number">-1</span>;</span><br><span class="line">       	&#125;</span><br><span class="line">   	&#125;</span><br><span class="line">   	dist[v0] = <span class="number">0</span>;</span><br><span class="line">   	path[v0] = v0;</span><br><span class="line">   	visited[v0] = <span class="number">1</span>;</span><br><span class="line">   	</span><br><span class="line">   	<span class="comment">// 重复n-1次</span></span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; g.n; i++)&#123;</span><br><span class="line">       	<span class="keyword">int</span> min = INT_MAX;</span><br><span class="line">       	<span class="keyword">int</span> prev;</span><br><span class="line">       	<span class="comment">//找出最近的未visit的节点</span></span><br><span class="line">       	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; g.n; j++)&#123;</span><br><span class="line">           	<span class="keyword">if</span> (visited[j] == <span class="number">0</span> &amp;&amp; dist[j] &lt; min)&#123;</span><br><span class="line">               	min = dist[j];</span><br><span class="line">               	prev = j;</span><br><span class="line">           	&#125;</span><br><span class="line">       	&#125;</span><br><span class="line">       	visited[prev] = <span class="number">1</span>;</span><br><span class="line">       	<span class="comment">// 更新所有节点的距离</span></span><br><span class="line">       	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; g.n; j++)&#123;</span><br><span class="line">           	<span class="keyword">if</span> (visited[j] == <span class="number">0</span> &amp;&amp; dist[j] &gt; dist[prev] + g.matrix[prev][j] &amp;&amp; g.matrix[prev][j] &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">               	dist[j] = g.matrix[prev][j] + dist[prev];</span><br><span class="line">               	path[j] = prev;</span><br><span class="line">           	&#125;</span><br><span class="line">       	&#125;</span><br><span class="line">   	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showPath</span><span class="params">(Graphs g, <span class="keyword">int</span> *path, <span class="keyword">int</span> v0, <span class="keyword">int</span> ve)</span></span>&#123;</span><br><span class="line">   	<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; path_stack;</span><br><span class="line">   	<span class="keyword">int</span> cur = ve;</span><br><span class="line">   	<span class="keyword">int</span> last;</span><br><span class="line">   	<span class="keyword">while</span> (cur != v0)&#123;</span><br><span class="line">       	path_stack.push(cur);</span><br><span class="line">       	cur = path[cur];</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="built_in">cout</span> &lt;&lt; g.spots[v0];</span><br><span class="line">   	last = v0;</span><br><span class="line">   	<span class="keyword">while</span> (!path_stack.empty())&#123;</span><br><span class="line">       	cur = path_stack.top();</span><br><span class="line">       	path_stack.pop();</span><br><span class="line">       	<span class="built_in">cout</span> &lt;&lt; <span class="string">"-&gt;("</span> &lt;&lt; g.matrix[last][cur] &lt;&lt; <span class="string">")-&gt;"</span> &lt;&lt; g.spots[cur];</span><br><span class="line">       	last = cur;</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   	<span class="keyword">int</span> N, E, R;</span><br><span class="line">   	Graphs park;</span><br><span class="line">   	<span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">   	park.n = N;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">       	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++)&#123;</span><br><span class="line">           	park.matrix[i][j] = <span class="number">-1</span>;</span><br><span class="line">       	&#125;</span><br><span class="line">       	park.matrix[i][i] = <span class="number">0</span>;</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">       	<span class="built_in">cin</span> &gt;&gt; park.spots[i];</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="built_in">cin</span> &gt;&gt; E;</span><br><span class="line">   	<span class="built_in">string</span> src, dst;</span><br><span class="line">   	<span class="keyword">int</span> src_n = <span class="number">0</span>, dst_n = <span class="number">0</span>,length;</span><br><span class="line">   	park.e = E;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; E; i++)&#123;</span><br><span class="line">       	<span class="built_in">cin</span> &gt;&gt; src &gt;&gt; dst &gt;&gt; length;</span><br><span class="line">       	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; park.n; j++)&#123;</span><br><span class="line">           	<span class="keyword">if</span> (src == park.spots[j]) src_n = j;</span><br><span class="line">           	<span class="keyword">if</span> (dst == park.spots[j]) dst_n = j;</span><br><span class="line">       	&#125;</span><br><span class="line">       	park.matrix[src_n][dst_n] = length;</span><br><span class="line">       	park.matrix[dst_n][src_n] = length;</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="built_in">cin</span> &gt;&gt; R;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; R; i++)&#123;</span><br><span class="line">       	<span class="built_in">cin</span> &gt;&gt; src &gt;&gt; dst;</span><br><span class="line">       	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; park.n; j++)&#123;</span><br><span class="line">           	<span class="keyword">if</span> (src == park.spots[j]) src_n = j;</span><br><span class="line">           	<span class="keyword">if</span> (dst == park.spots[j]) dst_n = j;</span><br><span class="line">       	&#125;</span><br><span class="line">       	<span class="keyword">int</span> path[<span class="number">50</span>], dist[<span class="number">50</span>];</span><br><span class="line">       	shortestPath(park, dist, path, src_n);</span><br><span class="line">       	showPath(park, path, src_n, dst_n);</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/07/python学习笔记8/" rel="next" title="Python学习笔记8">
+                <i class="fa fa-chevron-left"></i> Python学习笔记8
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/07/整数划分问题/" rel="prev" title="整数划分问题">
+                整数划分问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="李松江" />
+          <p class="site-author-name" itemprop="name">李松江</p>
+          <p class="site-description motion-element" itemprop="description">So long and thanks for all the fish.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于最短路径"><span class="nav-number">1.</span> <span class="nav-text">关于最短路径</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李松江</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
