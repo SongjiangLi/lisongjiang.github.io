@@ -845,11 +845,267 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/07/python学习笔记8/" itemprop="url">
+                  Python学习笔记8
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:24:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/python学习笔记8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记8/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Python学习笔记–8-I-O"><a href="#Python学习笔记–8-I-O" class="headerlink" title="Python学习笔记–8.I/O"></a>Python学习笔记–8.I/O</h2><p>2015-07-21</p>
+<p>MrZigZag @ Peking University</p>
+<h3 id="1-文件"><a href="#1-文件" class="headerlink" title="1.文件"></a>1.文件</h3><p>Python内置读写文件的函数，用法与C类似。读写文件一般都是请求操作系统打开一个文件对象，然后通过操作系统的借口从这个文件对象读写数据。</p>
+<p><strong>读文件</strong>，使用内置的<code>open()</code>函数，传入文件名和读写标识符。</p>
+<pre><code>f = open(&apos;file_name&apos;, &apos;r&apos;)
+</code></pre><p>调用<code>read()</code>方法可以一次性读取全部内容存放到一个str中，最后调用<code>close()</code>关闭文件。文件使用完毕之后必须关闭。每次都写<code>close()</code>并不方便，Python提供了<code>with</code>语句自动调用<code>close()</code>。</p>
+<pre><code>with open(&apos;file_name&apos;, &apos;r&apos;) as f:
+    str = f.read()
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/python学习笔记8/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/07/python学习笔记7/" itemprop="url">
+                  Python学习笔记7
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:23:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/python学习笔记7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记7/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Python学习笔记–7-Exceptions-and-debugging"><a href="#Python学习笔记–7-Exceptions-and-debugging" class="headerlink" title="Python学习笔记–7.Exceptions and debugging"></a>Python学习笔记–7.Exceptions and debugging</h2><p>MrZigZag @ Peking Universty</p>
+<p>2015-07-20</p>
+<hr>
+<h3 id="1-异常处理"><a href="#1-异常处理" class="headerlink" title="1.异常处理"></a>1.异常处理</h3><p>高级语言一般面对异常都会内置一套<code>try-catch-finally</code>机制。Python相应的机制是<code>try-except-finally</code>。</p>
+<p>当我们认为某些代码可能会出错时，可以用<code>try</code>块来运行这段代码，运行出错时会立即跳转到<code>except</code>块，执行完之后跳出，如果有<code>finally</code>块则执行，否则中断程序。</p>
+<p><strong>错误</strong>有许多种，例如<code>ValueError</code>、<code>ZeroDivisionError</code>等，面对不同的错误应该由不同的<code>except</code>块来处理。Python的错误都是类，继承自<code>BaseException</code>，因此使用<code>catch</code>块时应注意范围，基类应该放在后面，否则会出现后面的错误被前面的处理这种情况。（反正这个在Java会报错，Python应该不会。）</p>
+<p>如果没用<code>try-except-finally</code>机制，则出现错误时会根据堆栈逐步上传，直到<code>__main__</code>。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/python学习笔记7/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -898,7 +1154,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
