@@ -237,6 +237,135 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/07/python学习笔记8/" itemprop="url">
+                  Python学习笔记8
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-07T16:24:05+08:00" content="2016-04-07">
+              2016-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/07/python学习笔记8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/python学习笔记8/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Python学习笔记–8-I-O"><a href="#Python学习笔记–8-I-O" class="headerlink" title="Python学习笔记–8.I/O"></a>Python学习笔记–8.I/O</h2><p>2015-07-21</p>
+<p>MrZigZag @ Peking University</p>
+<h3 id="1-文件"><a href="#1-文件" class="headerlink" title="1.文件"></a>1.文件</h3><p>Python内置读写文件的函数，用法与C类似。读写文件一般都是请求操作系统打开一个文件对象，然后通过操作系统的借口从这个文件对象读写数据。</p>
+<p><strong>读文件</strong>，使用内置的<code>open()</code>函数，传入文件名和读写标识符。</p>
+<pre><code>f = open(&apos;file_name&apos;, &apos;r&apos;)
+</code></pre><p>调用<code>read()</code>方法可以一次性读取全部内容存放到一个str中，最后调用<code>close()</code>关闭文件。文件使用完毕之后必须关闭。每次都写<code>close()</code>并不方便，Python提供了<code>with</code>语句自动调用<code>close()</code>。</p>
+<pre><code>with open(&apos;file_name&apos;, &apos;r&apos;) as f:
+    str = f.read()
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/python学习笔记8/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/07/python学习笔记7/" itemprop="url">
                   Python学习笔记7
                 </a>
@@ -1002,136 +1131,6 @@ s.set_age = MethodType(set_age, s, Student)
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/07/Python学习笔记1/" itemprop="url">
-                  Python学习笔记1
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-07T16:16:05+08:00" content="2016-04-07">
-              2016-04-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/07/Python学习笔记1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/Python学习笔记1/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Python学习笔记–0-Python基础"><a href="#Python学习笔记–0-Python基础" class="headerlink" title="Python学习笔记–0.Python基础"></a>Python学习笔记–0.Python基础</h1><h2 id="0-Unix下直接运行-py文件"><a href="#0-Unix下直接运行-py文件" class="headerlink" title="0.Unix下直接运行.py文件"></a>0.Unix下直接运行.py文件</h2><p>在文件开头加入<code>#!/usr/bin/env python</code>,然后在命令行中修改权限，赋予其可执行的权限。<code>$ chmod a+x hello.py</code></p>
-<h2 id="1-输入输出"><a href="#1-输入输出" class="headerlink" title="1.输入输出"></a>1.输入输出</h2><ul>
-<li>命令行输入直接用<code>raw_input()</code>,括号里可以放提示语。 得到的是一个字符串，要转换成其他数据类型要用强制类型转换。如<code>int(raw_input())</code> </li>
-<li><p>命令行输入可以用<code>print</code>，后面可以带各种格式的数据，连接用<code>,</code>，但是需要注意，每次遇到<code>,</code>均会输出一个空格。</p>
-<pre><code>&gt;&gt;&gt;name = raw_input(&apos;please input your name:&apos;)
-&gt;&gt;&gt;print &apos;User name:&apos;, name
-User name: MrZigZag
-</code></pre></li>
-</ul>
-<h2 id="2-语法基础"><a href="#2-语法基础" class="headerlink" title="2.语法基础"></a>2.语法基础</h2>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/07/Python学习笔记1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1177,7 +1176,7 @@ User name: MrZigZag
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1185,7 +1184,7 @@ User name: MrZigZag
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1194,7 +1193,7 @@ User name: MrZigZag
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
